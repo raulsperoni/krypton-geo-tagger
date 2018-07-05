@@ -1,0 +1,9 @@
+pymongo
+urllib3[secure]
+unidecode
+Geohash
+geopy
+folium
+shapely
+nltk
+Flask

@@ -1,0 +1,47 @@
+version: "3.1"
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data_vol:/data/db
+  
+  mongo-express:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_BASICAUTH_USERNAME=
+      - ME_CONFIG_BASICAUTH_PASSWORD=
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+  
+  restore:
+    build: db
+    command: /opt/krypton-db/mongo_restore.sh
+    depends_on:
+      - mongo
+    environment:
+      - AUTH=no
+      - MONGO_GEO_HOST=mongo
+
+  backup:
+    build: db
+    command: /opt/krypton-db/mongo_backup.sh
+    depends_on:
+      - mongo
+    environment:
+      - AUTH=no
+      - MONGO_GEO_HOST=mongo
+
+  tagger:
+    build: tagger
+    ports:
+      - 5000:5000
+    restart: always
+    environment:
+      - MONGO_GEO_STRING=mongodb://mongo/im
+
+volumes:
+  mongo_data_vol:

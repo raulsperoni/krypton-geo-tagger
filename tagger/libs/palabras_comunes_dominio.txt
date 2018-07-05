@@ -1,0 +1,15 @@
+av
+cno
+dr
+barrio
+barrios
+pte
+casa
+caso
+calle
+calles
+gral
+rbla
+juan
+carlos
+pablo
