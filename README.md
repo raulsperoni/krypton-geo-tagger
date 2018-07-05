@@ -36,6 +36,3 @@ docker-compose  up -d backup
 docker-compose up -d tagger
 ```
 
-
-
-
