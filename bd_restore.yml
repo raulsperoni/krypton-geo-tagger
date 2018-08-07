@@ -3,7 +3,7 @@ services:
 
   
   restore:
-    image: krypton_db
+    image: krypton-db
     command: /opt/krypton-db/mongo_restore.sh
     depends_on:
       - mongo
