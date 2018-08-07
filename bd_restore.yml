@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+
+  
+  restore:
+    build: db
+    command: /opt/krypton-db/mongo_restore.sh
+    depends_on:
+      - mongo
+    environment:
+      - AUTH=no
+      - MONGO_GEO_HOST=bd_mongo
+
+
+volumes:
+  mongo_data_vol:
