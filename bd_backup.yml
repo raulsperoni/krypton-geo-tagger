@@ -9,7 +9,7 @@ services:
       - mongo
     environment:
       - AUTH=no
-      - MONGO_GEO_HOST=bd_mongo
+      - MONGO_GEO_HOST=localhost
 
 
 volumes:
