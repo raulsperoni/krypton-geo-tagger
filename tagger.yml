@@ -2,7 +2,7 @@ version: "3.1"
 services:
 
   tagger:
-    build: tagger
+    build: krypton-tagger
     ports:
       - 5000:5000
     restart: always
