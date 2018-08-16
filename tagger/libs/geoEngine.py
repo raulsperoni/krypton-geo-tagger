@@ -6,7 +6,10 @@ from pprint import pprint
 import functools,time,sys,traceback
 from shapely.geometry import asShape,MultiPoint,box
 import logging
-logging.basicConfig(level=logging.INFO)
+import spacy
+import textacy
+from spacy_lookup import Entity
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 class GeoEngine(object):
@@ -20,29 +23,62 @@ class GeoEngine(object):
         self.city_limits = box(city_box[0],city_box[1],city_box[2],city_box[3])
         try:
             self.geo_elements = [
-                GeoCalle(mongostring,'v_mdg_vias'),
                 GeoLugar(mongostring,'uptu'),
                 GeoEspacioLibre(mongostring,'v_mdg_espacios_libres'),
-                GeoBarrio(mongostring,'limites_barrios')
-                ]
+                GeoBarrio(mongostring,'limites_barrios'),
+                GeoCalle(mongostring, 'v_mdg_vias',keyword_filename='calles.txt')
+            ]
         except Exception as e:
             logger.error(e)
             traceback.print_exc(file=sys.stdout)
             sys.exit(1)
+
+        #Spacy NLP
+        self.nlp = spacy.load('es')
+
+        #Generic entity types
+        self.city_kewords = [textacy.preprocess_text(line, fix_unicode=True,no_punct=True,no_accents=True,transliterate=True) for line in open('palabras_clave_ciudad.txt',"r",encoding='utf-8')]
+        self.domain_kewords = [textacy.preprocess_text(line, fix_unicode=True,no_punct=True,no_accents=True,transliterate=True) for line in open('palabras_clave_dominio.txt',"r",encoding='utf-8')]
+        entity_domain= Entity(keywords_list=self.domain_kewords,label="KEY_DOMAIN")
+        entity_city = Entity(keywords_list=self.city_kewords, label="KEY_CITY")
+        self.nlp.add_pipe(entity_domain,name='KEY_DOMAIN', last=True)
+        self.nlp.add_pipe(entity_city,name='KEY_CITY', last=True)
+
+        #Geo collection specific entity types
+        for geo_element in self.geo_elements:
+            if geo_element.getKeywords():
+                entity_type = Entity(keywords_list=geo_element.getKeywords(), label=geo_element.__class__.__name__.upper())
+                self.nlp.add_pipe(entity_type,name=geo_element.__class__.__name__,last=True)
 
 
     def timeit(func):
         @functools.wraps(func)
         def newfunc(*args, **kwargs):
             startTime = time.time()
-            func(*args, **kwargs)
+            result = func(*args, **kwargs)
             elapsedTime = time.time() - startTime
             logger.debug('function [{}] finished in {} ms'.format(
             func.__name__, int(elapsedTime * 1000)))
+            return result
         return newfunc
 
     def addGeoCollection(self,geo_collection):
         self.geo_elements += geo_element
+
+    @timeit
+    def preProcess(self,text):
+        text = textacy.preprocess_text(text, fix_unicode=True,lowercase=False, no_punct=True,no_urls=True,no_emails=True,no_accents=True,transliterate=True)
+        textacy.preprocess.normalize_whitespace(text)
+        logger.debug('%s,%s',"POST_PREPROCESS >",text)
+        return text
+
+    @timeit
+    def markTextWithKnownStuff(self,text):
+        doc = self.nlp(text)
+        for ent in doc.ents:
+            logger.debug('%s,%s,%s,%s',ent.text, ent.start_char, ent.end_char, ent.label_)
+        return doc
+
 
     #@timeit
     def process(self,text,coordinates):
@@ -58,6 +94,13 @@ class GeoEngine(object):
                 solutions.append(solution)
                 # Im done
                 return found_solutions
+
+        #Preprocess text with nlp features
+        pp_text = self.preProcess(text)
+        logger.debug(pp_text)
+        doc = self.markTextWithKnownStuff(pp_text)
+        return doc
+
         #Starting the search
         found_elements = {}
         ## For each geoElement in list find process it with tokens

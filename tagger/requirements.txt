@@ -7,3 +7,7 @@ folium
 shapely
 nltk
 Flask
+flasgger
+spacy
+spacy-lookup
+textacy
