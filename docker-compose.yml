@@ -6,6 +6,8 @@ services:
       - 27017:27017
     volumes:
       - mongo_data_vol:/data/db
+    networks:
+      - br-im
   
   mongo-express:
     image: mongo-express
@@ -16,6 +18,8 @@ services:
       - 8081:8081
     depends_on:
       - mongo
+    networks:
+      - br-im
   
   restore:
     build: db
@@ -25,6 +29,8 @@ services:
     environment:
       - AUTH=no
       - MONGO_GEO_HOST=mongo
+    networks:
+      - br-im
 
   backup:
     build: db
@@ -34,6 +40,8 @@ services:
     environment:
       - AUTH=no
       - MONGO_GEO_HOST=mongo
+    networks:
+      - br-im
 
   tagger:
     build: tagger
@@ -44,6 +52,12 @@ services:
       - ./tagger/libs:/krypton
     environment:
       - MONGO_GEO_STRING=mongodb://mongo/im
+    networks:
+      - br-im
 
 volumes:
   mongo_data_vol:
+
+networks:
+  br-im:
+    external: true

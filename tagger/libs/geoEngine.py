@@ -7,6 +7,7 @@ import functools,time,sys,traceback
 from shapely.geometry import asShape,MultiPoint,box
 import logging
 import spacy
+from spacy.tokens import Token
 import textacy
 from spacy_lookup import Entity
 logging.basicConfig(level=logging.DEBUG)
@@ -14,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class GeoEngine(object):
     """
-    Clase para hacer enrich con ubicaciones a partir de texto.
+    Clase para hacer enrich con ubicaciones a partir de texto
     """
     def __init__(self,mongostring):
         self.decimals_solutions_equals = 3
@@ -49,6 +50,10 @@ class GeoEngine(object):
             if geo_element.getKeywords():
                 entity_type = Entity(keywords_list=geo_element.getKeywords(), label=geo_element.__class__.__name__.upper())
                 self.nlp.add_pipe(entity_type,name=geo_element.__class__.__name__,last=True)
+
+        #Add custom attribute to Spacy tokens
+        Token.set_extension('with_results', default=False)
+        Token.set_extension('part_of_solution', default=False)
 
 
     def timeit(func):
@@ -99,13 +104,12 @@ class GeoEngine(object):
         pp_text = self.preProcess(text)
         logger.debug(pp_text)
         doc = self.markTextWithKnownStuff(pp_text)
-        return doc
 
-        #Starting the search
+        # Starting the search
         found_elements = {}
         ## For each geoElement in list find process it with tokens
         for coll in self.geo_elements:
-            coll.process(text,found_elements)
+            coll.process(doc,found_elements)
         self.findSolutions(found_elements,found_solutions)
 
         ## Sort, filter and return.

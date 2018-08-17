@@ -61,7 +61,7 @@ class GeoCollection(object):
         self.findSelfSolutions(elements, solutions)
         return False
 
-    def process(self, doc, elements):
+    def process(self, doc, elements, list_of_entity_types_to_ignore=[]):
         """
         Entra un Doc, preprocesado, limpio y con entidades marcadas
         :param doc: Spacy Doc element
@@ -74,35 +74,66 @@ class GeoCollection(object):
         # preprocess
         #text = ' '.join(self.cleanText(text))
         # text = self.removeTerms(text)
-        self.processEntities()
+        self.processEntities(doc,elements,list_of_entity_types_to_ignore)
         # trigrams
-        text = self.processNgrams(text, elements, 3)
+        self.processNgrams(doc, elements, 3)
         # bigrams
-        text = self.processNgrams(text, elements, 2)
+        self.processNgrams(doc, elements, 2)
         # unigrams
-        text = ' '.join(self.removeTerms(text))
-        text = self.processNgrams(text, elements, 1)
-        logger.info(text)
+        #text = ' '.join(self.removeTerms(text))
+        #text = self.processNgrams(text, elements, 1)
+        #logger.info(text)
 
-    def processEntities(self):
+    def processEntities(self, doc, elements,list_of_entity_types_to_ignore):
         """
 
+        :param doc: Spacy Doc element
+        :param elements:
         :return:
         """
+        for entity in doc.ents:
+            # Solo proceso la entidad asociada a la Collection
+            logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
+            if entity.label_.upper() == self.__class__.__name__.upper():
+                logger.debug('%s %s', 'Busco para entidad:', entity.text)
+                double_quoted_entity = '\"' + entity.text + '\"'
+                count = self.processText(double_quoted_entity, elements)
+                if count > 0:
+                    logger.debug('%s elementos %s para %s',str(count),self.__class__.__name__ ,str(double_quoted_entity))
+                    # Marco los tokens involucrados para no volverlos a usar
+                    for token in entity:
+                        token._.set('with_results', True)
+            elif entity.label_.upper() in [e.upper() for e in list_of_entity_types_to_ignore]:
+                # Marco estos tokens pq no interesan
+                for token in entity:
+                    token._.set('with_results', True)
+        return doc
 
-    def processNgrams(self, text, elements, n):
+
+
+    def processNgrams(self, doc, elements, n):
         """
-        Busco ngrama y si trae resultados saco la frase del texto para proximas busquedas.
+        Busco ngrama y si trae marco los tokens del texto para proximas busquedas.
         """
-        ngrams_list = ngrams(text.split(), n)
+        ngrams_list = ngrams(doc.text.split(), n)
+        ngram_ini_token = 0
+        ngram_end_token = n
         for ngram in ngrams_list:
             join_ngram = ' '.join(str(i) for i in ngram)
-            double_quoted_ngram = '\"' + join_ngram + '\"'
-            count = self.processText(double_quoted_ngram, elements)
-            if count > 0:
-                logger.debug(str(count) + ' elementos ' + self.__class__.__name__ + ' para ' + str(double_quoted_ngram))
-                text = text.replace(join_ngram, '')
-        return text
+            span = doc[ngram_ini_token:ngram_end_token]
+            if span and all([not token.ent_type and not token._.with_results for token in span]):
+                assert span.text == join_ngram
+                logger.debug('%s=%s %s','Busco para ngrama n',n,span)
+                # Ningun token del ngrama tiene resultados anteriores
+                double_quoted_ngram = '\"' + join_ngram + '\"'
+                count = self.processText(double_quoted_ngram, elements)
+                if count > 0:
+                    logger.debug(str(count) + ' elementos ' + self.__class__.__name__ + ' para ' + str(double_quoted_ngram))
+                    for token in span:
+                        token._.with_results = True
+            ngram_ini_token += 1
+            ngram_end_token += 1
+        return doc
 
     def processText(self, text, elements):
         shapes_found = []
