@@ -43,7 +43,7 @@ def findSync():
     solutions = geoEngine.process(data['text'], data.get('coordinates',None))
     end = time.time()
     logger.info('Done.' + str(len(solutions)) + 'geoTags. Demora:' + str(end - start))
-    return jsonify({"id": id, "solutions": solutions, "time": str(end - start), "error": False}),200
+    return jsonify({"id": None, "solutions": solutions, "time": str(end - start), "error": False}),200
 
 @app.route('/api/find/<id>', methods=['POST'])
 def find(id):

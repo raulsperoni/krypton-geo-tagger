@@ -26,6 +26,8 @@ services:
     command: /opt/krypton-db/mongo_restore.sh
     depends_on:
       - mongo
+    volumes:
+      - ./db/dump:/opt/krypton-db/dump/
     environment:
       - AUTH=no
       - MONGO_GEO_HOST=mongo
@@ -35,6 +37,8 @@ services:
   backup:
     build: db
     command: /opt/krypton-db/mongo_backup.sh
+    volumes:
+      - ./db/dump:/opt/krypton-db/dump/
     depends_on:
       - mongo
     environment:

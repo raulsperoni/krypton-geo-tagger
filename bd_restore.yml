@@ -5,8 +5,6 @@ services:
   restore:
     image: krypton-db
     command: /opt/krypton-db/mongo_restore.sh
-    depends_on:
-      - mongo
     environment:
       - AUTH=no
       - MONGO_GEO_HOST=localhost
@@ -14,3 +12,7 @@ services:
 
 volumes:
   mongo_data_vol:
+
+networks:
+  br-im:
+    external: true

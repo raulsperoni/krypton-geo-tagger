@@ -25,6 +25,7 @@ class GeoCollection(object):
             logger.error('Cannot connect to database, did you set MONGO_GEO_STRING env variable?')
             raise
         self.collection = self.db[collection]
+
         self.keywords = None
         if keyword_filename:
             self.keywords = [
@@ -80,9 +81,8 @@ class GeoCollection(object):
         # bigrams
         self.processNgrams(doc, elements, 2)
         # unigrams
-        #text = ' '.join(self.removeTerms(text))
-        #text = self.processNgrams(text, elements, 1)
-        #logger.info(text)
+        # removing stopwords
+        self.processNgrams([token for token in doc if not token.is_stop], elements, 1)
 
     def processEntities(self, doc, elements,list_of_entity_types_to_ignore):
         """
@@ -91,9 +91,11 @@ class GeoCollection(object):
         :param elements:
         :return:
         """
+        logger.debug('processEntities in %s, ignoring %s',self.__class__.__name__.upper(),list_of_entity_types_to_ignore)
         for entity in doc.ents:
             # Solo proceso la entidad asociada a la Collection
             logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
+            #TODO: este if tiene sentido? caso que encuentra una calle como entidad persona no entra.
             if entity.label_.upper() == self.__class__.__name__.upper():
                 logger.debug('%s %s', 'Busco para entidad:', entity.text)
                 double_quoted_entity = '\"' + entity.text + '\"'
@@ -115,14 +117,16 @@ class GeoCollection(object):
         """
         Busco ngrama y si trae marco los tokens del texto para proximas busquedas.
         """
-        ngrams_list = ngrams(doc.text.split(), n)
+        logger.debug('processNgrams in %s, n=%s',self.__class__.__name__.upper(),n)
+        ngrams_list = ngrams(doc, n)
         ngram_ini_token = 0
         ngram_end_token = n
         for ngram in ngrams_list:
             join_ngram = ' '.join(str(i) for i in ngram)
             span = doc[ngram_ini_token:ngram_end_token]
             if span and all([not token.ent_type and not token._.with_results for token in span]):
-                assert span.text == join_ngram
+                #Make sure
+                assert ' '.join([token.text for token in span]) == join_ngram
                 logger.debug('%s=%s %s','Busco para ngrama n',n,span)
                 # Ningun token del ngrama tiene resultados anteriores
                 double_quoted_ngram = '\"' + join_ngram + '\"'

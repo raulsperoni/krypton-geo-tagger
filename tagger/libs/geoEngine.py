@@ -24,10 +24,10 @@ class GeoEngine(object):
         self.city_limits = box(city_box[0],city_box[1],city_box[2],city_box[3])
         try:
             self.geo_elements = [
+                GeoCalle(mongostring, 'v_mdg_vias', keyword_filename='calles.txt'),
                 GeoLugar(mongostring,'uptu'),
                 GeoEspacioLibre(mongostring,'v_mdg_espacios_libres'),
-                GeoBarrio(mongostring,'limites_barrios'),
-                GeoCalle(mongostring, 'v_mdg_vias',keyword_filename='calles.txt')
+                GeoBarrio(mongostring,'limites_barrios')
             ]
         except Exception as e:
             logger.error(e)
@@ -44,6 +44,7 @@ class GeoEngine(object):
         entity_city = Entity(keywords_list=self.city_kewords, label="KEY_CITY")
         self.nlp.add_pipe(entity_domain,name='KEY_DOMAIN', last=True)
         self.nlp.add_pipe(entity_city,name='KEY_CITY', last=True)
+        self.list_of_entity_types_to_ignore_in_search = ['KEY_CITY','KEY_DOMAIN']
 
         #Geo collection specific entity types
         for geo_element in self.geo_elements:
@@ -88,7 +89,7 @@ class GeoEngine(object):
     #@timeit
     def process(self,text,coordinates):
         found_solutions = []
-        logger.info('   Entrada \"'+text+'\" '+str(coordinates))
+        logger.info('Entrada <%s> %s',text,coordinates)
 
         # Existing coordinates win
         if coordinates:
@@ -109,7 +110,7 @@ class GeoEngine(object):
         found_elements = {}
         ## For each geoElement in list find process it with tokens
         for coll in self.geo_elements:
-            coll.process(doc,found_elements)
+            coll.process(doc,found_elements,self.list_of_entity_types_to_ignore_in_search)
         self.findSolutions(found_elements,found_solutions)
 
         ## Sort, filter and return.

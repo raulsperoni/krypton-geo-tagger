@@ -10,5 +10,5 @@ geo = geoEngine.GeoEngine('mongodb://mongo/im')
 #geo.process('contenedor sucio en reconquista entre maciel y perez castellano',[])
 #geo.process('contenedor sucio frente al hospital maciel',[])
 #geo.process('contenedor sucio en batlle y ordoñez y el policial',[])
-geo.process('↪️🚧 | Comenzó el desvío en Av. Italia entre Alicia Goyena y Juan de Dios Peza. Se suspendió la parada de Av. Italia y Causa y se habilitó una en Barroso y Juan de Dios Peza para las líneas 151, 370 y 405.',None)
+    geo.process('↪️🚧 | Comenzó el desvío en Av. Italia entre Alicia Goyena y Juan de Dios Peza. Se suspendió la parada de Av. Italia y Causa y se habilitó una en Barroso y Juan de Dios Peza para las líneas 151, 370 y 405.',None)
 
