@@ -40,7 +40,8 @@ class GeoCollection(object):
         return self.keywords
 
     def findInDatabase(self, text):
-        return self.collection.find({'$text': {'$search': text}}, {'score': {'$meta': "textScore"}}).sort(
+        double_quoted_text = '\"' + text + '\"'
+        return self.collection.find({'$text': {'$search': double_quoted_text}}, {'score': {'$meta': "textScore"}}).sort(
             [('score', {'$meta': 'textScore'})])
 
     def cleanText(self, text):
@@ -80,9 +81,9 @@ class GeoCollection(object):
         self.processNgrams(doc, elements, 3)
         # bigrams
         self.processNgrams(doc, elements, 2)
-        # unigrams
-        # removing stopwords
-        self.processNgrams([token for token in doc if not token.is_stop], elements, 1)
+        # unigrams without stopwords or pron or conj
+        unigrams = [token for token in doc if not token.is_stop and not token._.with_results and token.pos_ not in ['PRON','CONJ']]
+        self.processNgrams(unigrams, elements, 1)
 
     def processEntities(self, doc, elements,list_of_entity_types_to_ignore):
         """
@@ -93,61 +94,56 @@ class GeoCollection(object):
         """
         logger.debug('processEntities in %s, ignoring %s',self.__class__.__name__.upper(),list_of_entity_types_to_ignore)
         for entity in doc.ents:
-            # Solo proceso la entidad asociada a la Collection
-            logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
-            #TODO: este if tiene sentido? caso que encuentra una calle como entidad persona no entra.
-            if entity.label_.upper() == self.__class__.__name__.upper():
-                logger.debug('%s %s', 'Busco para entidad:', entity.text)
-                double_quoted_entity = '\"' + entity.text + '\"'
-                count = self.processText(double_quoted_entity, elements)
-                if count > 0:
-                    logger.debug('%s elementos %s para %s',str(count),self.__class__.__name__ ,str(double_quoted_entity))
-                    # Marco los tokens involucrados para no volverlos a usar
-                    for token in entity:
-                        token._.set('with_results', True)
-            elif entity.label_.upper() in [e.upper() for e in list_of_entity_types_to_ignore]:
+            # Ignoro entidades asociadas a keywords
+            if entity.label_.upper() in [e.upper() for e in list_of_entity_types_to_ignore]:
                 # Marco estos tokens pq no interesan
                 for token in entity:
                     token._.set('with_results', True)
+            # Solo proceso la entidad asociada a la Collection
+            logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
+            #TODO: este if tiene sentido? caso que encuentra una calle como entidad persona no entra.
+            if entity.label_.upper() in [self.__class__.__name__.upper(),'PER','LOC']:
+                logger.debug('%s %s', 'Busco para entidad:', entity.text)
+                self.processText(entity, elements)
         return doc
 
 
 
     def processNgrams(self, doc, elements, n):
         """
-        Busco ngrama y si trae marco los tokens del texto para proximas busquedas.
+        Busco ngrama y si trae marco los tokens del texto para proximas busquedas .
         """
         logger.debug('processNgrams in %s, n=%s',self.__class__.__name__.upper(),n)
         ngrams_list = ngrams(doc, n)
         ngram_ini_token = 0
         ngram_end_token = n
         for ngram in ngrams_list:
-            join_ngram = ' '.join(str(i) for i in ngram)
-            span = doc[ngram_ini_token:ngram_end_token]
-            if span and all([not token.ent_type and not token._.with_results for token in span]):
-                #Make sure
-                assert ' '.join([token.text for token in span]) == join_ngram
-                logger.debug('%s=%s %s','Busco para ngrama n',n,span)
-                # Ningun token del ngrama tiene resultados anteriores
-                double_quoted_ngram = '\"' + join_ngram + '\"'
-                count = self.processText(double_quoted_ngram, elements)
-                if count > 0:
-                    logger.debug(str(count) + ' elementos ' + self.__class__.__name__ + ' para ' + str(double_quoted_ngram))
-                    for token in span:
-                        token._.with_results = True
+            tokens = doc[ngram_ini_token:ngram_end_token]
+            text = ' '.join([token.text for token in tokens])
+            #Que haya tokens sin usar en resultados anteriores
+            if len(tokens)>0 and all([not token._.with_results for token in tokens]):
+                logger.debug('%s=%s %s','Busco para ngrama n',n,text)
+                self.processText(tokens, elements)
             ngram_ini_token += 1
             ngram_end_token += 1
         return doc
 
-    def processText(self, text, elements):
+    def processText(self, tokens, elements):
+        """
+
+        :param tokens: list of Tokens.
+        :param elements:
+        :return:
+        """
         shapes_found = []
         count = 0
+        text = ' '.join([token.text for token in tokens])
         for element_found in self.findInDatabase(text):
             element_returned = {}
-            element_returned[u'token'] = text.replace('\"', '')
+            element_returned[u'token'] = text
             element_returned[u'used'] = False
             element_returned[u'score_mongo'] = element_found['score']
-            element_returned[u'score_ngram'] = len(element_returned[u'token'].split())
+            element_returned[u'score_ngram'] = len(tokens)
             element_returned[u'geo_type'] = element_found[u'geometry'][u'type']
             element_returned[u'geometry'] = element_found[u'geometry']
             element_returned[u'coll_type'] = self.__class__.__name__
@@ -158,7 +154,7 @@ class GeoCollection(object):
             for shape in shapes_found:
                 this_shape_found_before = this_shape.almost_equals(shape)
                 if this_shape_found_before:
-                    # print 'DUPLICATE FOUND'
+                    logger.debug('DUPLICATE FOUND')
                     break
             if not this_shape_found_before:
                 shapes_found.append(this_shape)
@@ -166,6 +162,11 @@ class GeoCollection(object):
                     elements[element_returned[u'geo_type']] = {}
                 elements[element_returned[u'geo_type']][element_returned['key']] = element_returned
                 count += 1
+        if count>0:
+            # Marco tokens como usados
+            for token in tokens:
+                token._.with_results = True
+            logger.debug('%s elementos %s para %s', count, self.__class__.__name__, text)
         return count
 
     def elementNearGeom(self, geom, id_element, distance):

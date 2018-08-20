@@ -51,7 +51,6 @@ services:
     build: tagger
     ports:
       - 5000:5000
-    restart: always
     volumes:
       - ./tagger/libs:/krypton
     environment:
