@@ -3,8 +3,7 @@
 from nltk import ngrams
 from pymongo import MongoClient
 from shapely.geometry import asShape
-import pymongo
-import utils
+import functools,time
 import logging
 import spacy
 import textacy
@@ -31,10 +30,18 @@ class GeoCollection(object):
             self.keywords = [
                 textacy.preprocess_text(line, fix_unicode=True, no_punct=True, no_accents=True, transliterate=True) for
                 line in open(keyword_filename, "r", encoding='utf-8')]
-        self.stopwords = utils.getStopWordDict()
-        self.terminosComunes = utils.getTerminosComunesDominioDict()
-        self.terminosBusqueda = utils.getTerminosBusquedaDict()
         self.nlp = spacy.load('es')
+
+    def timeit(func):
+        @functools.wraps(func)
+        def newfunc(*args, **kwargs):
+            startTime = time.time()
+            result = func(*args, **kwargs)
+            elapsedTime = time.time() - startTime
+            logger.debug('function [{}] finished in {} ms'.format(
+            func.__name__, int(elapsedTime * 1000)))
+            return result
+        return newfunc
 
     def getKeywords(self):
         return self.keywords
@@ -43,21 +50,6 @@ class GeoCollection(object):
         double_quoted_text = '\"' + text + '\"'
         return self.collection.find({'$text': {'$search': double_quoted_text}}, {'score': {'$meta': "textScore"}}).sort(
             [('score', {'$meta': 'textScore'})])
-
-    def cleanText(self, text):
-        return utils.getTokensNoUserNoHashtag(utils.strip_accents(text))
-
-    def removeTerms(self, text):
-        ok_tokens = []
-        for token in text.split():
-            # Lower
-            token = token.lower()
-            # Stopwords,Terminos Busqueda,Terminos Comunes
-            if not self.terminosBusqueda.get(token, False) and not self.terminosComunes.get(token,
-                                                                                            False) and not self.stopwords.get(
-                    token, False):
-                ok_tokens.append(token)
-        return ok_tokens
 
     def findSolutions(self, elements, solutions):
         self.findSelfSolutions(elements, solutions)
@@ -85,6 +77,7 @@ class GeoCollection(object):
         unigrams = [token for token in doc if not token.is_stop and not token._.with_results and token.pos_ not in ['PRON','CONJ']]
         self.processNgrams(unigrams, elements, 1)
 
+    @timeit
     def processEntities(self, doc, elements,list_of_entity_types_to_ignore):
         """
 
@@ -107,8 +100,7 @@ class GeoCollection(object):
                 self.processText(entity, elements)
         return doc
 
-
-
+    @timeit
     def processNgrams(self, doc, elements, n):
         """
         Busco ngrama y si trae marco los tokens del texto para proximas busquedas .
@@ -122,7 +114,7 @@ class GeoCollection(object):
             text = ' '.join([token.text for token in tokens])
             #Que haya tokens sin usar en resultados anteriores
             if len(tokens)>0 and all([not token._.with_results for token in tokens]):
-                logger.debug('%s=%s %s','Busco para ngrama n',n,text)
+                #logger.debug('%s=%s %s','Busco para ngrama n',n,text)
                 self.processText(tokens, elements)
             ngram_ini_token += 1
             ngram_end_token += 1
@@ -140,6 +132,7 @@ class GeoCollection(object):
         text = ' '.join([token.text for token in tokens])
         for element_found in self.findInDatabase(text):
             element_returned = {}
+            element_returned[u'tokens'] = tokens
             element_returned[u'token'] = text
             element_returned[u'used'] = False
             element_returned[u'score_mongo'] = element_found['score']

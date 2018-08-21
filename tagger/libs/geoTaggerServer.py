@@ -39,11 +39,13 @@ def log():
 @app.route('/api/sync/find', methods=['POST'])
 def findSync():
     data = request.get_json(silent=True)
-    start = time.time()
     solutions = geoEngine.process(data['text'], data.get('coordinates',None))
-    end = time.time()
-    logger.info('Done.' + str(len(solutions)) + 'geoTags. Demora:' + str(end - start))
-    return jsonify({"id": None, "solutions": solutions, "time": str(end - start), "error": False}),200
+    for sol in solutions:
+        for element in sol['elements']:
+            if element.get('tokens',False):
+                del element['tokens']
+    logger.info('Done. %s solutions',len(solutions))
+    return jsonify({"id": None, "solutions": solutions, "error": False}),200
 
 @app.route('/api/find/<id>', methods=['POST'])
 def find(id):
