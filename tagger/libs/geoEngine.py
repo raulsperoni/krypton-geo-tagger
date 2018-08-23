@@ -50,6 +50,7 @@ class GeoEngine(object):
         self.nlp.add_pipe(entity_domain, name='KEY_DOMAIN', last=True)
         self.nlp.add_pipe(entity_city, name='KEY_CITY', last=True)
         self.list_of_entity_types_to_ignore_in_search = ['KEY_CITY', 'KEY_DOMAIN']
+        self.list_of_entity_types_to_process_in_search = ['PER','LOC','ORG','MISC']
 
         # Geo collection specific entity types
         for geo_element in self.geo_elements:
@@ -57,6 +58,7 @@ class GeoEngine(object):
                 entity_type = Entity(keywords_list=geo_element.getKeywords(),
                                      label=geo_element.__class__.__name__.upper())
                 self.nlp.add_pipe(entity_type, name=geo_element.__class__.__name__, last=True)
+                self.list_of_entity_types_to_process_in_search.append(geo_element.__class__.__name__.upper())
 
         # Add custom attribute to Spacy tokens
         Token.set_extension('with_results', default=False)
@@ -128,7 +130,7 @@ class GeoEngine(object):
         found_elements = {}
         solution_index = {}
         for coll in self.geo_elements:
-            coll.process(doc, found_elements, self.list_of_entity_types_to_ignore_in_search)
+            coll.process(doc, found_elements, self.list_of_entity_types_to_ignore_in_search,self.list_of_entity_types_to_process_in_search)
             self.findSameTypeSolutions(doc, found_elements, found_solutions, solution_index)
 
 

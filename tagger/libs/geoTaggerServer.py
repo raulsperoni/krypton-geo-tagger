@@ -21,7 +21,7 @@ def doTheHardWork(data,id):
                 start = time.time()
                 solutions = geoEngine.process(data['text'],coordinates)
                 end = time.time()
-                requests.post(callback, json={"id":id,"solutions":solutions,"time":str(end-start),"error":False})
+                requests.post(callback, json={"id":id,"solutions":solutions,"time":str(end-start),"error":error,"count":len(solutions)})
                 logger.info('Done.'+str(len(solutions))+'geoTags. Demora:'+str(end-start))
         except Exception as e:
             logger.error(e)
@@ -40,20 +40,15 @@ def log():
 def findSync():
     data = request.get_json(silent=True)
     solutions = geoEngine.process(data['text'], data.get('coordinates',None))
-    for sol in solutions:
-        for element in sol['elements']:
-            if element.get('tokens',False):
-                del element['tokens']
-    logger.info('Done. %s solutions',len(solutions))
-    return jsonify({"id": None, "solutions": solutions, "error": False}),200
+    return jsonify({"id": None, "solutions": solutions, "error": False, "count":len(solutions)}),200
 
 @app.route('/api/find/<id>', methods=['POST'])
-def find(id):
+def findAsync(id):
     data = request.get_json(silent=True)
     thread = threading.Thread(target=doTheHardWork, args = (data,id))
     thread.daemon = True
     thread.start()
-    return 'OK'
+    return jsonify({"id": id, "error": False}),200
 
 if __name__ == '__main__':
     mongostring = os.getenv('MONGO_GEO_STRING',None)

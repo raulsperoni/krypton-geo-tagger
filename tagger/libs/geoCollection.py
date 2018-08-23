@@ -39,8 +39,7 @@ class GeoCollection(object):
             startTime = time.time()
             result = func(*args, **kwargs)
             elapsedTime = time.time() - startTime
-            if int(elapsedTime * 1000) > 20:
-                logger.debug('function [{}], finished in {} ms'.format(func.__name__,int(elapsedTime * 1000)))
+            logger.debug('function [{}], finished in {} ms'.format(func.__name__,int(elapsedTime * 1000)))
             return result
         return newfunc
 
@@ -56,7 +55,8 @@ class GeoCollection(object):
         self.findSelfSolutions(elements, solutions)
         return False
 
-    def process(self, doc, elements, list_of_entity_types_to_ignore=[]):
+    @timeit
+    def process(self, doc, elements, entity_types_to_ignore,entity_types_to_process):
         """
         Entra un Doc, preprocesado, limpio y con entidades marcadas
         :param doc: Spacy Doc element
@@ -69,7 +69,7 @@ class GeoCollection(object):
         # preprocess
         #text = ' '.join(self.cleanText(text))
         # text = self.removeTerms(text)
-        self.processEntities(doc,elements,list_of_entity_types_to_ignore)
+        self.processEntities(doc,elements,entity_types_to_ignore,entity_types_to_process)
         # trigrams
         self.processNgrams(doc, elements, 3)
         # bigrams
@@ -78,8 +78,8 @@ class GeoCollection(object):
         #unigrams = [token for token in doc if not token.is_stop and not token._.with_results and token.pos_ not in ['PRON','CONJ']]
         self.processNgrams(doc, elements, 1)
 
-    @timeit
-    def processEntities(self, doc, elements,list_of_entity_types_to_ignore):
+    #@timeit
+    def processEntities(self, doc, elements,entity_types_to_ignore,entity_types_to_process):
         """
 
         :param doc: Spacy Doc element
@@ -89,19 +89,19 @@ class GeoCollection(object):
         #logger.debug('processEntities in %s, ignoring %s',self.__class__.__name__.upper(),list_of_entity_types_to_ignore)
         for entity in doc.ents:
             # Ignoro entidades asociadas a keywords
-            if entity.label_.upper() in [e.upper() for e in list_of_entity_types_to_ignore]:
+            if entity.label_.upper() in [e.upper() for e in entity_types_to_ignore]:
                 # Marco estos tokens pq no interesan
                 for token in entity:
                     token._.set('with_results', True)
             # Solo proceso la entidad asociada a la Collection
             #logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
             #TODO: este if tiene sentido? caso que encuentra una calle como entidad persona no entra.
-            if entity.label_.upper() in [self.__class__.__name__.upper(),'PER','LOC','ORG','MISC']:
+            if entity.label_.upper() in entity_types_to_process:
                 #logger.debug('%s %s', 'Busco para entidad:', entity.text)
                 self.processText(entity, elements)
         return doc
 
-    @timeit
+    #@timeit
     def processNgrams(self, doc, elements, n):
         """
         Busco ngrama y si trae marco los tokens del texto para proximas busquedas .
@@ -121,6 +121,7 @@ class GeoCollection(object):
             ngram_end_token += 1
         return doc
 
+    #@timeit
     def processText(self, span, elements):
         """
 
@@ -129,8 +130,7 @@ class GeoCollection(object):
         :return:
         """
         assert 'Span' == span.__class__.__name__
-
-        shapes_found = []
+        #shapes_found = []
         count = 0
         for element_found in self.findInDatabase(span.text):
             element_returned = {}
@@ -146,19 +146,19 @@ class GeoCollection(object):
             element_returned[u'coll_type'] = self.__class__.__name__
             element_returned = self.transformParticulars(element_found, element_returned)
             element_returned[u'key'] = str(element_found[u'_id'])
-            this_shape = asShape(element_found['geometry'])
-            this_shape_found_before = False
-            for shape in shapes_found:
-                this_shape_found_before = this_shape.almost_equals(shape)
-                if this_shape_found_before:
-                    logger.debug('DUPLICATE FOUND')
-                    break
-            if not this_shape_found_before:
-                shapes_found.append(this_shape)
-                if not elements.get(element_returned[u'geo_type'], False):
-                    elements[element_returned[u'geo_type']] = {}
-                elements[element_returned[u'geo_type']][element_returned['key']] = element_returned
-                count += 1
+            #this_shape = asShape(element_found['geometry'])
+            #this_shape_found_before = False
+            #for shape in shapes_found:
+            #    this_shape_found_before = this_shape.almost_equals(shape)
+            #    if this_shape_found_before:
+            #        logger.debug('DUPLICATE FOUND')
+            #        break
+            #if not this_shape_found_before:
+            #shapes_found.append(this_shape)
+            if not elements.get(element_returned[u'geo_type'], False):
+                elements[element_returned[u'geo_type']] = {}
+            elements[element_returned[u'geo_type']][element_returned['key']] = element_returned
+            count += 1
         if count>0:
             # Marco tokens como usados
             for token in span:
