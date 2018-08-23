@@ -6,6 +6,7 @@ from shapely.geometry import asShape
 import functools,time
 import logging
 import spacy
+from spacy.tokens import Span
 import textacy
 
 logger = logging.getLogger(__name__)
@@ -38,8 +39,8 @@ class GeoCollection(object):
             startTime = time.time()
             result = func(*args, **kwargs)
             elapsedTime = time.time() - startTime
-            logger.debug('function [{}] finished in {} ms'.format(
-            func.__name__, int(elapsedTime * 1000)))
+            if int(elapsedTime * 1000) > 20:
+                logger.debug('function [{}], finished in {} ms'.format(func.__name__,int(elapsedTime * 1000)))
             return result
         return newfunc
 
@@ -74,8 +75,8 @@ class GeoCollection(object):
         # bigrams
         self.processNgrams(doc, elements, 2)
         # unigrams without stopwords or pron or conj
-        unigrams = [token for token in doc if not token.is_stop and not token._.with_results and token.pos_ not in ['PRON','CONJ']]
-        self.processNgrams(unigrams, elements, 1)
+        #unigrams = [token for token in doc if not token.is_stop and not token._.with_results and token.pos_ not in ['PRON','CONJ']]
+        self.processNgrams(doc, elements, 1)
 
     @timeit
     def processEntities(self, doc, elements,list_of_entity_types_to_ignore):
@@ -85,7 +86,7 @@ class GeoCollection(object):
         :param elements:
         :return:
         """
-        logger.debug('processEntities in %s, ignoring %s',self.__class__.__name__.upper(),list_of_entity_types_to_ignore)
+        #logger.debug('processEntities in %s, ignoring %s',self.__class__.__name__.upper(),list_of_entity_types_to_ignore)
         for entity in doc.ents:
             # Ignoro entidades asociadas a keywords
             if entity.label_.upper() in [e.upper() for e in list_of_entity_types_to_ignore]:
@@ -93,10 +94,10 @@ class GeoCollection(object):
                 for token in entity:
                     token._.set('with_results', True)
             # Solo proceso la entidad asociada a la Collection
-            logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
+            #logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
             #TODO: este if tiene sentido? caso que encuentra una calle como entidad persona no entra.
-            if entity.label_.upper() in [self.__class__.__name__.upper(),'PER','LOC']:
-                logger.debug('%s %s', 'Busco para entidad:', entity.text)
+            if entity.label_.upper() in [self.__class__.__name__.upper(),'PER','LOC','ORG','MISC']:
+                #logger.debug('%s %s', 'Busco para entidad:', entity.text)
                 self.processText(entity, elements)
         return doc
 
@@ -105,38 +106,41 @@ class GeoCollection(object):
         """
         Busco ngrama y si trae marco los tokens del texto para proximas busquedas .
         """
-        logger.debug('processNgrams in %s, n=%s',self.__class__.__name__.upper(),n)
+        #logger.debug('processNgrams in %s, n=%s',self.__class__.__name__.upper(),n)
         ngrams_list = ngrams(doc, n)
         ngram_ini_token = 0
         ngram_end_token = n
         for ngram in ngrams_list:
-            tokens = doc[ngram_ini_token:ngram_end_token]
-            text = ' '.join([token.text for token in tokens])
+            span = doc[ngram_ini_token:ngram_end_token]
+            #logger.debug('span vector %s',tokens.vector)
             #Que haya tokens sin usar en resultados anteriores
-            if len(tokens)>0 and all([not token._.with_results for token in tokens]):
+            if len(span)>0 and all([not token._.with_results for token in span]):
                 #logger.debug('%s=%s %s','Busco para ngrama n',n,text)
-                self.processText(tokens, elements)
+                self.processText(span, elements)
             ngram_ini_token += 1
             ngram_end_token += 1
         return doc
 
-    def processText(self, tokens, elements):
+    def processText(self, span, elements):
         """
 
-        :param tokens: list of Tokens.
+        :param tokens: a Spacy Span: list of Tokens.
         :param elements:
         :return:
         """
+        assert 'Span' == span.__class__.__name__
+
         shapes_found = []
         count = 0
-        text = ' '.join([token.text for token in tokens])
-        for element_found in self.findInDatabase(text):
+        for element_found in self.findInDatabase(span.text):
             element_returned = {}
-            element_returned[u'tokens'] = tokens
-            element_returned[u'token'] = text
-            element_returned[u'used'] = False
+            element_returned['vector'] = span.vector_norm
+            element_returned['token_start_char'] = span.start_char
+            element_returned['token_end_char'] = span.end_char
+            element_returned[u'token'] = span.text
+            element_returned[u'times_used_in_solution'] = 0
             element_returned[u'score_mongo'] = element_found['score']
-            element_returned[u'score_ngram'] = len(tokens)
+            element_returned[u'score_ngram'] = len(span)
             element_returned[u'geo_type'] = element_found[u'geometry'][u'type']
             element_returned[u'geometry'] = element_found[u'geometry']
             element_returned[u'coll_type'] = self.__class__.__name__
@@ -157,9 +161,9 @@ class GeoCollection(object):
                 count += 1
         if count>0:
             # Marco tokens como usados
-            for token in tokens:
+            for token in span:
                 token._.with_results = True
-            logger.debug('%s elementos %s para %s', count, self.__class__.__name__, text)
+            logger.debug('%s elementos %s para %s', count, self.__class__.__name__, span.text)
         return count
 
     def elementNearGeom(self, geom, id_element, distance):
