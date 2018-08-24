@@ -6,6 +6,7 @@ import requests
 import geoEngine
 import logging
 from pprint import pprint, pformat
+from flasgger import Swagger
 
 
 
@@ -29,6 +30,7 @@ def doTheHardWork(data,id):
 
 
 app = Flask(__name__)
+swagger = Swagger(app,template_file='index.yml')
 
 @app.route('/api/print', methods=['POST'])
 def log():
@@ -36,10 +38,13 @@ def log():
     logger.info('CALLBACK '+pformat(data))
     return jsonify({}),200
 
+
 @app.route('/api/sync/find', methods=['POST'])
 def findSync():
+    """Buscar ubicaciones
+    """
     data = request.get_json(silent=True)
-    solutions = geoEngine.process(data['text'], data.get('coordinates',None))
+    solutions = geoEngine.process(data['text'])
     return jsonify({"id": None, "solutions": solutions, "error": False, "count":len(solutions)}),200
 
 @app.route('/api/find/<id>', methods=['POST'])

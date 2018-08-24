@@ -108,19 +108,9 @@ class GeoEngine(object):
         return doc
 
     @timeit
-    def process(self, text, coordinates):
+    def process(self, text):
         found_solutions = []
-        logger.info('Entrada <%s> %s', text, coordinates)
-
-        # Existing coordinates win
-        if coordinates:
-            entry_coords = asShape(coordinates)
-            if entry_coords.intersects(self.city_box):
-                solution = self.buildSolution([], entry_coords)
-                solution['score']['combined'] = 100
-                found_solutions.append(solution)
-                # Im done
-                return found_solutions
+        logger.info('Entrada <%s>', text)
 
         # Preprocess text with nlp features
         pp_text = self.preProcess(text)
