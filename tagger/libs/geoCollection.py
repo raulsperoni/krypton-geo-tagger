@@ -6,7 +6,6 @@ from shapely.geometry import asShape
 import functools,time
 import logging
 import spacy
-from spacy.tokens import Span
 import textacy
 
 logger = logging.getLogger(__name__)
@@ -76,6 +75,10 @@ class GeoCollection(object):
         self.processNgrams(doc, elements, 2)
         # unigrams without stopwords or pron or conj
         #unigrams = [token for token in doc if not token.is_stop and not token._.with_results and token.pos_ not in ['PRON','CONJ']]
+        for token in doc:
+            #Excluyo a partir de ahora stopwords, numeros, pronombres y conjunciones.
+            if len(token)<3 or token.is_punct or token.is_stop or token.is_digit or token.pos_ in ['PRON','CONJ']:
+                token._.ignore = True
         self.processNgrams(doc, elements, 1)
 
     #@timeit
@@ -89,15 +92,15 @@ class GeoCollection(object):
         #logger.debug('processEntities in %s, ignoring %s',self.__class__.__name__.upper(),list_of_entity_types_to_ignore)
         for entity in doc.ents:
             # Ignoro entidades asociadas a keywords
-            if entity.label_.upper() in [e.upper() for e in entity_types_to_ignore]:
+            #if entity.label_.upper() in [e.upper() for e in entity_types_to_ignore]:
                 # Marco estos tokens pq no interesan
-                for token in entity:
-                    token._.set('with_results', True)
+            #    for token in entity:
+            #        token._.set('with_results', True)
             # Solo proceso la entidad asociada a la Collection
             #logger.debug('? %s,%s',self.__class__.__name__.upper(),entity.label_.upper())
             #TODO: este if tiene sentido? caso que encuentra una calle como entidad persona no entra.
-            if entity.label_.upper() in entity_types_to_process:
-                #logger.debug('%s %s', 'Busco para entidad:', entity.text)
+            if not any(token._.ignore for token in entity) and entity.label_.upper() in entity_types_to_process:
+                logger.debug('%s %s', 'Busco para entidad:', entity.text)
                 self.processText(entity, elements)
         return doc
 
@@ -107,15 +110,16 @@ class GeoCollection(object):
         Busco ngrama y si trae marco los tokens del texto para proximas busquedas .
         """
         #logger.debug('processNgrams in %s, n=%s',self.__class__.__name__.upper(),n)
+
         ngrams_list = ngrams(doc, n)
         ngram_ini_token = 0
         ngram_end_token = n
-        for ngram in ngrams_list:
+        for ngram in list(ngrams_list):
             span = doc[ngram_ini_token:ngram_end_token]
             #logger.debug('span vector %s',tokens.vector)
             #Que haya tokens sin usar en resultados anteriores
-            if len(span)>0 and all([not token._.with_results for token in span]):
-                #logger.debug('%s=%s %s','Busco para ngrama n',n,text)
+            if len(span)>0 and all([not token._.with_results and not token._.ignore for token in span]):
+                logger.debug('%s=%s %s','Busco para ngrama n',n,span)
                 self.processText(span, elements)
             ngram_ini_token += 1
             ngram_end_token += 1

@@ -8,6 +8,9 @@ import spacy
 from spacy.tokens import Token
 import textacy
 from spacy_lookup import Entity
+import spacy_lookup
+import re
+from entityMatcher import EntityMatcher
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -26,9 +29,9 @@ class GeoEngine(object):
         try:
             self.geo_elements = [
                 GeoCalle(mongostring, 'v_mdg_vias', keyword_filename='calles.txt'),
-                GeoLugar(mongostring, 'uptu'),
+                GeoLugar(mongostring, 'uptu', keyword_filename='uptu.txt'),
                 GeoEspacioLibre(mongostring, 'v_mdg_espacios_libres'),
-                GeoBarrio(mongostring, 'limites_barrios')
+                GeoBarrio(mongostring, 'limites_barrios',keyword_filename='limites_barrios.txt')
             ]
         except Exception as e:
             logger.error(e)
@@ -38,33 +41,44 @@ class GeoEngine(object):
         # Spacy NLP
         self.nlp = spacy.load('es')
 
+        self.hashtag_re = re.compile("(?:^|\s)[＃#]{1}(\w+)", re.UNICODE)
+        self.mention_re = re.compile("(?:^|\s)[＠ @]{1}([^\s#<>[\]|{}]+)", re.UNICODE)
+
+        keywordlists = [
+            ('palabras_clave_ciudad.txt','KEY_CITY'),
+            ('palabras_clave_dominio.txt','KEY_DOMAIN'),
+            ('organizaciones.txt','KEY_ORG'),
+            ('personas.txt','KEY_PER'),
+            ('ignore.txt','KEY_IGNORE')
+        ]
         # Generic entity types
-        self.city_kewords = [
-            textacy.preprocess_text(line, fix_unicode=True, no_punct=True, no_accents=True, transliterate=True) for line
-            in open('palabras_clave_ciudad.txt', "r", encoding='utf-8')]
-        self.domain_kewords = [
-            textacy.preprocess_text(line, fix_unicode=True, no_punct=True, no_accents=True, transliterate=True) for line
-            in open('palabras_clave_dominio.txt', "r", encoding='utf-8')]
-        entity_domain = Entity(keywords_list=self.domain_kewords, label="KEY_DOMAIN")
-        entity_city = Entity(keywords_list=self.city_kewords, label="KEY_CITY")
-        self.nlp.add_pipe(entity_domain, name='KEY_DOMAIN', last=True)
-        self.nlp.add_pipe(entity_city, name='KEY_CITY', last=True)
-        self.list_of_entity_types_to_ignore_in_search = ['KEY_CITY', 'KEY_DOMAIN']
+        for (file,label) in keywordlists:
+            keywords = [
+                textacy.preprocess_text(line, fix_unicode=True, no_punct=False, no_accents=True, transliterate=True) for line
+                in open(file, "r", encoding='utf-8')]
+            entity = Entity(keywords_list=keywords, label=label)
+            self.nlp.add_pipe(entity, name=label, after='ner')
+
+
+        self.list_of_entity_types_to_ignore_in_search = [label for (file,label) in keywordlists]
         self.list_of_entity_types_to_process_in_search = ['PER','LOC','ORG','MISC']
 
         # Geo collection specific entity types
         for geo_element in self.geo_elements:
             if geo_element.getKeywords():
-                entity_type = Entity(keywords_list=geo_element.getKeywords(),
-                                     label=geo_element.__class__.__name__.upper())
-                self.nlp.add_pipe(entity_type, name=geo_element.__class__.__name__, last=True)
+                entity_type = Entity(keywords_list=geo_element.getKeywords(),label=geo_element.__class__.__name__.upper())
+                self.nlp.add_pipe(entity_type, name=geo_element.__class__.__name__, after='ner')
                 self.list_of_entity_types_to_process_in_search.append(geo_element.__class__.__name__.upper())
 
+
+
         # Add custom attribute to Spacy tokens
+        Token.set_extension('ignore', default=False)
         Token.set_extension('with_results', default=False)
         Token.set_extension('part_of_same_type_solution', default=False)
         Token.set_extension('part_of_cross_type_solution', default=False)
         Token.set_extension('part_of_lonely_solution', default=False)
+
 
     def getCityBoundingBox(self):
         """
@@ -94,6 +108,8 @@ class GeoEngine(object):
 
     @timeit
     def preProcess(self, text):
+        text = self.hashtag_re.sub('*HASHTAG*', text)
+        text = self.mention_re.sub('*MENTION*', text)
         text = textacy.preprocess_text(text, fix_unicode=True, lowercase=False, no_punct=True, no_urls=True,
                                        no_emails=True, no_accents=True, transliterate=True)
         textacy.preprocess.normalize_whitespace(text)
@@ -101,10 +117,23 @@ class GeoEngine(object):
         return text
 
     @timeit
-    def markTextWithKnownStuff(self, text):
-        doc = self.nlp(text)
+    def markTextWithKnownStuff(self, text,ents_to_ignore):
+        try:
+            doc = self.nlp(text)
+        except Exception as e:
+            logger.error('Error, deshabilitando entity pipe GeoLugar')
+            disabled = self.nlp.disable_pipes('GeoLugar')
+            doc = self.nlp(text)
+            disabled.restore()
+            logger.error('Rehabilitando GeoLugar')
+
         for ent in doc.ents:
-            logger.debug('%s,%s,%s,%s', ent.text, ent.start_char, ent.end_char, ent.label_)
+            ignored = False
+            if ent.label_ in ents_to_ignore:
+                ignored = True
+                for token in ent:
+                    token._.ignore = True
+            logger.debug('%s [%s,%s] -> %s,%s', ent.text, ent.start_char, ent.end_char, ent.label_,ignored)
         return doc
 
     @timeit
@@ -112,9 +141,12 @@ class GeoEngine(object):
         found_solutions = []
         logger.info('Entrada <%s>', text)
 
+        #ideas>
+        #regex nombres de usuario, hashtags https://spacy.io/api/matcher#add
+
         # Preprocess text with nlp features
         pp_text = self.preProcess(text)
-        doc = self.markTextWithKnownStuff(pp_text)
+        doc = self.markTextWithKnownStuff(pp_text,self.list_of_entity_types_to_ignore_in_search)
 
         # Starting the search
         found_elements = {}
