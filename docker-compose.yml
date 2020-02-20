@@ -7,7 +7,7 @@ services:
     volumes:
       - mongo_data_vol:/data/db
     networks:
-      - br-im
+      - im
   
   mongo-express:
     image: mongo-express
@@ -19,7 +19,7 @@ services:
     depends_on:
       - mongo
     networks:
-      - br-im
+      - im
   
   restore:
     build: db
@@ -32,7 +32,7 @@ services:
       - AUTH=no
       - MONGO_GEO_HOST=mongo
     networks:
-      - br-im
+      - im
 
   backup:
     build: db
@@ -45,7 +45,7 @@ services:
       - AUTH=no
       - MONGO_GEO_HOST=mongo
     networks:
-      - br-im
+      - im
 
   tagger:
     build: tagger
@@ -56,11 +56,11 @@ services:
     environment:
       - MONGO_GEO_STRING=mongodb://mongo/im
     networks:
-      - br-im
+      - im
 
 volumes:
   mongo_data_vol:
 
 networks:
-  br-im:
+  im:
     external: true

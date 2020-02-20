@@ -10,4 +10,4 @@ Flask
 flasgger
 spacy
 spacy-lookup
-textacy
+textacy==0.6.2
