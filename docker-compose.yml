@@ -1,65 +1,56 @@
 version: "3.1"
 services:
-  mongo:
-    image: mongo
-    ports:
-      - 27017:27017
-    volumes:
-      - mongo_data_vol:/data/db
-    networks:
-      - im
-  
-  mongo-express:
-    image: mongo-express
-    environment:
-      - ME_CONFIG_BASICAUTH_USERNAME=
-      - ME_CONFIG_BASICAUTH_PASSWORD=
-    ports:
-      - 8081:8081
-    depends_on:
-      - mongo
-    networks:
-      - im
-  
-  restore:
-    build: db
-    command: /opt/krypton-db/mongo_restore.sh
-    depends_on:
-      - mongo
-    volumes:
-      - ./db/dump:/opt/krypton-db/dump/
-    environment:
-      - AUTH=no
-      - MONGO_GEO_HOST=mongo
-    networks:
-      - im
 
-  backup:
-    build: db
-    command: /opt/krypton-db/mongo_backup.sh
+  elasticsearch:
+    build: elasticsearch/
     volumes:
-      - ./db/dump:/opt/krypton-db/dump/
-    depends_on:
-      - mongo
-    environment:
-      - AUTH=no
-      - MONGO_GEO_HOST=mongo
-    networks:
-      - im
-
-  tagger:
-    build: tagger
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
-      - 5000:5000
-    volumes:
-      - ./tagger/libs:/krypton
+      - "9200:9200"
+      - "9300:9300"
     environment:
-      - MONGO_GEO_STRING=mongodb://mongo/im
-    networks:
-      - im
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
 
-volumes:
-  mongo_data_vol:
+  kibana:
+    build: kibana/
+    volumes:
+      - ./kibana/config/:/usr/share/kibana/config
+    ports:
+      - "80:5601"
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    build: logstash/
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/v_mdg_vias-template.json:/etc/logstash/templates/v_mdg_vias-template.json
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+    ports:
+      - "5000:5000"
+    environment:
+      LS_JAVA_OPTS: "-Xmx500m -Xms500m"
+
+  jupyter:
+    image: jupyter-im
+    build: jupyter/
+    ports:
+      - 8888:8888
+    volumes:
+      - ./jupyter/notebooks:/srv
+    depends_on:
+      - elasticsearch
+
+#  tagger:
+#    build: tagger
+#    ports:
+#      - 5000:5000
+#    volumes:
+#      - ./tagger/libs:/krypton
+#    environment:
+#      - MONGO_GEO_STRING=mongodb://mongo/im
+#    networks:
+#      - im
 
 networks:
   im:

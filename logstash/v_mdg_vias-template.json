@@ -1,0 +1,66 @@
+{
+  "order": 10000,
+  "version": 1,
+  "index_patterns": [
+    "geo*"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "analysis": {
+      "filter": {
+        "quitar-stopwords": {
+          "type": "stop",
+          "stopwords": "_spanish_"
+        }
+      },
+      "analyzer": {
+        "calle_analyzer": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "lowercase",
+            "asciifolding",
+            "quitar-stopwords"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "nom_calle": {
+        "type": "text",
+        "fields": {
+          "tags": {
+            "type": "text",
+            "analyzer": "calle_analyzer",
+            "term_vector": "yes",
+            "fielddata": true
+          },
+          "tags_token_number": {
+            "type": "token_count",
+            "analyzer": "calle_analyzer"
+          }
+        }
+      },
+      "cod_depto": {
+        "type": "integer"
+      },
+      "cod_locali": {
+        "type": "integer"
+      },
+      "gid": {
+        "type": "integer"
+      },
+      "cod_nombre": {
+        "type": "integer"
+      },
+      "geometry": {
+        "type": "geo_shape"
+      }
+    }
+  }
+}

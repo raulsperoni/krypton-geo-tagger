@@ -1,0 +1,66 @@
+version: "3.1"
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data_vol:/data/db
+    networks:
+      - im
+  
+  mongo-express:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_BASICAUTH_USERNAME=
+      - ME_CONFIG_BASICAUTH_PASSWORD=
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+    networks:
+      - im
+  
+  restore:
+    build: db
+    command: /opt/krypton-db/mongo_restore.sh
+    depends_on:
+      - mongo
+    volumes:
+      - ./db/dump:/opt/krypton-db/dump/
+    environment:
+      - AUTH=no
+      - MONGO_GEO_HOST=mongo
+    networks:
+      - im
+
+  backup:
+    build: db
+    command: /opt/krypton-db/mongo_backup.sh
+    volumes:
+      - ./db/dump:/opt/krypton-db/dump/
+    depends_on:
+      - mongo
+    environment:
+      - AUTH=no
+      - MONGO_GEO_HOST=mongo
+    networks:
+      - im
+
+  tagger:
+    build: tagger
+    ports:
+      - 5000:5000
+    volumes:
+      - ./tagger/libs:/krypton
+    environment:
+      - MONGO_GEO_STRING=mongodb://mongo/im
+    networks:
+      - im
+
+volumes:
+  mongo_data_vol:
+
+networks:
+  im:
+    external: true
