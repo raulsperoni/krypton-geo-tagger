@@ -24,7 +24,7 @@ services:
     build: logstash/
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - ./logstash/v_mdg_vias-template.json:/etc/logstash/templates/v_mdg_vias-template.json
+      - ./logstash/montevideo-template.json:/etc/logstash/templates/montevideo-template.json
       - ./logstash/pipeline:/usr/share/logstash/pipeline
     ports:
       - "5000:5000"

@@ -2,7 +2,7 @@
   "order": 10000,
   "version": 1,
   "index_patterns": [
-    "geo*"
+    "montevideo*"
   ],
   "settings": {
     "index": {
@@ -31,7 +31,7 @@
   },
   "mappings": {
     "properties": {
-      "nom_calle": {
+      "nombre": {
         "type": "text",
         "fields": {
           "tags": {
@@ -46,16 +46,22 @@
           }
         }
       },
-      "cod_depto": {
-        "type": "integer"
+      "aliases": {
+        "type": "text",
+        "fields": {
+          "tags": {
+            "type": "text",
+            "analyzer": "calle_analyzer",
+            "term_vector": "yes",
+            "fielddata": true
+          },
+          "tags_token_number": {
+            "type": "token_count",
+            "analyzer": "calle_analyzer"
+          }
+        }
       },
-      "cod_locali": {
-        "type": "integer"
-      },
-      "gid": {
-        "type": "integer"
-      },
-      "cod_nombre": {
+      "id": {
         "type": "integer"
       },
       "geometry": {
