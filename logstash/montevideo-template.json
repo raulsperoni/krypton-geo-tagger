@@ -19,7 +19,7 @@
       "analyzer": {
         "calle_analyzer": {
           "type": "custom",
-          "tokenizer": "whitespace",
+          "tokenizer": "standard",
           "filter": [
             "lowercase",
             "asciifolding",
