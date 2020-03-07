@@ -13,7 +13,34 @@
       "filter": {
         "quitar-stopwords": {
           "type": "stop",
+          "ignore_case": true,
           "stopwords": "_spanish_"
+        },
+        "quitar-stopwords-calle": {
+          "type": "stop",
+          "ignore_case": true,
+          "stopwords": [
+            "gral",
+            "dr",
+            "jose",
+            "peatonal",
+            "vehicular",
+            "juan",
+            "bv",
+            "ruta",
+            "nal",
+            "carlos",
+            "luis",
+            "maria",
+            "pedro",
+            "rbla",
+            "sda",
+            "metros"
+          ]
+        },
+        "length_min_3": {
+          "type": "length",
+          "min": 3
         }
       },
       "analyzer": {
@@ -23,7 +50,9 @@
           "filter": [
             "lowercase",
             "asciifolding",
-            "quitar-stopwords"
+            "length_min_3",
+            "quitar-stopwords",
+            "quitar-stopwords-calle"
           ]
         }
       }
