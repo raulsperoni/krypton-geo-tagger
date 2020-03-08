@@ -35,7 +35,8 @@
             "pedro",
             "rbla",
             "sda",
-            "metros"
+            "metros",
+            "calle"
           ]
         },
         "length_min_3": {
@@ -50,7 +51,6 @@
           "filter": [
             "lowercase",
             "asciifolding",
-            "length_min_3",
             "quitar-stopwords",
             "quitar-stopwords-calle"
           ]
