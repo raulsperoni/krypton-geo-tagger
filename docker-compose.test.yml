@@ -1,0 +1,57 @@
+version: '3.3'
+
+services:
+
+  elasticsearch-geo:
+    image: elasticsearch-im
+    volumes:
+      - elastic_data01:/usr/share/elasticsearch/data
+    ports:
+      - "19200:9200"
+      - "19300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      discovery.type: single-node
+    networks:
+      - im
+
+  kibana-geo:
+    image: kibana-im
+    ports:
+      - "15601:5601"
+    depends_on:
+      - elasticsearch-geo
+    networks:
+      - im
+
+  logstash-geo:
+    image: logstash-im
+    ports:
+      - "15000:5000"
+    environment:
+      LS_JAVA_OPTS: "-Xmx500m -Xms500m"
+    depends_on:
+      - elasticsearch-geo
+    networks:
+      - im
+
+  tagger-geo:
+    image: tagger-im
+    ports:
+      - 15001:5000
+    depends_on:
+      - elasticsearch-geo
+    networks:
+      - im
+
+
+
+
+volumes:
+  elastic_geo_data01:
+
+networks:
+  default:
+    external:
+      name: im
+
