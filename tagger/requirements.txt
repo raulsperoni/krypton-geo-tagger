@@ -1,13 +1,8 @@
-pymongo
-urllib3[secure]
+pip
 unidecode
-Geohash
 geopy
-folium
 shapely
-nltk
 Flask
-flasgger
-spacy
-spacy-lookup
-textacy==0.6.2
+pandas
+sklearn
+elasticsearch

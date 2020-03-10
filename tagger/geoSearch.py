@@ -1,7 +1,10 @@
 # coding: utf-8
 import math
 import time
+import configparser
 from difflib import SequenceMatcher
+import json
+from shapely.geometry import mapping, shape
 
 import numpy as np
 import pandas as pd
@@ -16,13 +19,16 @@ class GeoSearch(object):
     """
 
     def __init__(self):
-        self.index = 'montevideo'
-        self.geo_search_type = 'v_mdg_vias'
-        self.must_not_terms = "la el la las los calle psje"
-        self.boost_negative_types = "geonames_uy_montevideo v_mdg_espacios_libres"
-        self.boost = 2
-        self.negative_boost = 0.6
-        self.result_size = 500
+        config = configparser.ConfigParser()
+        config.read('conf/montevideo.conf')
+
+        self.index = config['MONTEVIDEO']['elasticsearch_index']
+        self.geo_search_type = config['MONTEVIDEO']['geo_search_type']
+        self.must_not_terms = config['MONTEVIDEO']['must_not_terms']
+        self.boost_negative_types = config['MONTEVIDEO']['boost_negative_types']
+        self.boost = float(config['MONTEVIDEO']['boost'])
+        self.negative_boost = float(config['MONTEVIDEO']['negative_boost'])
+        self.result_size = int(config['MONTEVIDEO']['result_size'])
         self.es = Elasticsearch([{'host': 'elasticsearch', 'port': 9200}])
 
     def boosting_match_bool_search(self, text, size=500, boost=2, negative_boost=0.5):
@@ -240,7 +246,7 @@ class GeoSearch(object):
         self.try_to_match_points(match_dict, point_results)
         self.try_to_match_polygons(match_dict, polygon_results)
 
-        return results, sorted(match_dict.items(), key=lambda i: i[1]['score'], reverse=True)
+        return sorted(match_dict.items(), key=lambda i: i[1]['score'], reverse=True)
 
     def test_kit(self, csv_file_name, line_score_limit=300, point_score_limit=100):
         test_set = pd.read_csv(csv_file_name, index_col=0)
@@ -276,3 +282,17 @@ class GeoSearch(object):
                                                                                  fp, fn, tp, csv_file_name)
         test_set.to_csv(file_name)
         return test_set
+
+    @staticmethod
+    def get_intersection_point(match):
+        if match and len(match['objects']) == 1:
+            shape_1 = shape(match['objects'][0]['geometry'])
+            return mapping(shape_1.representative_point())
+        elif match and len(match['objects']) > 1:
+            shape_1 = shape(match['objects'][0]['geometry'])
+            shape_2 = shape(match['objects'][1]['geometry'])
+            return mapping(shape_1.intersection(shape_2).representative_point())
+        else:
+            return None
+
+

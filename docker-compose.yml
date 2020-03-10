@@ -39,19 +39,16 @@ services:
       - 8888:8888
     volumes:
       - ./jupyter/notebooks:/srv
+      - ./tagger:/srv/lib
     depends_on:
       - elasticsearch
 
-#  tagger:
-#    build: tagger
-#    ports:
-#      - 5000:5000
-#    volumes:
-#      - ./tagger/libs:/krypton
-#    environment:
-#      - MONGO_GEO_STRING=mongodb://mongo/im
-#    networks:
-#      - im
+  tagger:
+    build: tagger
+    ports:
+      - 5001:5000
+    volumes:
+      - ./tagger:/krypton
 
 networks:
   im:
