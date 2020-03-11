@@ -29,7 +29,7 @@ class GeoSearch(object):
         self.boost = float(config['MONTEVIDEO']['boost'])
         self.negative_boost = float(config['MONTEVIDEO']['negative_boost'])
         self.result_size = int(config['MONTEVIDEO']['result_size'])
-        self.es = Elasticsearch([{'host': 'elasticsearch', 'port': 9200}])
+        self.es = Elasticsearch([{'host': config['MONTEVIDEO']['elasticsearch_host'], 'port': int(config['MONTEVIDEO']['elasticsearch_port'])}])
 
     def boosting_match_bool_search(self, text, size=500, boost=2, negative_boost=0.5):
         """

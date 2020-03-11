@@ -7,8 +7,8 @@ services:
     volumes:
       - elastic_data01:/usr/share/elasticsearch/data
     ports:
-      - "19200:9200"
-      - "19300:9300"
+      - 19200:9200
+      - 19300:9300
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
       discovery.type: single-node
@@ -18,7 +18,7 @@ services:
   kibana-geo:
     image: kibana-im
     ports:
-      - "15601:5601"
+      - 15601:5601
     depends_on:
       - elasticsearch-geo
     networks:
@@ -27,7 +27,7 @@ services:
   logstash-geo:
     image: logstash-im
     ports:
-      - "15000:5000"
+      - 15000:5000
     environment:
       LS_JAVA_OPTS: "-Xmx500m -Xms500m"
     depends_on:
@@ -36,9 +36,9 @@ services:
       - im
 
   tagger-geo:
-    build: tagger-im
+    image: tagger-im
     ports:
-      - 15001:5000
+      - 16000:5000
     depends_on:
       - elasticsearch-geo
     networks:

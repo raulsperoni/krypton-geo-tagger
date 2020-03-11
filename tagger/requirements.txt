@@ -1,4 +1,4 @@
-pip
+Werkzeug==0.16.1
 unidecode
 geopy
 shapely
@@ -6,3 +6,4 @@ Flask
 pandas
 sklearn
 elasticsearch
+flask-restx
