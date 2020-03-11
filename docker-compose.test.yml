@@ -3,9 +3,9 @@ version: '3.3'
 services:
 
   elasticsearch-geo:
-    image: elasticsearch-im
+    image: elasticsearch-geo-im
     volumes:
-      - elastic_data01:/usr/share/elasticsearch/data
+      - elastic_geo_data01:/usr/share/elasticsearch/data
     ports:
       - "19200:9200"
       - "19300:9300"
@@ -16,7 +16,7 @@ services:
       - im
 
   kibana-geo:
-    image: kibana-im
+    image: kibana-geo-im
     ports:
       - "15601:5601"
     depends_on:
@@ -25,7 +25,7 @@ services:
       - im
 
   logstash-geo:
-    image: logstash-im
+    image: logstash-geo-im
     ports:
       - "15000:5000"
     environment:
@@ -51,7 +51,6 @@ volumes:
   elastic_geo_data01:
 
 networks:
-  default:
-    external:
-      name: im
+  im:
+    external: true
 
