@@ -1,26 +1,26 @@
 version: "3.1"
 services:
 
-  elasticsearch:
+  elasticsearch-geo:
     build: elasticsearch/
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - 19200:9200
+      - 19300:9300
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
 
-  kibana:
+  kibana-geo:
     build: kibana/
     volumes:
       - ./kibana/config/:/usr/share/kibana/config
     ports:
-      - "80:5601"
+      - 15601:5601
     depends_on:
-      - elasticsearch
+      - elasticsearch-geo
 
-  logstash:
+  logstash-geo:
     build: logstash/
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
@@ -28,27 +28,31 @@ services:
       - ./logstash/pipeline:/usr/share/logstash/pipeline
       - ./logstash/datos:/tmp/datos
     ports:
-      - "5000:5000"
+      - 15000:5000
     environment:
       LS_JAVA_OPTS: "-Xmx500m -Xms500m"
+    depends_on:
+      - elasticsearch-geo
 
-  jupyter:
+  jupyter-geo:
     image: jupyter-im
     build: jupyter/
     ports:
-      - 8888:8888
+      - 18888:8888
     volumes:
       - ./jupyter/notebooks:/srv
       - ./tagger:/srv/lib
     depends_on:
-      - elasticsearch
+      - elasticsearch-geo
 
-  tagger:
+  tagger-geo:
     build: tagger
     ports:
-      - 5001:5000
+      - 16000:5000
     volumes:
       - ./tagger:/krypton
+    depends_on:
+      - elasticsearch-geo
 
 networks:
   im:
