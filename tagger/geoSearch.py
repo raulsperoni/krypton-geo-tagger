@@ -295,14 +295,16 @@ class GeoSearch(object):
         else:
             return None
 
-    def get_result(self, text):
+    def get_result(self, text, line_score_limit=300, point_score_limit=100):
         if text:
             matches = self.complete_search(text)
             if len(matches[:1]) == 1:
                 name_point, match = matches[0]
-                best_point = self.get_intersection_point(match)
                 score_point = match['score']
-                return name_point, score_point, best_point
-        return None, None, None
+                if ((match['type'] == 'LINES') and (score_point > line_score_limit)) or \
+                        ((match['type'] in ['POINT','POLYGON']) and (score_point > point_score_limit)):
+                    best_point = self.get_intersection_point(match)
+                    return name_point, score_point, best_point
+        return None, 0, None
 
 
