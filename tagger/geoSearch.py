@@ -295,4 +295,14 @@ class GeoSearch(object):
         else:
             return None
 
+    def get_result(self, text):
+        if text:
+            matches = self.complete_search(text)
+            if len(matches[:1]) == 1:
+                name_point, match = matches[0]
+                best_point = self.get_intersection_point(match)
+                score_point = match['score']
+                return name_point, score_point, best_point
+        return None, None, None
+
 

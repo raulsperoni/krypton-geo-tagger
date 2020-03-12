@@ -37,18 +37,16 @@ class GeoTagger(Resource):
         try:
             data = request.get_json(silent=True)
             text = data.get('text', None)
-            best_point = None
-            name_point = None
             start = time.time()
-            if text:
-                matches = geoSearch.complete_search(data['text'])
-                if len(matches[:1]) == 1:
-                    name_point, match = matches[0]
-                    logger.info(name_point,match)
-                    best_point = geoSearch.get_intersection_point(match)
-                    logger.info(best_point)
+            name_point, score_point, best_point = geoSearch.get_result(text)
+            logger.info('{} -> {:.3f}'.format(name_point, score_point))
             end = time.time()
-            return jsonify({"name": name_point, "geometry": best_point, "error": False, "time_ms": '{:.3f}'.format((end - start) * 1000.0)}, 200)
+            return jsonify({
+                "name": name_point,
+                "geometry": best_point,
+                "error": False,
+                "score": '{:.3f}'.format(score_point),
+                "time_ms": '{:.3f}'.format((end - start) * 1000.0)}, 200)
         except Exception as e:
             logger.error(e)
             return jsonify({"geometry": None, "error": True}, 200)
