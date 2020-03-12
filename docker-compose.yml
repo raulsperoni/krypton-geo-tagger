@@ -10,6 +10,8 @@ services:
       - 19300:9300
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - im
 
   kibana-geo:
     build: kibana/
@@ -19,6 +21,8 @@ services:
       - 15601:5601
     depends_on:
       - elasticsearch-geo
+    networks:
+      - im
 
   logstash-geo:
     build: logstash/
@@ -33,6 +37,8 @@ services:
       LS_JAVA_OPTS: "-Xmx500m -Xms500m"
     depends_on:
       - elasticsearch-geo
+    networks:
+      - im
 
   jupyter-geo:
     image: jupyter-im
@@ -44,6 +50,8 @@ services:
       - ./tagger:/srv/lib
     depends_on:
       - elasticsearch-geo
+    networks:
+      - im
 
   tagger-geo:
     build: tagger
@@ -53,6 +61,8 @@ services:
       - ./tagger:/krypton
     depends_on:
       - elasticsearch-geo
+    networks:
+      - im
 
 networks:
   im:

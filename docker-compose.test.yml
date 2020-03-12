@@ -51,6 +51,5 @@ volumes:
   elastic_geo_data01:
 
 networks:
-  default:
-    external:
-      name: im
+  im:
+    external: true
