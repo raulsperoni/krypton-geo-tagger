@@ -28,8 +28,13 @@ output = api.model('Output', {
     'time_ms': fields.String(required=True, description='Tiempo en ms'),
 })
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+geoSearch = geoSearch.GeoSearch()
+
 @ns.route('/api/find')
 class GeoTagger(Resource):
+
     '''Encuentra una ubicación a partir del texto y devuelve un punto representativo'''
     @ns.doc('find_location')
     @ns.expect(input)
@@ -52,8 +57,6 @@ class GeoTagger(Resource):
             return jsonify(geometry = None, error = True)
 
 
+
 if __name__ == '__main__':
-    geoSearch = geoSearch.GeoSearch()
-    logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger(__name__)
     app.run(debug=True, host='0.0.0.0')

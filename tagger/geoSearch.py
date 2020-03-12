@@ -298,7 +298,7 @@ class GeoSearch(object):
     def get_result(self, text, line_score_limit=300, point_score_limit=100):
         if text:
             matches = self.complete_search(text)
-            if len(matches[:1]) == 1:
+            if len(matches) >= 1:
                 name_point, match = matches[0]
                 score_point = match['score']
                 if ((match['type'] == 'LINES') and (score_point > line_score_limit)) or \

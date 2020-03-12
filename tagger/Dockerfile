@@ -10,7 +10,8 @@ RUN mkdir /krypton
 COPY . /krypton/
 WORKDIR /krypton
 
-CMD ["python", "-u", "geoTaggerServer.py"]
+#CMD ["python", "-u", "geoTaggerServer.py"]
+CMD ["gunicorn", "-w", "3", "-b", ":5000", "-t", "360", "--reload", "wsgi:app"]
 
 
 
