@@ -1,0 +1,1 @@
+https://mapas.mides.gub.uy:443/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=IDE:barrios_ine_uy&outputFormat=SHAPE-ZIP

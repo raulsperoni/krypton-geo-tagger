@@ -5,7 +5,7 @@ import configparser
 from difflib import SequenceMatcher
 import json
 from shapely.geometry import mapping, shape
-
+import re
 import numpy as np
 import pandas as pd
 from sklearn.metrics import confusion_matrix as cm
@@ -18,7 +18,7 @@ class GeoSearch(object):
     Clase para hacer enrich con ubicaciones a partir de texto
     """
 
-    def __init__(self):
+    def __init__(self,elastic_host,elastic_port):
         config = configparser.ConfigParser()
         config.read('conf/montevideo.conf')
 
@@ -29,7 +29,11 @@ class GeoSearch(object):
         self.boost = float(config['MONTEVIDEO']['boost'])
         self.negative_boost = float(config['MONTEVIDEO']['negative_boost'])
         self.result_size = int(config['MONTEVIDEO']['result_size'])
-        self.es = Elasticsearch([{'host': config['MONTEVIDEO']['elasticsearch_host'], 'port': int(config['MONTEVIDEO']['elasticsearch_port'])}])
+        if (elastic_host and elastic_port):
+            self.es = Elasticsearch([{'host': elastic_host,
+                                      'port': elastic_port}])
+        else:
+            self.es = Elasticsearch([{'host': config['MONTEVIDEO']['elasticsearch_host'], 'port': int(config['MONTEVIDEO']['elasticsearch_port'])}])
 
     def boosting_match_bool_search(self, text, size=500, boost=2, negative_boost=0.5):
         """
@@ -45,7 +49,7 @@ class GeoSearch(object):
                             "must": {
                                 "multi_match": {
                                     "query": text,
-                                    "analyzer": "calle_analyzer",
+                                    "analyzer": "normal_analyzer",
                                     "fields": ["nombre", "aliases"],
                                     "type": "best_fields"
 
@@ -54,7 +58,7 @@ class GeoSearch(object):
                             "must_not": {
                                 "multi_match": {
                                     "query": self.must_not_terms,
-                                    "analyzer": "calle_analyzer",
+                                    "analyzer": "normal_analyzer",
                                     "fields": ["nombre", "aliases"],
                                     "type": "best_fields"
                                 }
@@ -75,6 +79,34 @@ class GeoSearch(object):
                     "nombre": {},
                     "aliases": {}
                 }
+            }
+        })['hits']['hits']
+
+    def boosting_match_bool_search2(self, text, size=500, boost=2, negative_boost=0.5):
+        """
+        Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
+        """
+        return self.es.search(index='montevideo', body=
+        {
+            "from": 0, "size": size,
+            "query": {
+
+                "bool": {
+                    "should": [
+                        {"match": {"nombre": text}},
+                        {"match": {"nombre.variant_1": text}},
+                        {"match": {"nombre.variant_2": text}},
+                        {"match": {"aliases": text}},
+                        {"match": {"aliases.variant_1": text}},
+                        {"match": {"aliases.variant_2": text}}
+                    ]
+                }
+            },
+            "highlight": {
+                "fields": {
+                    "*": {}
+                },
+                "number_of_fragments": 10
             }
         })['hits']['hits']
 
@@ -109,7 +141,10 @@ class GeoSearch(object):
 
     @staticmethod
     def strip_name(name):
-        return name.replace(' ', '-').strip().lower()
+        if name:
+            return name.replace(' ', '-').strip().lower()
+        else:
+            return None
 
     @staticmethod
     def get_match_name(result_obj_1, result_obj_2):
@@ -207,18 +242,13 @@ class GeoSearch(object):
         result_highlights = []
         highlights = result.get('highlight', None)
         if highlights:
-            for a in highlights.values():
-                for b in a:
-                    for c in b.split(' '):
-                        if '<em>' in c:
-                            hg = c.replace('<em>', '').replace('</em>', '')
-                            for hg_one in hg.split(','):
-                                if not hg_one in result_highlights:
-                                    result_highlights.append(hg_one)
+            for hg_values in highlights.values():
+                result_highlights = result_highlights + re.findall("<em>(.*?)<\/em>", ' '.join(hg_values))
+        result_highlights = list(set(result_highlights))
         return {'id': result_id, 'geo_type': result_geo_type, 'name': result_name, 's_name': result_striped_name,
                 'score': result_score, 'geometry': result_geometry, 'highlights': result_highlights}
 
-    def complete_search(self, text):
+    def complete_search(self, text, result_size=500):
         match_dict = {}
 
         line_results = {}
@@ -226,7 +256,7 @@ class GeoSearch(object):
         polygon_results = {}
         all_results = {}
 
-        results = self.boosting_match_bool_search(text, self.result_size, self.boost, self.negative_boost)
+        results = self.boosting_match_bool_search2(text, result_size, self.boost, self.negative_boost)
         for result in results:
             result_object = self.get_result_object(result)
             if result_object['geo_type'] == 'LineString':
@@ -297,7 +327,7 @@ class GeoSearch(object):
 
     def get_result(self, text, line_score_limit=300, point_score_limit=100):
         if text:
-            matches = self.complete_search(text)
+            matches = self.complete_search(text, self.result_size)
             if len(matches) >= 1:
                 name_point, match = matches[0]
                 score_point = match['score']
