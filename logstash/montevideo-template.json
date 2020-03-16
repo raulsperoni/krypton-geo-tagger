@@ -20,22 +20,75 @@
           "type": "stop",
           "ignore_case": true,
           "stopwords": [
+            "av",
+            "cno",
+            "psje",
             "gral",
             "dr",
             "peatonal",
             "vehicular",
-            "juan",
+            "a",
             "bv",
+            "y",
+            "la",
             "ruta",
             "nal",
-            "carlos",
-            "luis",
-            "maria",
-            "pedro",
+            "calle",
             "rbla",
+            "rambla",
+            "del",
+            "las",
             "sda",
-            "metros",
-            "calle"
+            "8",
+            "san",
+            "1",
+            "los",
+            "j",
+            "5",
+            "mts",
+            "brig",
+            "cont",
+            "c",
+            "paso",
+            "pla",
+            "perimetral",
+            "b",
+            "al",
+            "cap",
+            "ing",
+            "santa",
+            "3",
+            "el",
+            "don",
+            "2",
+            "tte",
+            "e",
+            "4",
+            "d",
+            "edificio",
+            "costanera",
+            "espacio",
+            "libre",
+            "arq",
+            "pnal",
+            "coronel",
+            "17",
+            "f",
+            "cnel",
+            "12",
+            "paralela",
+            "raiz",
+            "sur",
+            "18",
+            "m",
+            "pena",
+            "sbre",
+            "por",
+            "este",
+            "esta",
+            "en",
+            "de",
+            "la"
           ]
         },
         "length_min_2": {
@@ -46,7 +99,6 @@
           "type": "common_grams",
           "common_words": [
             "av",
-            "de",
             "cno",
             "psje",
             "gral",
@@ -140,7 +192,6 @@
             "castro",
             "eugenio",
             "santiago",
-            "de",
             "cesar",
             "costanera",
             "espacio",
@@ -184,7 +235,6 @@
           "type": "common_grams",
           "common_words": [
             "av",
-            "de",
             "cno",
             "psje",
             "gral",
@@ -278,7 +328,6 @@
             "castro",
             "eugenio",
             "santiago",
-            "de",
             "cesar",
             "costanera",
             "espacio",
@@ -339,6 +388,18 @@
             "length_min_2"
           ]
         },
+        "search_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "asciifolding",
+            "synonym",
+            "common_grams_query",
+            "quitar-stopwords-calle",
+            "length_min_2"
+          ]
+        },
         "calle_analyzer": {
           "type": "custom",
           "tokenizer": "standard",
@@ -346,7 +407,8 @@
             "lowercase",
             "asciifolding",
             "synonym",
-            "common_grams_query"
+            "common_grams_query",
+            "length_min_2"
           ]
         },
         "search_calle_analyzer": {
@@ -365,45 +427,79 @@
   },
   "mappings": {
     "properties": {
-      "nombre": {
+      "text": {
         "type": "text",
         "analyzer": "normal_analyzer",
         "fields": {
           "raw": {
             "type": "text"
           },
+          "variant_1": {
+            "type": "text",
+            "analyzer": "calle_analyzer",
+            "boost": 2
+          },
           "variant_2": {
             "type": "text",
             "analyzer": "search_calle_analyzer",
-            "boost": 2
+            "boost": 3
           }
         }
       },
-      "nombre_1": {
+      "text_aliases": {
         "type": "text",
         "analyzer": "normal_analyzer",
         "fields": {
           "raw": {
             "type": "text"
           },
+          "variant_1": {
+            "type": "text",
+            "analyzer": "calle_analyzer",
+            "boost": 2
+          },
           "variant_2": {
             "type": "text",
             "analyzer": "search_calle_analyzer",
-            "boost": 2
+            "boost": 3
           }
         }
       },
-      "aliases": {
+      "text_first_street": {
         "type": "text",
         "analyzer": "normal_analyzer",
         "fields": {
           "raw": {
             "type": "text"
           },
+          "variant_1": {
+            "type": "text",
+            "analyzer": "calle_analyzer",
+            "boost": 2
+          },
           "variant_2": {
             "type": "text",
             "analyzer": "search_calle_analyzer",
+            "boost": 3
+          }
+        }
+      },
+      "text_second_street": {
+        "type": "text",
+        "analyzer": "normal_analyzer",
+        "fields": {
+          "raw": {
+            "type": "text"
+          },
+          "variant_1": {
+            "type": "text",
+            "analyzer": "calle_analyzer",
             "boost": 2
+          },
+          "variant_2": {
+            "type": "text",
+            "analyzer": "search_calle_analyzer",
+            "boost": 3
           }
         }
       },
