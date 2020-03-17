@@ -1,0 +1,1101 @@
+,tieneUbicacion,tieneUbicacionCalle,mejorMatch,scoreMejorMatch,texto,matchType,encontreUbicacionCalle,encontreUbicacion,time_ms
+0,True,True,mercedes#tacuarembo,14543.345157,hola imtransito semaforo esquina tacuarembo esquina mercedes cruzando mercedes mano izquierda quemado foco correspondiente luz verde,cruces_vias,True,True,30.234
+1,True,True,dr-emilio-frugoni#chana,4946.90835054,imtransito comomemuevouy mvdtransporte chana esquina frugoni cortada obras,cruces_vias,True,True,14.868
+2,True,False,,0.0,montevideo ahora choque esquina palacio legislativo,,False,False,4.368
+3,True,True,santa-cruz-de-la-sierra#vizcaya,6162.5241088,sharito17849631 mvddecide belvederegatos municipioa apaelrefugio montevideoim vizcaya esquina santa cruz sierra,cruces_vias,True,True,44.665
+4,True,True,arenal-grande#colonia,8592.30119848,hecho historico medicina mundial ciudad montevideo esquina colonia arenal grande casmu 1,cruces_vias,True,True,21.758
+5,True,True,areguati#chayos,6695.88347107,imambiente chdica areguati esquina chayos flor maronas,cruces_vias,True,True,14.233
+6,True,True,arenal-grande#colonia,8592.30119848,placa conmemorativa echo historico medicina mundial uruguay ciudad montevideo esquina colonia arenal grande casmu 1,cruces_vias,True,True,41.323
+7,True,True,arenal-grande#colonia,8592.30119848,oms placa conmemorativa hecho historico medicina mundial uruguay ciudad montevideo esquina colonia arenal grande casmu 1,cruces_vias,True,True,38.153
+8,True,True,bv-gral-artigas#av-burgues,859.523488272,imtransito ahora paso bvar artigas esquina burgues semaforo estacion servicio tambien lampara verde quemada,cruces_vias,True,True,66.162
+9,True,True,minas#av-18-de-julio,4988.5819242,noche veraniega disfruta bailando aire libre milonga clandestina partir 22 plaza 33 orientales av 18 julio minas montevideo,cruces_vias,True,True,69.211
+10,True,True,luis-galvani#chapicuy,5377.01094883,lauraraffo favor visite vecindario chapicuy esquina galvani vea trabajadores asentamiento media cuadra avenida general flores verguenza intolerable el.olor,cruces_vias,True,True,47.256
+11,True,True,benito-aizpurua#minnesota,169505.870325,imtransito quiero agradecer trabajo hecho esquina minnesota aizpurua,cruces_vias,True,True,12.892
+12,True,True,av-alfredo-arocena#dr-gabriel-otero,12455.0588275,dias frente local reparacion iphone carrasco esquina arocena otero tod s forros estacionan vehiculos vereda cortando paso hablame respeto despues primeros quejarse transito montevideoim imtransito,cruces_vias,True,True,34.949
+13,True,True,cno-continuacion-la-paloma#cno-cibils,160389.460551,alquiler apto continuacion siti 1 cibils barrio paloma cerro montevideo 2 dor cocina comedor parrillero 13.200 s gastos comunes contaduria anda cocheras economicas llamar lunes viernes 10 20 hrs 2.902.34.82 099.84.50.31,cruces_vias,True,True,64.745
+14,True,True,francisco-llambi#av-gral-rivera,1153.19689286,montevideoim imtransito aca llambi esquina rivera viven tomando pelo van multar descarga resto explote,cruces_vias,True,True,32.563
+15,True,True,publica#psje-de-la-via-a-la-tablada,23161.4683333,verdenow22 ademas instalan esquina lado enfrente lavadero taxis realizando actividad via publica fijarse ademas complejidad cruce garibaldi termina ahi lado empieza ramon marquez hacen mas angostos carriles,cruces_vias,True,True,73.426
+16,True,True,jose-benito-lamas#jose-ellauri,100.545763358,44uruguay33 hola tipo errores registro debes acudir oficina alli daran informacion ayuda necesaria corregir error completar proceso recuerda oficina ubicada montevideo jose ellauri 938 esquina benito lamas,cruces_vias,True,True,62.238
+17,True,True,iturbe#av-lezica,10684.59095,vendimia pronto comenzar edicion 2020 fiesta vendimia municipio castillo idiarte borda av lezica esquina iturbe,cruces_vias,True,True,19.474
+18,True,True,arturo-lezama#nicaragua,2957.79435897,imtransito mmvs1985 montevideoim cerquita alli lezama 1943 lezama esquina nicaragua todas mananas reservan lugar cajones plastico podran pasar tambien,cruces_vias,True,True,17.144
+19,True,True,canelones#bv-gral-artigas,356.180602915,promo vuelta clases optica briozzo esperamos tres sucursales canelones montevideo canelones treinta tres 518 esquina artigas canelones batlle ordonez 161 frente comeca montevideo,cruces_vias,True,True,86.263
+20,True,True,dr-aquiles-r-lanza#san-jose,20148.88326,hola montevideoim esquina san jose aquiles lanza curandera im boca tormenta destrozada sector notifica reparacion,cruces_vias,True,True,48.967
+21,True,True,andes#san-jose,100432.882594,hora esperando bus esquina san jose andes llegan tres si 3 116 juntos sera administracion recursos cutcsaok imtransito,cruces_vias,True,True,57.698
+22,True,True,marco-bruto#bv-26-de-marzo,3664.56693994,imtransito montevideoim cartel ceda paso pare esquina marco bruto 26 marzo posible semejante cruce indicativo preferencia circula 26 marzo,cruces_vias,True,True,50.303
+23,True,True,gral-francisco-caraballo#av-gral-rondeau,239099.875548,alias20301 chdica imtransito montevideoim esquina rondeau caraballo modificaron calles veredas cierre rambla portuaria solo pensaron autos silenciosaviolenciacontraelpeaton,cruces_vias,True,True,47.114
+24,True,True,ejido#mercedes,2163.41600346,ahora jornada propaganda salen pasacalles montevideo alvaro villar intendente    19 00hs plenario abierto ideal sumarse militar mercedes 1368 esquina ejido,cruces_vias,True,True,18.398
+25,True,False,,0.0,charlas vecinos municipio calles irun esquina castellar barrio olvidado muchas necesidades escuchando necesidades,,False,False,2.857
+26,True,True,gral-francisco-caraballo#av-gral-rondeau,4879.58929689,chdica jorgewlarranaga imagino ocupaste rondeau esquina caraballo imposible cruzar cualquier horario unica manera tirarse adelante vehiculos gracias chdica espero respuesta,cruces_vias,True,True,18.252
+27,True,True,dr-lauro-muller#dr-pablo-de-maria,1116.85242962,buena propuesta junto excelentes vinos pisanowines taller quesos artesanales montevideo domingo 26 abril 10 18 30hs esquina social club pablo 899 esq lauro muller plazas limitadas mas info,cruces_vias,True,True,44.612
+28,True,True,dr-aquiles-r-lanza#av-18-de-julio,1220.30658042,8m 2020 montevideo uruguay part 3 colectivo afro feminista momento pasar frente sede cinemateca 18 18 julio esquina aquiles lanza,cruces_vias,True,True,55.039
+29,True,True,juan-manuel-blanes#maldonado,7014.39195833,imtransito rotos semaforos blanes esquina maldonado constituyente,cruces_vias,True,True,22.62
+30,True,False,,0.0,manana datos muerden charla dictara director mauricio giacometti importancia datos analizarlos jueves 5 3 8 30 world trade center montevideo bonavita 1266 torre 4 sala tempus,,False,False,3.371
+31,True,False,carlos-gardel#julio-herrera-y-obes,22.4188417362,cris_deluca quiosque da facal ali atras mim do gardel do outro lado da rua tem uma pasiva  espacio b.a av 18 julio esquina 11100 montevideo departamento montevideo uruguai 598 2903 2836,cruces_vias,True,True,60.333
+32,True,False,,0.0,cajero sacar plata ir feria esquina casa queda mas cerca montevideo shopping bermuda remera ojotas termo mate arranque ahi escuchando musica conoce sabe escucho musica volumen alto,,False,False,3.73
+33,True,False,,0.0,datos muerden charla dictara director mauricio giacometti importancia datos analizarlos jueves 5 3 8 30 world trade center montevideo bonavita 1266 torre 4 sala tempus,,False,False,2.884
+34,True,True,av-gral-rivera#dr-joaquin-de-salterain,14559.8311719,usofallido vivi montevideo unica forma comunicarme familia interior si habre usado esquina rivera salterain,cruces_vias,True,True,18.184
+35,False,False,,0.0,pasaron esquina gritaron ridicula,,False,False,2.252
+36,False,False,,0.0,espero minimo 6 policias esquina casa,,False,False,2.015
+37,False,False,psje-20-bloque-1-malvin-norte#ciudad-de-azul,88761.0368133,andresguzbj eramos norte ciudad teniamos lindavista esquina insurgentes montevideo esquina semejaba castillo ahora templo san diego,cruces_vias,True,True,54.552
+38,False,False,,0.0,tunato che llamame vemos esquina montevideo enseno cosas imbecil,,False,False,2.611
+39,False,False,,0.0,falta  viernes 27 marzo lacomediamr rosario jorgefandermole junto cabrera_uy   esperamos canciones cantautor rosario montevideo uruguay argentina,,False,False,11.202
+40,False,False,,0.0,santa casa galicia montevideo,,False,False,4.719
+41,False,False,,0.0,gracinas casa galicia montevideo,,False,False,4.159
+42,False,False,,0.0,santa casa galicia montevideo,,False,False,4.853
+43,False,False,,0.0,pleno centro montevideo pasada medianoche cruzo camioneta pado plaza bomberos vienen cuidarnos respetar espacios publicos restauracion horror debe denunciarse organismos derechos humanos uruguay mundo,,False,False,3.649
+44,False,False,,0.0,martinmadruga esman6ia cdf_im nacional galpon esquina mas historico gallinero,,False,False,1.905
+45,False,False,,0.0,ernesto64198570 seacaboelrecre0 gus_uy lauraraffo jorgewlarranaga luislacallepou peor asesinatos vuelta esquina,,False,False,1.978
+46,False,False,,0.0,mariazanocchi montevideoim alfredoghierra esquina cartel beatles salvo,,False,False,1.879
+47,False,False,,0.0,pompo_nita brod panaderia pasteleria esquina chile montevideo mendoza parece algarroba rompen,,False,False,10.631
+48,False,False,,0.0,espiral,,False,False,1.562
+49,False,False,ciudad-de-paris#av-san-marino,31.1414577289,esperamos comitedistrital08 avenida paris 1243 esquina montevideo colonia san isidro torreon tenemosalgoquedecir procesoelectoral2020,cruces_vias,True,True,39.857
+50,False,False,,0.0,cubiellagustavo sierra lima decadas esquina mas aspera montevideo,,False,False,8.769
+51,False,False,,0.0,santa gracinas casa galicia montevideo,,False,False,4.214
+52,False,False,,0.0,alegattisilvera explico caballo montevideanos animal forrado cuero pata cada esquina,,False,False,1.876
+53,False,False,,0.0,stopquierobajar verdenow22 imtransito montevideoim dinamica taller mecanico existente esquina genera constantemente interferencias transito,,False,False,2.412
+54,False,False,,0.0,universocentro sandrirena pelucavieja antropogata coloresmari catatrujillou danielup rabodeajip davideufrasio perroacuadros lectora esquina centro montevideo,,False,False,2.68
+55,False,False,,0.0,verdenow22 cossecarolina alvillar dmartinez_uy frente_amplio fiorellabuzeta peatonesmvd unibiciur rodrguez1948 chdica pepi_goncalvez q esquina,,False,False,2.172
+56,False,False,,0.0,lauraraffo pituca ridicula si conoces barrios montevideo si nombro cualquier esquina ciudad tenes idea,,False,False,2.766
+57,False,False,,0.0,8m mas 350 mil personas marcha montevideo movimiento feminista vuelve demostrar mas fuerte momento,,False,False,2.279
+58,False,False,,0.0,pitschwarz emilianocaffera imtransito montevideoim esquina terrible siempre algun pelotudo tapa rampa,,False,False,1.644
+59,False,False,,0.0,comprenle productos limpieza prima esperando bbcita laburo   rt sepa montevideo porfi,,False,False,1.619
+60,False,False,,0.0,magnnets naci montevideo si sacan centro mapa siento primer esquina llorar posicion fetal,,False,False,1.994
+61,False,False,,0.0,fedelosa imtransito supongo cualquier esquina habilita misma luz verde vos doblar auto peaton cruzar,,False,False,2.473
+62,False,False,,0.0,declaracion mensajes amenazantes banos edificio principal facultad montevideo 3 marzo 2020,,False,False,7.846
+63,False,False,,0.0,cualquier esquina montevideo,,False,False,1.594
+64,False,False,,0.0,marcospisano1 fa solo dejo tirado interior montevideo tierra nadie gran zona roja cualquier esquina quitan vida,,False,False,2.087
+65,False,False,,0.0,futuro incerto da casa galicia montevideo,,False,False,2.525
+66,False,False,,0.0,pasa na costa futuro incerto da casa galicia montevideo,,False,False,3.6
+67,False,False,,0.0,esquina olor montevideo dice fabri habia olor pichi mugre jajajajajaja concha lora,,False,False,2.615
+68,False,False,asuncion#paraguay,3256.07154649,terminando bolsa abajo deposito todavia necesitaria cambio cierre casa portafolio esquina palma montevideo asuncion 1992 cuero asuncion paraguay,cruces_vias,True,True,22.072
+69,False,False,,0.0,sosamacho joseluismagnone mdafonte1881 lauraraffo dmartinez_uy alvillar cossecarolina ceder paso peaton esquina situacion,,False,False,17.543
+70,False,False,,0.0,"Es cierto que la gente es mugrienta, innegable. También es innegable que Martinez hace agua por todos lados con este tema de la basura y que ADEOM hace lo que quiere. Si no puede con la basura y un sindicato, como podría con el país, con todos los sindicatos, y con el FA radical? https://t.co/Kwq21KrRFn",,False,False,79.029
+71,False,False,,0.0,"Recorrer de nochecita el Centro de MVD, ver la basura y la suciedad, la cantidad de locales vacíos, la cantidad de gente acomodándose en umbrales para pasar la noche, sentir la sensación de inseguridad, es una fiel fotografía del resultado de 15 años de gobierno frenteamplista.",,False,False,73.23
+72,True,True,,0.0,@montevideoIM @IMambiente @chdica en domingo arena y Guzmán Papini así están los contenedores ahora https://t.co/w30xqEjPZJ,,False,False,44.443
+73,False,False,,0.0,"@Dmartinez_uy Erradicación de basurales?, pero sí Montevideo es un gran basural!!",,False,False,2.006
+74,False,False,,0.0,"La Intendencia de Montevideo hizo lo posible para que hoy no pudiéramos homenajear a los Caídos en la lucha antiterrorista, acumulando basura e inundando la Plaza de la Bandera.
+Pero no lo lograron, se cumplió el acto evocatorio como todos los años. https://t.co/W3EXMya6Z4",,False,False,64.875
+75,False,False,,0.0,🏆⚽️ Montevideo Wanderers quedó eliminado de la #CopaConmebolLibertadores. Felicitaciones a @elClubOlimpia y suerte… https://t.co/gldCJ9PrLk,,False,False,2.249
+76,True,False,,0.0,Vergonzosa situación de la playa de Capurro según está mostrando Canal 10. La mugre es tremenda y uno se pregunta dónde está la Intendencia de Montevideo. Mañana habrá una jornada de limpieza por parte de una organización privada. https://t.co/q6HtWf4Lcz,,False,False,16.14
+77,False,False,,0.0,"Montevideo tu casa . 
+
+Ven al fondo de la imágen una caja de cartón. Bueno ahí dentro está durmiendo una familia, un padre, la madre y su hijito. Más cerca, la mugre de siempre. Patético.! 😠 https://t.co/RMS6Ih6EDD",,False,False,3.762
+78,False,False,,0.0,"¿Cambiaste un mueble o electrodoméstico de tu casa?
+
+No lo dejes al lado del contenedor 👎
+
+Llamanos al 1950 3000 op. 3 y lo pasamos a buscar gratis por tu casa 👍 https://t.co/7Fl6Ni8MQK",,False,False,38.603
+79,False,False,,0.0,"Oí en @WapaRadio una comerciante desesperada de Río Piedras, fué en vivo.
+Su negocio d comida se le inundó d gusanos y toda la calle.
+Le adjudica esa plaga a la FALTA d limpieza, recogido d basura y  escombros d municipio d San Juan
+
+¿Cerdos, vacas, gusanos, ratas, qué más? 🤦‍♀️😳",,False,False,75.677
+80,False,False,,0.0,"Hola querido @Dmartinez_uy , cómo estás? Disfrutando San Valentín como la gente de Adeom? Digo, porque como ayer no levantaron la basura me imagino que empezaron el festejo por adelantado. Besitos y que termines lindo el día ♥️ https://t.co/eHSfUBMj4q",,False,False,53.712
+81,False,False,,0.0,"Comienza a llenarse el Defensores del Chaco,Olimpia - Montevideo 20:15. https://t.co/XbTk1TZPkK",,False,False,23.824
+82,True,True,,0.0,Que finito....no pasa una Gillette entre el camión y los Contenedores calle cerrada en Tacuarembo y Uruguay mientras la obra avanza @Municipiob @CarlosVarelaMVD @montevideoIM @IMambiente @imtransito https://t.co/H8oAMkTNDT,,False,False,55.786
+83,True,False,,0.0,"Hicieron una ola de basura en el Montevideo shooping y me parece algo EXCELENTE que en un lugar tan concurrido hagan este tipo de cosas para generar conciencia, tendría que haber por todos lados del país a ver si dejan de ser tan MUGRIENTOS https://t.co/M3tNBNxiEc",,False,False,75.182
+84,False,False,,0.0,"Si será pésima la gestión frenteamplista de la Intendencia de Montevideo que después de 30 años de gobierno, el Intendente Di Cándida hace una conferencia de prensa para manifestar “su orgullo” porque levantaron la basura.",,False,False,2.794
+85,True,False,,0.0,"El mamarracho que la IM instaló en Plaza Zabala vive y lucha gracias al intendente “transgresor” que gastó casi medio millón de dólares. Mientras tanto, MVD sigue sucio y con barrios enteros donde la mugre es moneda corriente. ¿Cuáles son las prioridades? https://t.co/s5RoPkgueC",,False,False,72.539
+86,False,False,,0.0,La mejor marca que puede dejar Di Candia es limpiar MVD y levantar la basura en muchos barrios. Los vecinos pagan sus impuestos y la IM no cumple. Menos humo y más gestión. https://t.co/xnYuEwS8yv,,False,False,57.658
+87,False,False,,0.0,Im going for the Warriors but these refs are basura,,False,False,2.0
+88,False,False,,0.0,"Tras el final del partido, varios  hinchas que se juntaron en la explanada de la @montevideoIM se pusieron al hombro la limpieza de la zona #MundialxLaTele
+
+Fotos: @focouy https://t.co/AngPyIjyrq",,False,False,46.319
+89,False,False,,0.0,Andabamos con pilos de bolsas blancas por Montevideo 😂,,False,False,1.966
+90,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,31.131
+91,False,False,,0.0,"#28Feb|Siguiendo orientaciones del Pdte @NicolasMaduro, Alc @wilfredordaz, continúa con el plan de embellecimiento en el municipio a través de la @mvzlabella, realizando jornada de limpieza y desmalezamiento en la plaza de Las Flores.
+#Ruta2020  #LealesSiempreTraidoresNunca https://t.co/zYeiR904Yo",,False,False,63.584
+92,False,False,,0.0,"Todavía no entiendo como Montevideo puede ser tan Frenteamplista, es la ciudad donde más se puede ver la decadencia del país, una ciudad sucia, donde hay gente durmiendo en cada esquina, donde hay mayor nivel de delincuencia, ¿Que les pasa?",,False,False,64.187
+93,False,False,,0.0,"Quien pretende ser presidente aumentó 26% los gastos de funcionamiento de una Intendencia ya hipertrofiada en gastos y plantilla, y cuya gestión se centra en actividades ajenas a la competencia departamental mientras Montevideo es un basural. #SeVan https://t.co/ArbWcQSL33",,False,False,58.785
+94,False,False,,0.0,"No puede con las picadas.
+No puede con los ruidos molestos.
+No puede con Adeom.
+No puede con la basura.
+Y quiere ser presidente.
+@Dmartinez_uy es el emparejamiento para abajo que nos regala la izquierda.",,False,False,46.566
+95,False,False,,0.0,"Acabo de escuchar la noticia de que multaron a uno por tirar la poda fuera de un contenedor en pocitos. @montevideoIM en otros barrios queman los contenedores, arman basurales pero no pasa nada ? Se cobra al que le  pueden cobrar  solamente?",,False,False,39.382
+96,False,False,,0.0,Empezó la Copa Libertadores con el 0-0 entre Montevideo Wanderers y Olimpia (posibles rivales de Boca en el grupo).… https://t.co/nKpeTJFs0Y,,False,False,2.307
+97,False,False,,0.0,Excelente Juan Castillo denunciando la campaña de #FakeNews y difamación orquestada contra la #LeyTrans . Ensuciar… https://t.co/5tLyQJPbXC,,False,False,39.724
+98,False,False,,0.0,"Montevideo está sucio, oscuro, lleno de pozos y sin obras que transformen a la ciudad. Solo basta con salir a recorrer sus barrios y la realidad golpea. Llegó la hora de tener una IM que cubra las necesidades del vecino, moderna y cerca de la gente. Vamos por el cambio. 💪🏼",,False,False,71.642
+99,False,False,,0.0,"Termina el domingo con dos noticias: Martínez dice que en Montevideo hay ""tolerancia cero"" con la basura, y una comunista del Mides comentó que le falta ""lectura básica"" sobre los indigentes que duermen en la calle.
+Buenas noches.",,False,False,58.808
+100,False,False,,0.0,"Int. Martínez tranca fuerte por limpieza: escencialidad y privatización. Si hubiera elecciones todos los años, Montevideo sería Dubai. https://t.co/KrgIwd05Nr",,False,False,45.424
+101,False,False,,0.0,"Se compraron nuevos camiones, se compraron nuevos contenedores; supuestamente no hay paro de ADEOM; y en zonas de la ciudad hace día que no se levanta la BASURA.
+Cuál es la razón? No da para más!! https://t.co/5Z93XlqfEr",,False,False,3.471
+102,False,False,,0.0,"A 28 años de gobernar Montevideo y 14 el país, hay 5000 personas que viven de la basura en la capital. ! Dejate de joder ! 5000 personas...y no pudimos resolverlo. https://t.co/HeSsgfUkAQ",,False,False,2.978
+103,False,False,,0.0,"Ya palpitando el mal llamado “Clásico”!! #Olimpia de mi vida!! en Montevideo, Uruguay https://t.co/4Umv5xdQqJ",,False,False,2.8
+104,False,False,,0.0,"⏰ 45' ST (+3)
+Montevideo Wanderers 0-0 Olimpia
+🏆Conmebol Libertadores 2018
+📅1ra Fase - Ida
+☢#ZDPy 
+↪Vía: @enriquelugo95",,False,False,40.938
+105,False,False,,0.0,"Miente y sigue con la campaña sucia. El error de Macri fue precisamente no fue implementar un shock de austeridad que cortara el despilfarro. No se animo, siguio con la fiesta y esta pagando el costo@portalmvd https://t.co/VWSwqd4W9v",,False,False,3.741
+106,False,False,,0.0,"🐴 ¿Qué pasa con el estiércol de los caballos que estuvieron ayer en la asunción del nuevo gobierno?
+
+Como parte del operativo de limpieza, el estiércol que no estaba mezclado con otros residuos fue llevado a nuestra planta de tratamiento de residuos orgánicos para reciclarlo ♻️ https://t.co/rg0TKFZrVp",,False,False,71.62
+107,False,False,,0.0,"Hicieron una ola de basura en el Montevideo shooping y me parece algo EXCELENTE que en un lugar tan concurrido hagan este tipo de cosas para generar conciencia, tendría que haber por todos lados del país a ver si dejan de ser tan MUGRIENTOS https://t.co/M3tNBNxiEc",,False,False,69.873
+108,True,True,,0.0,"Limpiavidrios que está siempre en Ricaldoni y Av Italia (frente a la ancap). Vio a un ciego que intentaba cruzar, fue y lo ayudó en los dos tramos del cruce.
+Este tipo de gestos debemos imitar.
+Si pasas por ahí y te pide una moneda, dale. Es buen tipo. https://t.co/K6B0VPNfQ9",,False,False,75.884
+109,False,False,,0.0,"Dos días con @RaffoIntendenta y ya hemos cosechado estas expresiones de desprecio de burócratas oficialistas. Prueba irrefutable de que vamos por buen camino. Montevideo volverá a ser una ciudad integrada, limpia, moderna y segura. https://t.co/Wzy4Q8V4r6",,False,False,61.526
+110,False,False,,0.0,Uruguay SE MUERE. Nunca vi tantas empresas cerradas. Nunca vi tan pocas posibilidades de crecer. Nunca vi tanta desintegración social. Montevideo está decadente sucia ruidosa y maloliente. Nunca vi tanta miseria en todos lados.,,False,False,3.095
+111,False,False,,0.0,"Montevideo se convirtió en una ciudad del cuarto mundo,mugre por todos lados,gente durmiendo en las esquinas mangueando Plata y drogandose locales vacíos por todos lados la mayoría grafiteados,casas para vender por doquier,colas en las embajadas para irse,no se que festeja el FA.",,False,False,76.743
+112,False,False,,0.0,"- no se puede decir que Montevideo esté sucia
+- no está sucia?
+- no, no se puede decir",,False,False,8.133
+113,False,False,,0.0,"Ya llegan los Reyes Magos 👑  
+Acordate de desarmar y doblar las cajas de cartón antes de tirarlas. 
+Si querés dar un paso más, llevalas a los contenedores específicos para residuos secos 😉 
+La ubicación la buscás en https://t.co/jSTMBKafQl https://t.co/71it88c5me",,False,False,73.529
+114,False,False,,0.0,⚽️ ¡Así forma el Montevideo Wanderers para enfrentar a @elClubOlimpia por la primera fase de la #CopaLibertadores.… https://t.co/iJH8XamhEt,,False,False,2.734
+115,False,False,,0.0,"Avenida de Montevideo...No, no dudes que sea por la  lluvia, jamás  pero jamás  pienses que es la basura de las boc… https://t.co/jBxi2LrwUA",,False,False,37.037
+116,False,False,,0.0,"🔳#OlimpiaLIVE #ConmebolLibertadores
+
+Fase 1 - Partido de Vuelta (2-0)
+
+⚽️¡FINAL DEL PARTIDO!
+
+#Olimpia 2-0 Montevideo W.
+
+#VamosOlimpia 💪🏼🏆🌟
+
+#OlimpiaPorSobreTodo ⚪️⚫️⚪️ https://t.co/D08b2Q02hy",,False,False,48.866
+117,False,False,,0.0,"@IgnacioDotti Podrian arrancar ya para la plaza, pera a limpiar la mugre de Montevideo 😂😂",,False,False,3.209
+118,False,False,,0.0,"Cualquier candidato a la IM que prometa limpiar la ciudad está mintiendo, los mugrientos somos nosotros los votantes.
+La basura no se tira sola, somos nosotros, y nuestros vecinos.
+Los soretes de perro no llegan solos hasta la vereda, las colillas de cigarro y los boletos tampoco",,False,False,67.157
+119,False,False,,0.0,"Habría que avisarle a Martínez que su gestión dejó un endeudamiento de US$ 203 millones, calles detonadas, barrios enteros sin luz ni saneamiento y no pudo solucionar el problema de la basura. Hasta intervino el PIT-CNT para mediar con Adeom. Un estadista! https://t.co/a0NKE32KOM",,False,False,17.104
+120,False,False,,0.0,Por favor dejen de hacer campaña con un “Montevideo limpio” como si fuera culpa del FA cuando son todos unos mugriento de mierda y tiran desde colillas de cigarro hasta latas de cerveza en la calle y a cualquier hora HE DICHO,,False,False,51.686
+121,False,False,,0.0,Junior deberá enfrentar a Olimpia  en la fase 2 de la Copa libertadores . Ganó serie a Montevideo W . Arranca de visitante y cierra en el Metropolitano .,,False,False,2.552
+122,False,False,,0.0,i want to feel like im enough yung sobra sobra pa sa hiniling mo HAHAHAHAHAHAHAHHAHAAHHAHAAHHAHAHAHAHAHHAAHHAHAAHHAAHHAHAHAHAHA joke lang basura ako. sensya na,,False,False,1.911
+123,False,False,,0.0,"¿Se acuerdan de Martínez y su carta a Vázquez sobre la gente que duerme en la calle? Ahora denuncian la gente que revuelve los contenedores buscando comida. Otra vez el fracaso del MIDES relatado por la Intendencia de Montevideo
+
+Después de 15 AÑOS de crecimiento, es una tragedia https://t.co/OfMoYrPf1Z",,False,False,51.983
+124,False,False,,0.0,"🌎 ¿Querés saber cómo van a estar pintadas las letras de Montevideo el Día del Medio Ambiente? Ya está el diseño ganador del concurso. Podés descubrirlo acá 👉 https://t.co/e02DznLv75  
+De paso, mirá todas las propuestas que se presentaron 👇 
+¡Muchas gracias por participar! https://t.co/McI0d1b7mp",,False,False,79.067
+125,False,False,,0.0,"Desde las 21hs en @CCA1912 por la 1330AM vivimos la previa del partido del martes por Copa Libertadores, contacto telefónico en vivo desde Montevideo, también analizamos los 2 triunfos en la semana frente a Capiata y Olimpia.
+Acompañanos!
+Mensajes al 0984133031
+CERRO Y NADA MÁS!! https://t.co/MBuezgZ0p7",,False,False,69.121
+126,False,False,,0.0,"Esta es la imágen que resume la gestión de Daniel Martinez:
+
+▶ Basura hasta frente a la Intendencia (delante de sus propios ojos)
+
+Si así manejó Montevideo lo que sería el país. Otro Mujica más no! https://t.co/HE2y2AFNH6",,False,False,23.66
+127,False,False,,0.0,"La adoradora de asesinos y delincuentes, Fabiana Goyeneche, llamó : "" Es tiempo de lucha y resistencia entre todex"". No, inmundicia...es tiempo que basuras como vos y como las que defendes, acaten la ley y respeten la vida.",,False,False,66.526
+128,True,True,,0.0,"Contenedor en Hocquart esquina Batoví, 5 de agosto de 2018, 16:30hs.
+Hace 10.319 que la izquierda gobierna en MVD, hace 1.123 días que @Dmartinez_uy asumió como intendente. Resolver los problemas no es cuestión de tiempo, sino de capacidad. #NoMásFA https://t.co/2PtsASshYb",,False,False,75.73
+129,False,False,,0.0,"El tema de la basura en Montevideo va a ser fundamental en la próxima campaña, aunque todos sabemos que la solución no viene desde las autoridades.
+Somos una ciudad sucia, llena de ciudadanos sucios.
+Ha cambiado mucho, tenemos más insumos y tecnología, pero seguimos sucios.",,False,False,71.144
+130,False,False,,0.0,Cuando metieron la retención del 35% me estaba yendo a Estambul por trabajo. Ahora a Montevideo e idem. Lo mejor de todo es que este viaje me lo reembolsan por transferencia. Quien tiene fe y aseguro que la plata llega?? La inversión más cara del mundo 😭,,False,False,59.17
+131,False,False,,0.0,"¿Se puede gestionar mejor? Claro que si, todo es mejorable, pero con la limpieza y el reciclaje de basura, los principales responsables somos los que vivimos en Montevideo.",,False,False,48.138
+132,False,False,,0.0,"Este domingo, acompaña con tu voto a Raúl Rufeil y dale una oportunidad a San Martín de tener un municipio ordenado, limpio y al servicio de los vecinos.
+#MejorParaVos #MejorParaSanMartín https://t.co/NNqUKCLxxQ",,False,False,60.126
+133,False,False,,0.0,"Terrible el camino que le tocó a #Olimpia:
+Fase 1: Montevideo Wanderers
+Fase 2: Júnior
+Fase 3: Guaraní (casi seguro)
+Fase de Grupos:
+Boca
+Palmeiras
+Alianza Lima
+
+Llega a 8vos y pongo la firma que será el campeón.",,False,False,65.065
+134,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,36.68
+135,False,False,,0.0,"¡Con este tiempo parece que hubiera empezado el verano en vez de la primavera! ☀️
+Ya hay gente disfrutando de las playas. Te recordamos que las limpiamos todo el año y que la mejor forma de cuidarlas es no dejando residuos en la arena.
+Más info 👉 https://t.co/XJEzuDZBjw https://t.co/ibSSSwX4id",,False,False,79.443
+136,False,False,,0.0,"30 años de gob departamental, y aún lo ciudadanos de Montevideo siguen votando al fraude Amplio, las calles desecha, la carga de impuestos más alta, las adjudicaciones más insólitas, los dirigentes más exóticos de la historia, la mugre más grande jamás Vista, pero siguen 🤦🏻‍♂️🤦🏻‍♂️🤣👇 https://t.co/Axxwcu0eCF",,False,False,87.916
+137,True,True,,0.0,"@Dmartinez_uy Su discurso Señor no es consistente con la realidad de la ciudad
+Fuentes que no funcionan, basura que no se levanta o se hace tarde y mal, pozos que no se tapan como este de Magallanes y Colonia lleva dos años o este de Casinoni lleva 9 meses
+Tengo una larga lista @montevideoIM https://t.co/ZidxE1dikc",,False,False,34.046
+138,False,False,,0.0,"@M72843 @portalmvd Estas equivocado están en Montevideo ,no ves el basural que es .",,False,False,2.325
+139,True,True,,0.0,@desayunos12 @lauraraffo Genia! totalmente de acuerdo! Están haciendo una obra millonaria e innecesaria en Av italia y Luis A Herrera y no hay recursos para sacar a la gente de la basura?.,,False,False,53.309
+140,False,False,,0.0,"@drpabloalolnso @IMambiente mira lo que tiraron en el contenedor de mi cuadra, y no es cosa de todos los dias https://t.co/om7EmDxrf5",,False,False,23.045
+141,False,False,,0.0,"La adoradora de asesinos y delincuentes, Fabiana Goyeneche, llamó : "" Es tiempo de lucha y resistencia entre todex"". No, inmundicia...es tiempo que basuras como vos y como las que defendes, acaten la ley y respeten la vida.",,False,False,60.806
+142,False,False,,0.0,"Terrible el camino que le tocó a #Olimpia:
+Fase 1: Montevideo Wanderers
+Fase 2: Júnior
+Fase 3: Guaraní (casi seguro… https://t.co/VqaVxYXuVJ",,False,False,52.154
+143,False,False,,0.0,"La Intendencia gobierna Mdeo a puro”Control y Multas”, control de solo bus,de estacionamientos,ahora del goteo de aires acondicionados, y muchas multas.Y de los temas centrales, iluminación, pozos, basura, de los barrios, quien se ocupa? Así va a gobernar el Pais @Dmartinez_uy ? https://t.co/63WNAIU50j",,False,False,83.802
+144,False,False,,0.0,¡Atención franjeado... preparate para alentar a tu club! ⚽⚽ Llega Olimpia VS Montevideo Wanderers. Venta de Entrada… https://t.co/LvePK7uXk6,,False,False,3.103
+145,False,False,,0.0,"Montevideo Wanders haciendo un Homenaje a los Venezolanos residentes en Uruguay.
+Olimpia en lo suyo , haciendo un H… https://t.co/dagSgJshRE",,False,False,44.655
+146,False,False,,0.0,"El Pelado Martínez hizo una cena a U$S 1000 en Punta del Este... y si, a ese precio tenía que ser en una ciudad limpia y no un mugrero como Montevideo.",,False,False,51.406
+147,False,False,,0.0,"Estaremos hablando sobre este proyecto de instalación de un mega puerto chino en Montevideo y las consecuencias que puede tener tanto para el medio ambiente y los océanos como para la comunidad local.
+
+¡Los esperamos!",,False,False,57.292
+148,False,False,,0.0,no veo los carros con caballos? ni las motitos ruidosas? ni los contenedores rotos y mugrientos? no veo basura ni gente durmiendo en la calle? ni los chevettes del 80... @Frente_Amplio @montevideoIM,,False,False,29.196
+149,True,True,,0.0,"Limpiavidrios que está siempre en Ricaldoni y Av Italia (frente a la ancap). Vio a un ciego que intentaba cruzar, fue y lo ayudó en los dos tramos del cruce.
+Este tipo de gestos debemos imitar.
+Si pasas por ahí y te pide una moneda, dale. Es buen tipo. https://t.co/K6B0VPNfQ9",,False,False,71.68
+150,True,False,,0.0,Taller de Compost en el Municipio G. El comer sano y el Hambre Cero avanza no en grandes cumbres sino en el compromiso de la comunidad. @Acontraelhambre @FrenteHambre @jajofd @Parlatino_org @FAOUruguay @JBerdegueFAO https://t.co/OK2CGf20Lu,,False,False,3.068
+151,True,False,,0.0,"“Di Candia llevate esto al living de tu casa!!””. Dinama detuvo el volcado de escombros en la arena de playa Carrasco- Punta Gorda , tras denuncia del abogado Gustavo Salle por ""daño a un espacio público"". https://t.co/YQRzNeQqUK",,False,False,57.889
+152,False,False,,0.0,Los hinchas de @elClubOlimpia apoyan al plantel desde temprano el día del debut en la #LibertadoresxFOX ante Montevideo Wanderers https://t.co/Mg5Om1Z9gX,,False,False,45.48
+153,False,False,,0.0,"El Fraude Amplio:
+
+- Peor Seguridad de la historia (Duplicaron los homicidios)
+- Nos metieron en una esclavitud banquera
+- Record de suicidios
+- Defienden dictadura de Maduro en Venezuela
+- No pudieron con la basura, Montevideo es una mugre
+
+#MiRendiciónDeCuentas",,False,False,59.783
+154,False,False,,0.0,¿Que hace la intendencia de Montevideo con los 2 millones de dólares que recauda POR DIA?Algo huele mal en la capital y no es solo por culpa de la endemica basura no resuelta en 30 años de administracion FA y por los olvidados arroyos contaminados.AHORA RAFFO INTENDENTE.,,False,False,66.005
+155,False,False,,0.0,"#01Oct | En aras de continuar embelleciendo nuestro municipio a través de la @MVzlaBella, creada por el Pdte.@NicolasMaduro y con el apoyo del Gob.@RMarcoTorres ejecutamos la limpieza de la Av.Intercomunal. ¡En #Mariño trabajamos obedeciendo al pueblo! #AlLiceoConAlegría https://t.co/q6oVNG7YVk",,False,False,76.075
+156,False,False,,0.0,"Felicitaciones a @montevideoIM y a todo el equipo de @imtransito por la vuelta de los trenes a vapor a la ciudad de #Montevideo ,en nombre de los ciudadanos todos, les decimos gracias por ese hermoso medio ambiente que nos dejan.
+
+Felictaciones también a @cutcsaok https://t.co/ALj32BgflQ",,False,False,77.781
+157,False,False,,0.0,"Cuando  se gestiona con cabeza abierta y mirando lejos, las explicaciones son tan claras como las que da el Prosecretario @chdica 
+#Basura #FigurasCarnaval #MVDRock 
+Así vamos construyendo #ElMejorMontevideo
+#ArribaMontevideo 👍
+https://t.co/KQfs8nA0CL",,False,False,60.958
+158,False,False,,0.0,"Qué lindo ir caminando por las veredas de Montevideo y que cada 8 o 10 cuadras haya un olor a orín que te deja sin aliento! Esquivar bolsas, ver como tiran papeles a la calle y sentir el olor a porro en cada plaza, divina la capi!...",,False,False,72.13
+159,False,False,,0.0,"Cada vez mas gente revuelve los contenedores buscando comida. 
+Otra vez el fracaso del MIDES y la Secretaría Social de la Intendencia de Montevideo
+
+Después de 15 AÑOS de crecimiento económico hay cada vez mas gente pasando hambre. Esto es una tragedia https://t.co/c7a0KVL3p0",,False,False,74.203
+160,False,False,,0.0,¡TRIUNFO DE OLIMPIA! El gigante paraguayo venció 2-0 a Montevideo Wanderers con goles de Camacho y Giménez (ida 0-0… https://t.co/r2laxNG9O9,,False,False,2.565
+161,False,False,,0.0,"Hoy arrancamos con todo para recuperar MVD. En 30 años el FA no pudo con la basura, mejorar el transporte y mucho menos brindarle servicios básicos a los vecinos. Está bueno cambiar. https://t.co/1xh16eHVp6",,False,False,55.889
+162,False,False,,0.0,"Hasta Bryan Adams sabe hoy q Martínez es 1 inútil q no pudo juntar la basura d Montevideo.
+Además d no entender nada sobre ninguno d los temas q se le preguntó.
+¿Hubo alguna vez 1 candidato d FA peor que Martínez?
+(Favor retuitear para viralizar y que los ciudadanos no lo voten) https://t.co/Tdt11ui4YE",,False,False,69.058
+163,False,False,,0.0,"Es preciosa la tele nueva que se compraron pero tenían tanta ansiedad que se les olvidó desarmar la caja y ponerla en el contenedor.
+Yo demoré 3 minutos en bajar del auto y hacerlo.
+Aparte recién había pasado el camión y eso iba a quedar así hasta mañana 🤦🏻‍♂️. https://t.co/Bg8DEFDQNZ",,False,False,75.831
+164,False,False,,0.0,Pero Boboni inventa otra cosa. Esa ya la uso el Pelado para justificar la mugre de Montevideo a fin de año. https://t.co/EJNY9zKlAi,,False,False,2.468
+165,False,False,,0.0,"La empresa internacional Colgate Palmolive informó que cesará la producción de productos de limpieza en su planta de Montevideo  
+
+https://t.co/O75DEnKgpk",,False,False,2.262
+166,False,False,,0.0,"ADEOM está ocupando en estos momentos ( 9 y 10 AM) el despacho del intendente municipal de Montevideo, por discrepancias en el sistema de recolección de residuos. 
+¿ No está prohibida la ocupación de oficinas públicas ?
+La anarquía sigue en pie en el Estado.",,False,False,43.729
+167,False,False,,0.0,"Este lunes, 19.15, debuta @elClubOlimpia en la Libertadores ante Montevideo Wanderes y @UNO650AM tendrá a la dupla @SalvadorHicar - @JotaJotaBernabe para el relato y los comentarios. Toda la cobertura a partir de las 18.00 con la coordinaciòn de Gaspar Anibal Noguera. https://t.co/vrshAUXIDZ",,False,False,69.164
+168,False,False,,0.0,"La pregunta pelotuda y sucia de Aldo Silva a su ex compañera Laura Raffo: "" ¿ Conoces Montevideo? No se puede ser tan mala leche ni alcahuete del poder de turno...",,False,False,45.025
+169,False,False,,0.0,"Me encanta ver cómo las grandes capitales del mundo,se engalanan y festejan el advenimiento del nuevo año. Ya que según el Intendente Martínez consumimos más, no se puede gastar algo para mejorar Montevideo y no tener que festejar entre la mugre?!",,False,False,62.704
+170,False,False,,0.0,"A todos los que dicen que la BASURA  que desborda Montevideo del Intendente @Dmartinez_uy 💯ES UN PROBLEMA cultural,… https://t.co/lpuAtOk1pO",,False,False,37.222
+171,False,False,,0.0,"🔙📽 ¡Dio un gran golpe! @BarcelonaSC ganó en Montevideo por 2-0. ¡Estas son las mejores jugadas!
+
+@FutbolSantander https://t.co/qfLp4eJ0o1",,False,False,37.922
+172,False,False,,0.0,"Olimpia a sgte etapa de Copa!!!
+Con buen juego, que ilusiona, eliminó a Montevideo Wanderers 
+@Futbol780 https://t.co/HTcbeWSDRw",,False,False,2.423
+173,False,False,,0.0,"Después de 30 AÑOS de fracaso al frente de la intendencia de Montevideo si alguien todavía los vota es porque: o le gusta vivir entre la mugre o ya perdió hasta la conciencia de que se puede vivir de otra forma que no sea tapado de basura.
+#nuncamasfraudeamplio https://t.co/jEc5yqLiBK",,False,False,68.674
+174,False,False,,0.0,"YASSS B***h Even in a GARBAGE BAG, IM STILL THAT B***h Lmao!🤣🤣🤣 Art is all about using your Imagination and Being creative! I love to explore in my thoughts and create. Photography by: @royaleyez / Hasta en una Bolsa de Basura yo Sigo Siend AMARA LA NEGRA! https://t.co/D34iHKOAM5",,False,False,3.826
+175,True,False,,0.0,"El arroyo Miguelete de Montevideo está en muy mal, agua ""verde"", mucha basura y espuma de apariencia sucia.
+De la denuncia presentada en la web de DINAMA por la espuma hace algunas semanas ni noticia.
+La DINAMA no tiene tweeter, ¿Se habrá enterado el @Mvotma_Uruguay? https://t.co/uYBIg8VIvd",,False,False,3.537
+176,False,False,,0.0,@RobertoPlasenci @YoCreciEnAragon @miradiogam @depor_galeana @j_sanchez2374 @camp_os @AriasNora @Arbolillo1ctm @Soslindavista @LindavistaUnida Yo trabajé en esa obra la realidad es que está hecha con materiales de reciclaje de otras obras por ejemplo la obra del nuevo puente de 100 metros y Montevideo el dueño de esas obras es el único que gana porque ni el gobierno a ellos les vale como queden ya las pagaron,,False,False,91.85
+177,False,False,,0.0,"Duele Montevideo.
+Gente durmiendo en las calles como nunca vi antes. 
+Rota y sucia a más no poder.
+Que tendrán para celebrar estas personas?? https://t.co/D9n3hQoqdX",,False,False,47.877
+178,False,False,,0.0,"Recorrimos junto a Juan Neira, Gerente de @EmAseoQuito, algunos barrios del sur. Constatamos que el Plan de Contingencia está funcionando, y que la recolección de basura está retornando a la normalidad. Continuaremos trabajando y monitoreando la ciudad. https://t.co/wTVOovS3fs",,False,False,70.975
+179,True,True,,0.0,"Pasaron 3 años desde que asumió el intendente Martínez: Se endeudó en US$ 94 millones a pagar en 20 años, Parches en avenidas que llaman ""inversión"", Recolección de basura ineficiente, Reforma de 18 de Julio (no salió🙏) y Recaudación millonaria por cámaras. Hablame del mejor MVD",,False,False,64.916
+180,False,False,,0.0,Ahora salpican para todos lados y ninguno en la IM se hace responsable. Millones de US$ de todos nosotros tirados a la basura. La incompetencia del FA no tiene límites. Basta de tanta impunidad! https://t.co/hKWuHUgqvf,,False,False,53.109
+181,False,False,,0.0,"#ChaoBolsasPlásticas y Chao Comunistas
+@danieljadue En Ucrania no podrías ser Alcalde menos viajar financiado por el Municipio a Inglaterra, Estambul,Palestina, EEUU Mexico Buenos Aires...
+
+@diputadosudi @DiputadosRN Quien presentara Proyecto para Proscribir al PC? LEY 8987 HOY https://t.co/5OFIQTvCky",,False,False,3.939
+182,False,False,,0.0,"@chdica @DiegoForlan7 @AnaDuranok Me encantaría q llegaran por mi barrio...Pque Rivera, estos contenedores para depositar clasificando",,False,False,10.492
+183,False,False,,0.0,Montevideo Wanderers y Olimpia empataron 0-0 en el primer juego de la #CONMEBOLLibertadores 2018. https://t.co/8QMxNwf5aO,,False,False,2.857
+184,False,False,,0.0,"El servicio de recolección de residuos especiales 🚚 de la @montevideoIM me funcionó genial. Me atendieron de toque, al otro día fueron a buscar una cocina rota y escritorio y sin costo para mi flia. Ya saben: no dejen cosas grandes en los contenedores 🙌🏽🌳",,False,False,51.238
+185,False,False,,0.0,⚫⚪ TEM QUE RESPEITAR! O Olimpia despacha o Montevideo Wanderers e mantém vivo o sonho do tetra campeonato da #LibertadoresFOXSports! https://t.co/cIOZs3mwm6,,False,False,2.415
+186,False,False,,0.0,"PARA QUE NO FALTE NADIE
+La directiva de Olimpia presentó este jueves los precios establecidos para el juego de revancha ente el Decano y Montevideo Wanderers. ⬇ https://t.co/TmzJPojwjf",,False,False,51.772
+187,False,False,,0.0,"#NavegarEsNecesario no habrá campaña sucia que  impida ver que el FA  sintetiza la renovación país frente a los nuevos desafíos globales, regionales y nacionales. En unidad, sin exclusiones y pensando en los niños que vienen @Dmartinez_uy @Cosse20201 @Bergara_FA @Andrade_2019 https://t.co/oEpBd0qQKZ",,False,False,62.375
+188,False,False,,0.0,@chdica Estimado #Intendente en Montevideo circulan 7.500 clasificadores de basura en carros tirado por #caballos.… https://t.co/cDuzhE0nyo,,False,False,2.485
+189,False,False,,0.0,El sr.@Dmartinez_uy puso a sus subordinados a retirar la carteleria política de las calles.. la basura no puede esp… https://t.co/631G16HjIc,,False,False,42.36
+190,False,False,,0.0,"Montevideo está hecha pedazos por todos los rincones. Sucia,pintarrajeada,veredas y calles""bombardeadas"", olores insoportables y ninguna planificación.
+Es un caos absoluto.Una reverenda mugre.Cada vez peor.
+¿Hay tantos montevideanos que les gusta vivir así? Hipnotismo ideológico?",,False,False,58.587
+191,False,False,,0.0,"Fiscal Pacheco: el NCPP  es muy malo.
+Bergara: es insostenible el déficit fiscal.
+Cosse : se necesita un gabinete para combatir inseguridad. Si escucho a Martínez quejarse de la limpieza en Montevideo, me da un ataque. Hacen oposición cuando renuncian? Es para captar votos?",,False,False,60.435
+192,False,False,,0.0,"La renuncia del director de Desarrollo Ambiental de la Intendencia de Montevideo (IMM), Fernando Puntigliano, se debió a diferencias con el intendente Christian Di Candia respecto a la gestión del conflicto en limpieza. https://t.co/8CSQXMVZx6",,False,False,59.3
+193,False,False,,0.0,"Muchos se quejan de la @montevideoIM y de la mugre de la ciudad. Hoy en vez de quejarme, preferí escribirles coment… https://t.co/f2lFHepCZb",,False,False,2.528
+194,False,False,,0.0,"Canelones #Uruguay | Puente sobre Avda del parque desbordado debido a las intensas lluvias , a todo aquel que se dirija hacia Montevideo, se recomienda dirijirse por Cno Burmester, ( detrás del hipódromo). Reporte de Las Piedras en Vivo https://t.co/h5ytQt09MH",,False,False,74.158
+195,False,False,,0.0,Municipios con hasta 93% de atraso en la recolección. Sin huelga de ADEOM y con menor cantidad de residuos (datos del INE publicados esta semana). Se acabaron las excusas del Intendente sobre su enorme fracaso en la recolección de residuos. https://t.co/kl0397mwEq vía @elpaisuy,,False,False,71.583
+196,False,False,,0.0,Que asco la mugre de Montevideo😷,,False,False,2.156
+197,False,False,,0.0,Las plazas públicas de Montevideo son hoy dormitorio común (acá se ven 3 personas) expulsando de allí al público (y de paso forman basurales) https://t.co/397jBgM4tB,,False,False,46.29
+198,False,False,,0.0,"Hace dos meses que me mudé a Montevideo, y las tres cosas que más me han impactado son: la cantidad de gente durmiendo en las calles, la basura tirada por todas partes y las personas revolviendo los contenedores. No creí que fuera tan así. https://t.co/Ctv24JTeVz",,False,False,67.191
+199,False,False,,0.0,"Ahora tenés dónde llevar tus #ResiduosEspeciales ⏩ 
+
+&gt;&gt; Centros Municipales de Distrito (disponibles de lunes a viernes de 8.30 a 13.30)
+&gt;&gt; Montevideo 2852 (de lunes a viernes de 8 a 14) 
+&gt;&gt; Mercado del Patio (de martes a domingos de 9 a 21)",,False,False,44.223
+200,False,False,,0.0,"Van a hacer dos meses que a mi madre la despidieron de su trabajo como mucama,y busca un empleo EN MONTEVIDEO hacie… https://t.co/RlS9jx7pnb",,False,False,2.746
+201,False,False,,0.0,"Nuestro plan de erradicación de basurales está en marcha, pero necesita el compromiso de todos 💪
+Si ves a alguien a… https://t.co/zhREi63ueg",,False,False,2.444
+202,False,False,,0.0,"Montevideo huele a faso, a graffiti, a mugre, a meo, a ""cultura carnavalera""… Montevideo llora en hombros de sus monumentos humillados por pinturitas socio-artisticas y movimientos en vano, Montevideo sangra hedor. Huele a Frente amplio, a progresismo, a POBRECISMO (Mental)",,False,False,4.001
+203,False,False,,0.0,"@DameElDiezmo @ElOjoChurrinche No soy de Montevideo, pero veo muchas fotos de gente durmiendo en las calles y revolviendo contenedores. Es algo que lamento muchísimo y más de estos gobiernos ''progresistas''",,False,False,57.765
+204,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,31.623
+205,False,False,,0.0,"📒  Comenzamos a entregar a cada hogar un manual con toda la información necesaria para gestionar correctamente los residuos. 
+Salió la primera tanda y durante todo el próximo año seguirán repartiéndose 😃
+
+Más info 👉🏾https://t.co/PxjASSt0xL https://t.co/CJJT3feo08",,False,False,73.009
+206,False,False,,0.0,"SE DAN CUENTA QUE TONY SIEMPRE SUFRE
+En IM es secuestrado y torturado
+En IM2 está al bordo de la muerte
+En IM3 sufre ataques de pánico y tiene pesadillas
+En A entra a un portal y casi muere
+En A2 crea a Ultron y se siente una basura
+En IW pierde todo y queda solo
+YA PAREN",,False,False,4.366
+207,False,False,,0.0,Hace 28 años que el FA gobierna en MVD y la ciudad continúa sucia y con más de 190 basurales endémicos. Han contribuido en la formación de asentamientos y fallaron en las políticas de limpieza. Se recauda US$ 2 millones por día. Gestionen bien 🙏🏼 https://t.co/TyhIJa4B9j,,False,False,63.281
+208,False,False,,0.0,"Vergüenza le debería dar a toda persona que se manifiesta en contra de las jineteadas, cuando circulando por Montevideo se cruza con un caballo tirando un carrito cargado de basura. Esos si que la sufren todos los días del año, sin conocer lo que es el descanso, y el pasto verde.",,False,False,62.718
+209,False,False,,0.0,"“Uruguay es un país democrático y progresista, que ha aceptado los derechos LGTBI, ha legalizado la marihuana y es líder en turismo sostenible y respetuoso con el medio ambiente”, destaca la guía de referencia para viajeros. https://t.co/O4bBAx7jJ3",,False,False,54.852
+210,False,False,,0.0,@OPINEMOSHOY @Dmartinez_uy Basura por favor de qué hablas de vos imagino,,False,False,2.232
+211,False,False,,0.0,"Este lunes, 19.15, debuta @elClubOlimpia en la Libertadores ante Montevideo Wanderes y @UNO650AM tendrá a la dupla… https://t.co/vwUFEcshvc",,False,False,10.705
+212,False,False,,0.0,"@Dmartinez_uy @danieldaners Y que esté o no esté, es la misma inoperancia. Basura, veredas, tránsito, ruidos.......reprobado.",,False,False,9.79
+213,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,30.523
+214,True,True,,0.0,"Limpiavidrios que está siempre en Ricaldoni y Av Italia (frente a la ancap). Vio a un ciego que intentaba cruzar, fue y lo ayudó en los dos tramos del cruce.
+Este tipo de gestos debemos imitar.
+Si pasas por ahí y te pide una moneda, dale. Es buen tipo. https://t.co/K6B0VPNfQ9",,False,False,81.456
+215,False,False,,0.0,Qué mugrero Mdeo!!! La unión 😱😱😱😱😱 https://t.co/knCSMSjCki,,False,False,2.635
+216,False,False,,0.0,"Este tipo de acciones perjudican a todos los montevideanos y montevideanas que colaboran con el cuidado de la ciudad. 
+
+Arriba los que no dejan nada afuera del contenedor 👍
+
+@IMambiente https://t.co/hJKsg08Gjd",,False,False,56.411
+217,False,False,,0.0,"Empezamos la semana con un trivia 👇
+¿Cuántas bolsas plásticas se usan por año en el mundo? 🤔",,False,False,2.327
+218,False,False,,0.0,"Hoy de 14.30h a 16h tendremos diálogo (im)probable con @TimothyFilley, director del Center for the Environment de @LifeAtPurdue y codirector del Instituto Nexus Arequipa para la Alimentación Sostenible, Energía, agua y medio ambiente. Info e inscripciones👉https://t.co/OXYey30det",,False,False,70.562
+219,False,False,,0.0,"En Madrid se juntan miles en Pta del Sol a festejar el año nuevo y dejan 25 ton de basura que el ayuntamiento recoje en 2 hras de trabajo en la madrugada. Aca, muy sueltos de cuerpo la IM te dice que las ramas del temporal las juntaran el viernes! Arriba Pelado nadamos en basura",,False,False,79.874
+220,False,False,,0.0,Con el Parcero Chichitogimenez🙏🏼⚽️🛫 Montevideo - #VamosOlimpia ⚪️⚫️⚪️ https://t.co/B30F2smsJw,,False,False,2.322
+221,False,False,,0.0,En 2017 presentamos un proyecto para exonerar la Contribución a aquel vecino que tenga un contenedor en la puerta de su casa. También propusimos la rotación por circuito para evitar estas “avivadas”. La IM tomó nuestra idea pero no la aplica y mucho menos controla la situación. https://t.co/j4i23Hy6NU,,False,False,3.704
+222,False,False,,0.0,"Pasan los años, pasan los intendentes y Montevideo es una mugre -en especial en estas fechas-. 
+Da vergüenza Montevideo, es un asco.
+Basta de chacras compañeras, con peleítas tribuneras.
+Busquemos soluciones para los montevideanos.
+Si hay q privatizar, q se privatice y listo!",,False,False,60.585
+223,False,False,,0.0,"Caminando en la noche por las calles de Montevideo he visto de todo.
+Desde ancianos invalidos acurrucados en silla de ruedas entre cartones, a familias con niños hurgando volquetas.
+...
+Cosas que por arte de magia se van a empezar a ver y reconocer dentro de 20 días.",,False,False,62.842
+224,False,False,,0.0,"Hicieron una ola de basura en el Montevideo shooping y me parece algo EXCELENTE que en un lugar tan concurrido hagan este tipo de cosas para generar conciencia, tendría que haber por todos lados del país a ver si dejan de ser tan MUGRIENTOS https://t.co/M3tNBNxiEc",,False,False,78.109
+225,False,False,,0.0,"Lo que discutí desde hace años, la recolección de basura debe ser privatizada para no ser más rehenes de ADEOM.
+Me dirán en el Pit CNT que es una actividad estratégica?",,False,False,3.131
+226,False,False,,0.0,"“Montevideo es un lugar en el que la basura no se clasifica, y aunque se clasifique, los camiones se llevan todo junto y así lo depositan en la usina”
+
+#basura #canteras #negocios #Barrio #Montevideo 
+
+ https://t.co/Bgp5kaoJC0",,False,False,68.87
+227,False,False,,0.0,"En 2017, y en Montevideo, levantar cada contenedor de basura costó U$S 7.000.
+El mismo servicio lo presta un concesionario privado por U$S 2.700.
+A esto, el frenteamplismo lo llama ""revolución"", y lo quiere replicar en todos lados, a toda hora, de cualquier modo.
+- @addm2018 🐍🚩",,False,False,40.872
+228,False,False,,0.0,@Dmartinez_uy en lugar de gastar en esto... arreglar las calles? Limpiar la ciudad? Mejorar el tránsito? https://t.co/7NZqpbOeGp,,False,False,42.981
+229,True,False,,0.0,"Cada mes, la IM arroja al bolsillo de sus funcionarios 50 veces el importe arrojado a la Plaza Zabala para instalar el adefesio. (Adefesio: USD420 mil; retribuciones mensuales: USD20 millones). En ambos casos, dinero sustraído al contribuyente para devolverle una ciudad basural.",,False,False,5.204
+230,False,False,,0.0,im 10/10 basura.,,False,False,2.596
+231,False,False,,0.0,"@NicoCorreaRoque @Dmartinez_uy @montevideoIM Veo las playas limpias, sin pañales botellas etc etc gracias japoneses.",,False,False,44.876
+232,True,False,,0.0,"Bueno gurices les cuento que en conjunto con el municipio g estamos juntando firmas para poder arreglar las plazas Libano y Melilla, se presento el proyecto en conjunto para que sea mas facil la recoleccion de las 500 firmas, es electronico, se firme con la ci y demoran 5 minutos",,False,False,73.945
+233,False,False,,0.0,Las plazas públicas de Montevideo son hoy dormitorio común (acá se ven 3 personas) expulsando de allí al público (y de paso forman basurales) https://t.co/397jBgM4tB,,False,False,43.48
+234,False,False,,0.0,Los hinchas de @elClubOlimpia apoyan al plantel desde temprano el día del debut en la #LibertadoresxFOX ante Montevideo Wanderers https://t.co/Mg5Om1Z9gX,,False,False,46.482
+235,False,False,,0.0,"El 1er rival de Olimpia será uno de estos 3:
+🇧🇴Oriente Petrolero
+🇪🇨Macará
+🇺🇾Montevideo Wanderers.
+
+Si avanza a Fase 2, será uno de estos 8:
+🇧🇴Wilstermann
+🇧🇷Vasco
+🇨🇱U.Española / U.Concepcion
+🇨🇴Junior
+🇨🇴Santa Fe
+🇪🇨Ind del Valle
+🇵🇾Guarani
+🇺🇾Nacional",,False,False,81.645
+236,False,False,,0.0,Comentamos el vídeo de los japoneses limpiando pero nos cuesta llamar a @montevideoIM al 1950 3000 op. 3 en vez de ensuciar nuestra ciudad. Nos falta bastante para ser desarrollados. https://t.co/uBWC8C84jw,,False,False,51.245
+237,False,False,,0.0,my phone is basura . when i get  a new one im gonna hit the a town stomp omfg :),,False,False,2.476
+238,False,False,,0.0,"Creo que tengo que poner a Montevideo como una de las ciudades más feas y sucias que haya visto en mi vida. Es como un linyera gigante hecho de asfalto y otros linyeras más pequeños, Buenos Aires al lado es Estocolmo de lo limpita que está",,False,False,62.355
+239,False,False,,0.0,"El precandidato a la IM por el FA Dr. Álvaro Villar insiste sobre la necesaria limpieza de Montevideo y pone como ejemplo al Hosp. Maciel que dirige.
+Claro, la limpieza allí fue privatizada en un 100%...
+ADEOM !!!CALENTANDO!!!",,False,False,3.166
+240,False,False,,0.0,Así limpia @montevideoIM . Todos los plásticos al agua. @chanchosUY https://t.co/Vp1hvW8pG8,,False,False,33.737
+241,False,False,,0.0,"Int. Martínez tranca fuerte por limpieza: escencialidad y privatización. Si hubiera elecciones todos los años, Montevideo sería Dubai. https://t.co/KrgIwd05Nr",,False,False,47.705
+242,False,False,,0.0,"🏆⚽ Um dos campeonatos mais disputados do mundo começa HOJE! Em 2017, o @Gremio construiu essa história linda na #LibertadoresFOXSports... Hoje tem Montevideo Wanderers e Olimpia, a partir das 20h, e a partir de 23h, a bola rola entre Oriente Petrolero e Universitario! https://t.co/RlmhmzD2SE",,False,False,7.595
+243,False,False,,0.0,@IMambiente @montevideoIM @Municipiod @DINALI_UY @IMigualitario @chdica ¿Cuándo van a empezar a clasificar la basura para reciclaje?,,False,False,2.321
+244,False,False,,0.0,"Montevideo es lindo, pero el olor a mugre no te robo",,False,False,1.433
+245,False,False,,0.0,"@IMambiente Las pilas son #residuos especiales, separalos del resto en una caja reutilizada! Y llevalos a los contenedores especiales que encontrás aquí https://t.co/GPXHzaBZAQ https://t.co/tVEqkaUtdX",,False,False,57.219
+246,False,False,,0.0,.@adeommvd se declaró en conflicto por privatización en el sector limpieza https://t.co/SD5AIeQWqS https://t.co/lMZZEb5Y5N,,False,False,2.956
+247,False,False,,0.0,"Si todo este ingenio y dinero lo destinaran a tapar pozos, mejorar la limpieza, bajar el precio de boleto y llevarle saneamiento e iluminación a los vecinos, tendríamos un mejor MVD de verdad. Son un pulpo recaudador. Presentamos pedido de informes. https://t.co/WSWe2sJjEu",,False,False,62.136
+248,True,True,,0.0,"Limpiavidrios que está siempre en Ricaldoni y Av Italia (frente a la ancap). Vio a un ciego que intentaba cruzar, fue y lo ayudó en los dos tramos del cruce.
+Este tipo de gestos debemos imitar.
+Si pasas por ahí y te pide una moneda, dale. Es buen tipo. https://t.co/K6B0VPNfQ9",,False,False,77.041
+249,False,False,,0.0,Vas a Colonia impecable vas a Maldonado impecable llegas a Montevideo y la mugre campea por que será?? https://t.co/j8xHlI0R4z,,False,False,2.57
+250,False,False,,0.0,"Antes de hacernos creer que los montevideanos somos sucios, debieran estar gestionados los residuos de manera que redujera la incidencia del factor ""sucios"". Dependemos de un sistema mal diseñado; eso es lo cierto, lo demás es excusa. 
+Hay otro Montevideo posible.",,False,False,64.458
+251,False,False,,0.0,"#29Feb| Siguiendo orientaciones del Pdte @NicolasMaduro, Alc @wilfredordaz, continúa con el plan de embellecimiento en el municipio a través de la @MVzlaBella, realizando jornada de limpieza y desmalezamiento.
+#LealesSiempreTraidoresNunca
+#UniónYProgresoEnonómico https://t.co/oiD85hPmsR",,False,False,60.808
+252,False,False,,0.0,Daniel Martínez no pudo arreglar el problema de la basura. No pudo con Adeom. No pudo con Valeria Ripoll. No pudo con el Gucci. Y vos queres convencerme que puede manejar un país? #SeVan #ChauFA #AhoraSi,,False,False,26.971
+253,False,False,,0.0,Buena hora para sacar la basura 8 am @montevideoIM hay poco tránsito como para todavía clavarse 5 min esperando que se muevan,,False,False,2.706
+254,False,False,,0.0,"Fernando Puntigliano presentó su renuncia como director de Desarrollo Ambiental de la Intendencia de Montevideo. El jerarca encargado de la limpieza de la ciudad renuncia en medio del conflicto con Adeom
+https://t.co/A1FNArZKvC",,False,False,64.572
+255,False,False,,0.0,"Un clásico en Montevideo, los problemas de la Intendencia con la basura. 
+
+Cuando viví en Nueva York (que genera 10 veces más basura por día que Montevideo) la limpieza estaba garantizada. Otras ciudades más cercanas tbn
+
+Eso sí, las ratas en el subte en Nueva York son de temer! https://t.co/k0cZlWNNPY",,False,False,75.695
+256,False,False,,0.0,"Me fui unos días, vuelvo y encuentro mí habitual Montevideo.
+Basura desparramada en mí querida volqueta.
+Faltaba más, los muchachos que te la tiran para afuera, tienen derecho a ensuciar el barrio..
+Y no les digas nada..que te dicen que sus derechos bla bla...
+Ley 19120 no existe https://t.co/DrVVeOa4b2",,False,False,73.617
+257,False,False,,0.0,"✈️ Lista de Viajeros a Montevideo para enfrentar a @mwfc_oficial por #ConmebolLibertadores 🏆
+
+¡#VamosOLIMPIA! 💪🏻😎⚽️… https://t.co/TLgZS0mUKh",,False,False,3.35
+258,False,False,,0.0,"De nuevo fueron quemados 85 contenedores en un día😞
+Propósito 2018: cuidar la ciudad que es de todos 💪… https://t.co/vIJigiNjh5",,False,False,11.886
+259,False,False,,0.0,"Los montevideanos pagamos impuestos de primer mundo pero tenemos servicios de cuarta. Además, la IM recauda por día US$ 2.000.000 y US$ 23.000.000 al año por multas de tránsito. ¿No será hora de cambiar y tener un MVD limpio, con buen transporte, saneamiento y tributos bajos?",,False,False,67.302
+260,False,False,,0.0,JK sweety IM SO SORRY un chico super educado que ayuda incluso a levantar la basura en los ISACs o al camarógrafo ...saluda a todos sin diferenciar y jamás pone cara de orto a ninguna presentación 🤧,,False,False,55.606
+261,False,False,,0.0,"La gestión de Daniel Martínez dejó a la IM con un endeudamiento de US$ 203 millones y ni una sola obra importante en MVD. No pudo con la basura, el tránsito es un caos en horas pico y tenemos uno de los boletos más caros de la región. ¿Se lo imaginan como Presidente? https://t.co/q6AMZkcgFE",,False,False,71.629
+262,False,False,,0.0,"@ElOjoChurrinche @midesuy @SCpresidenciauy @MarinadeFrente @uyEcos @TelenocheUy @TelemundoUY @TelescopioUy @AlfredoAsti @RadioSarandi690 @montevideoIM @IMigualitario @Dmartinez_uy Es innegable cada vez más jóvenes y niños comienzan do de la basura, algo pasa",,False,False,2.803
+263,False,False,,0.0,"La empresa internacional Colgate Palmolive informó que cesará la producción de productos de limpieza en su planta de Montevideo  
+
+https://t.co/O75DEnKgpk",,False,False,2.746
+264,False,False,,0.0,"#RugbyEnGol hey @WorldRugby_ES Uruguay le gana de paliza a Rusia y Argentina XV. Hoy España le mete 40 a Uruguay en Montevideo, a vosotros que vayan los mejores al Mundial os la suda, lo único que queréis es el sucio dinero https://t.co/ONJpRQF9yV",,False,False,69.789
+265,False,False,,0.0,♻️ Para que cada vez se reciclen más residuos es fundamental que todos aprendamos a clasificarlos correctamente en… https://t.co/tXvAhWgypS,,False,False,2.466
+266,False,False,,0.0,why tf do i feel like im a phase? yung tipong lilipas din? tangina ang basura ng feeling ko right now.,,False,False,1.928
+267,False,False,,0.0,"👉 NO PUEDE CON ADEOM
+👉 NO PUEDE CON LA BASURA
+👉 NO TAPA LOS POZOS
+👉 PATOTEA E INVITA A PELEAR...
+
+🤔  Quién puede pe… https://t.co/wYKPDUC3V5",,False,False,47.543
+268,False,False,,0.0,"#Finanzas: En la bolsa de Bolsa de Valores de Montevideo el índice S&amp;P/TSX baja -0.12%
+https://t.co/elUuUoaoI6 https://t.co/xK1Y10yHcE",,False,False,2.609
+269,False,False,,0.0,"Adeom: problema de la basura se solucionará ""recién una semana después del 6 de enero"" https://t.co/hdpN2zwM66 vía @elpaisuy",,False,False,40.257
+270,False,False,,0.0,"Habría que avisarle a Martínez que su gestión dejó un endeudamiento de US$ 203 millones, calles detonadas, barrios enteros sin luz ni saneamiento y no pudo solucionar el problema de la basura. Hasta intervino el PIT-CNT para mediar con Adeom. Un estadista! https://t.co/a0NKE32KOM",,False,False,22.262
+271,True,True,,0.0,"#AHORA: en el marco de nuestro plan para la erradicación de basurales endémicos, estamos trabajando en la zona de San Martín y Volpe.
+
+Les recordamos que pueden ingresar sus reclamos de limpieza y denuncias de mala gestión de residuos en 👉🏿 https://t.co/h20vdWcaWN https://t.co/YG8ZPg8ND6",,False,False,75.327
+272,False,False,,0.0,Este es el Montevideo de gente sucia y mugrienta * https://t.co/i1Ccepjp4r,,False,False,6.109
+273,True,False,,0.0,"Da vergüenza #Montevideo, la mugre y desidia es tremenda. Plena ciudad vieja, punto turístico montevideano y vemos esto, frente a un museo. Ex Poder Judicial. Baño y dormitorio de gente en situación de calle. Capaz alguien puede hacer algo. https://t.co/lk9XH6DFuq",,False,False,61.732
+274,False,False,,0.0,"En 30 años de gestión, el FA no pudo con la basura y la limpieza de la ciudad. Hemos presentado proyectos para esta problemática pero son encajonados. Los vecinos pagan impuestos caros y los servicios brillan por su ausencia. Hay que cambiar en MVD. https://t.co/7Ch3ImKw5J",,False,False,59.61
+275,False,False,,0.0,Horacio Errante ademas de ensuciar todo Montevideo con su spam de mierda es un machito? La respuesta los sorprenderá,,False,False,39.981
+276,False,False,,0.0,"¿Pasás el verano en Montevideo?
+
+A partir de las 6 de la mañana trabajamos en la limpieza de nuestras playas para que puedas disfrutarlas ⛱☀
+
+¡Las playas de la ciudad te esperan!
+
+Más info 👉🏾https://t.co/zPuUdXuE7L https://t.co/rdgAVNBJQM",,False,False,69.569
+277,False,False,,0.0,"La empresa internacional Colgate Palmolive informó que cesará la producción de productos de limpieza en su planta de Montevideo  
+
+https://t.co/O75DEnKgpk",,False,False,2.889
+278,False,False,,0.0,"hoy en la esquina de la escuela de mi hija había un basural .
+hay que bajar a la calle para poder pasar, hay paro de ADEOM y yo no me entere ?
+lo peor es que ya a nadie le llama la atención, es parte del paisaje de las esquinas de Montevideo, junto con los indigentes",,False,False,67.01
+279,True,False,,0.0,"Sigue el recambio de contenedores.
+Ahora estamos en La Unión 😀
+
+Recordá que ningún residuo debe quedar fuera del contenedor. Si querés reciclar materiales como plástico y papel, hay recipientes específicos donde podés dejarlos. Encontralos en https://t.co/jSTMBKafQl https://t.co/0E51JQuqUL",,False,False,72.055
+280,False,False,,0.0,@portalmvd jajajajajjaajajajajjajajaaj que lastima das Montevideo Portal! A esa basura sumas? No tenes algo mejor para contratar? Patético.,,False,False,2.116
+281,False,False,,0.0,Uruguay SE MUERE. Nunca vi tantas empresas cerradas. Nunca vi tan pocas posibilidades de crecer. Nunca vi tanta desintegración social. Montevideo está decadente sucia ruidosa y maloliente. Nunca vi tanta miseria en todos lados.,,False,False,3.37
+282,False,False,,0.0,"💨 @MeteorologiaUy emitió alerta naranja por vientos fuertes  para #Montevideo. Recordá estos 📞 importantes 👇
+
+🌳 @CECOED árboles caídos 2480 40 92
+🚥 @imtransito 1950 4000 
+🚒 Bomberos 104
+🚔 Policía  911
+💡 UTE 0800 1930 
+🗑️ Contenedores movidos 2901 0006 (24 hs) https://t.co/mMOHZu15IW",,False,False,3.573
+283,False,False,,0.0,im sooooooo basura,,False,False,1.822
+284,False,False,,0.0,"La adoradora de asesinos y delincuentes, Fabiana Goyeneche, llamó : "" Es tiempo de lucha y resistencia entre todex"". No, inmundicia...es tiempo que basuras como vos y como las que defendes, acaten la ley y respeten la vida.",,False,False,62.297
+285,True,False,,0.0,POR FABOR NECESITO AYUDAAAA URGENTEEEE!!! DEJARON O DEJÓ ALGÚN HDP 19 cachorritos tirados en un contenedor!Alguien que me de una mano está frío dejarlos ahí es sentenciados a Muerte!!!   Es en MONTEVIDEO Barrio Malvín ALTO. 097622182. https://t.co/6zQ0uW2MfJ,,False,False,5.856
+286,False,False,,0.0,"Naalala ko nga pala kung bakit hindi ako pinapayagan sa mga swimming, basura nga pala ako baka magkalat. HAHAHAHAHAHAHAH im soo okay bimb.",,False,False,2.128
+287,False,False,,0.0,"El recontramaldito doble discurso !
+Digo como se soluciona el 80%de la mugre y basura en Mdeo.y ya aparece:
+Represion no..
+Hay que tolerar..
+La culpa es de TODOS los vecinos
+
+NO..LA CULPA ES DEL QUE LA TIRA AFUERA ,principalmente marginales
+
+Y REPRIMILO..
+Pero no,la complicamos!",,False,False,54.562
+288,False,False,,0.0,"Esse time do Montevideo Wanderers é horroroso. Do Olimpia também, mas um pouco menos.",,False,False,2.094
+289,False,False,,0.0,"El que encuentre carteles de ANTÍA tirados en el piso, comuníquese conmigo por privado. Los carteles serán donados a refugios de perros para hacerles casitas. Los que estan colgados, pronto serán descolgados! Por un Montevideo Limpio. RT asi hay mas difusión graciasss🙌🏻",,False,False,44.273
+290,False,False,,0.0,"#Finanzas: En la bolsa de Bolsa de Valores de Montevideo el índice S&amp;P/TSX sube +0.12%
+https://t.co/GC2kMAyHzm https://t.co/rcLZTGpZbo",,False,False,3.078
+291,False,False,,0.0,"Final ¡¡
+#Olimpia 2 vs Montevideo Wanderers 0
+(Néstor Camacho y  Giménez) 
+
+#VamosOlimpia ¡¡¡ https://t.co/pkNqXaNnUc",,False,False,2.555
+292,False,False,,0.0,"@ConMarchita @mengueche08 Para hacer un cante de Montevideo, como hay poca mugre , era lo que faltaba!",,False,False,2.986
+293,False,False,,0.0,"@CesarVega_Peri Seria muy positivo para Montevideo que el PERI se acercara a Laura Raffo y a la coalicion multicolor e integrara el grupo asesor en temas ecológicos porque tiene mucho para aportar en ese tema y hay mucho por hacer en esta Montevideo sucia,desordenada,contaminada y no controlada",,False,False,3.83
+294,False,False,,0.0,"Otras sensaciones:
+- el título d Sendic
+- los 380 muertos 2018
+- los 60 muertos 2019
+- los 650 asentamientos
+- la basura MVD
+- la contaminación RNegro
+- la contaminación SLucía
+- la pérdida puestos d trabajo
+- el déficit fiscal récord
+- la deuda externa récord
+- el Pato Celeste https://t.co/adp4vRAM9G",,False,False,78.037
+295,False,False,,0.0,"Terrible el camino que le tocó a #Olimpia:
+Fase 1: Montevideo Wanderers
+Fase 2: Júnior
+Fase 3: Guaraní (casi seguro… https://t.co/VqaVxYXuVJ",,False,False,46.61
+296,True,False,,0.0,"Hicieron una ola de basura en el Montevideo shooping y me parece algo EXCELENTE que en un lugar tan concurrido hagan este tipo de cosas para generar conciencia, tendría que haber por todos lados del país a ver si dejan de ser tan MUGRIENTOS https://t.co/M3tNBNxiEc",,False,False,73.3
+297,False,False,,0.0,@IsseyyTrin im: basura JSJSHHAHSHSHSHSHS,,False,False,1.626
+298,False,False,,0.0,"@CosseCarolina @municipioa Hay algo que tenemos que entender: Montevideo es sucia, está rota, etc. Porque los montevideanos y las montevideanas NO cuidamos las cosas. Empecemos a hacernos cargo de nuestro rol en la sociedad/ciudad/departamento.",,False,False,52.508
+299,False,False,,0.0,"En La Boyada, los vecinos tomaron las riendas para recuperar un espacio en el que se arrojaban residuos y realizaro… https://t.co/nU7wgSIqpY",,False,False,46.072
+300,False,False,,0.0,"@chdica @jorgewlarranaga Limpia la ciudad y deja la seguridad pública para el Gobierno Nacional, gracias 😎",,False,False,10.055
+301,False,False,,0.0,"La caterva de miserables que encabeza @abbu25 que se encargan de propalar insultos sobre mi por las fotografías de la realidad de Mugrevideo, imagino lo que dira sobre Puntigliano y la @montevideoIM que puntualizó ""hay más gente que revuelve los contenedores en busca de comida"" https://t.co/brcWAB2xpq",,False,False,64.718
+302,False,False,,0.0,"En Montevideo, Feras El Aissami parece un fantasma, pero en la trama de negocios sucios de su familia, ha tenido un rol bien identificado.",,False,False,2.397
+303,False,False,,0.0,"#UnDiaComoHoy 12/06/1960 
+#CopaLibertadores FINAL
+
+En el partido de ida en Montevideo, Olimpia cae de visitante 1-0 ante Peñarol en el Estadio Centenario. Fue por la primera Final en la historia de la Libertadores https://t.co/tPkwPsfGPM",,False,False,3.545
+304,False,False,,0.0,"👉 MIRÁ EL PELADO DEMAGOGO
+Mientras Montevideo se hunde en la mugre...
+El fantasma este se hace sacar fotos simulando juntar basura
+#VergüenzaFA
+Martínez no quiere que des RT! https://t.co/K5eMB4gN1j",,False,False,23.094
+305,False,False,,0.0,AHORA | Olimpia eliminó a Montevideo Wanderers y enfrentará a Junior en la 2da fase del #Repechaje de la… https://t.co/eqv4llVpMv,,False,False,49.107
+306,False,False,,0.0,Según los reportes más de 29.000 entradas vendidas para el juego de mañana entre Olimpia y Montevideo Wanderers. A… https://t.co/u6DEmEyqen,,False,False,42.92
+307,False,False,,0.0,😬Paro de los bichicomes de ADEOM👇fin de la luna de miel con Di Candia. #NavidadConBasura https://t.co/cQsViAmdmK,,False,False,37.409
+308,False,False,,0.0,"@LuisLacallePou  ""no pudo solucionar el tema de la basura en Mdeo y quiere solucionar los residuos."" #DebatePresidencialUy https://t.co/moTiPSKKjD",,False,False,34.937
+309,False,False,,0.0,"Seguimos recorriendo el @Municipio_CH estando siempre cerca de la gente, para atender la problemática de la basura en el entorno de los contenedores 💪🏻. https://t.co/9PNKE7sTet",,False,False,52.655
+310,False,False,,0.0,"Nuevamente ADEOM -IM Y LA BASURA.Luego de 25 años de gobierno y prometiendo Tabare Intendente en 1989 que erradicaria la basura en 100 dias.ADEOM pide mas personal y camiones.BASTA DE INOPERANCIA Y MALA GESTION
+EN 2020 Aire de cambio.
+EQUIPO 71-HERRERISMO https://t.co/uPB9Jiz94H",,False,False,4.258
+311,False,False,,0.0,Adeom hará paro y asamblea este jueves que afectará servicios de limpieza ¿cuál limpieza? Andááá!  https://t.co/3ZcfZiYCYM,,False,False,11.371
+312,True,False,calle-8-de-octubre#cno-la-cruz-del-sur,2538.42931661,"#Mugrevideo en todo su esplendor 
+Puerta del Liceo 14 en Avenida 8 de Octubre de la Ciudad Capital del Uruguay 
+@midesuy @montevideoIM @IMambiente @MarinadeFrente @Dmartinez_uy @SCpresidenciauy @Frente_Amplio se ve que disfrutan nuestras autoridades de potenciar estas realidades https://t.co/MSThun0GRa",cruces_vias,True,True,62.188
+313,False,False,,0.0,"@mengueche08 @Dmartinez_uy @Aquicolobanco El problema es que las heladeras no entran en los contenedores, por eso las botan y terminan en la Intendencia",,False,False,32.795
+314,True,True,,0.0,"Venía sacándole fotos a la cantidad de hojas y surprise! #VolquetaSystem , sirven como baño también. Ya se ya se, soy una facha desalmada que no respeta el derecho del señor a hacer sus necesidades en la calle . Florida y San José , 10:30 am #Montevideo https://t.co/sWiznG5yR3",,False,False,60.341
+315,False,False,,0.0,"Otra vez, Montevideo puede quedar tapada de basura en pocas horas. 
+
+Sea culpa del gremio o de la gestión Martínez,… https://t.co/dPdDzjweBD",,False,False,49.794
+316,False,False,,0.0,"Mientras Montevideo se cae a pedazos, entre basura, miseria, grafittis, obras a medio terminar , baches y verde tapado de hormigón soviético municipal, el intendente travesti considera de vital importancia ponerle Mario Benedetti a alguna calle. Me voy a fumar un porro y vuelvo.",,False,False,68.708
+317,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,29.5
+318,False,False,,0.0,"Ya renovamos miles de contenedores en #Montevideo, pero necesitamos el compromiso de todos para mantenerlos limpios… https://t.co/lhaZE9sb2Y",,False,False,2.719
+319,False,False,,0.0,"🌎🌱🇺🇾👏 Orgullosos de estar presentes con nuestras #EcoBolsas en #Flumarketinguy2018 
+
+➡️ @rubricabtl @Flumarketing @RadissonMvd 
+ #MarketingDigital #marketing #mobilemarketing #EcoMarketing #EcoMerchandising #3R 🌱#EcobolsasUy #montevideo #uruguay🇺🇾 #EcoUruguay 💙 https://t.co/xxAWoMx0YT",,False,False,2.933
+320,False,False,,0.0,"MVD es una mugre. Estoy cansado de escuchar excusas de las autoridades. Terminemos de una vez por todas con la incapacidad de afrontar los problemas. Presentamos propuesta en mano al intendente Martínez, nunca se  realizó. 28 años del FA. Basta! https://t.co/8sozhjnsK9",,False,False,68.014
+321,False,False,,0.0,"PeÃ³n de limpieza Bachero, Montevideo - https://t.co/GLyxCFm9pZ",,False,False,8.166
+322,False,False,,0.0,Gente canjeando las entradas para la revancha de @elClubOlimpia contra Montevideo Wanderers del 26 de enero. CONFIA… https://t.co/cnaNeZj5dz,,False,False,42.444
+323,False,False,,0.0,Ante la grave situación por la no recolección de residuos en Montevideo y las medidas de Adeom: https://t.co/374d7K5WwA,,False,False,42.298
+324,False,False,,0.0,"Montevideo huele a faso, a graffiti, a mugre, a meo, a ""cultura carnavalera""… Montevideo llora en hombros de sus monumentos humillados por pinturitas socio-artisticas y movimientos en vano, Montevideo sangra hedor. Huele a Frente amplio, a progresismo, a POBRECISMO (Mental)",,False,False,3.625
+325,False,False,,0.0,"Qué lindo ir caminando por las veredas de Montevideo y que cada 8 o 10 cuadras haya un olor a orín que te deja sin aliento! Esquivar bolsas, ver como tiran papeles a la calle y sentir el olor a porro en cada plaza, divina la capi!...",,False,False,65.8
+326,False,False,,0.0,La Bolsa de Montevideo “dejó de temblar” y apunta al equilibrio https://t.co/IESqXBACrd https://t.co/FYxa5g2q33,,False,False,2.408
+327,False,False,,0.0,Hay cientos de contenedores desbordados en todo MVD pero parece que lo político está por encima de la salud de los vecinos. Se debe decretar la esencialidad del servicio ante el riesgo sanitario que esta situación provoca. ¿Dónde está el intendente? https://t.co/KNNaFuSZE6,,False,False,63.863
+328,False,False,,0.0,"Brenta señala que la denuncia de ADEOM sobre mujeres embarazadas trabajando en una montaña de basura, es falsa. La colcha se deshilacha
+https://t.co/PvvnkcapRP",,False,False,2.685
+329,False,False,,0.0,"El Sr Ta**i no es ese liberal limpio y outsider dispuesto a servir a la patria desinteresadamente. En plena crisis del 2002 se negó a participar en el grupo económico de Batlle en plena crisis, fue asesor del Banco Montevideo que dejó miles de uruguayos sin sus ahorros. OJO",,False,False,50.544
+330,False,False,,0.0,"Parece que al intendente le preocupa que la gente se sienta segura y pueda utilizar el espacio público sin problemas. ¿De tapar los pozos, levantar la basura, mejorar el transporte, llevar iluminación a distintos barrios y pagar la duda millonaria de la IM, ni hablamos, no? Humo. https://t.co/keOxvc86V6",,False,False,73.172
+331,False,False,,0.0,Comentamos el vídeo de los japoneses limpiando pero nos cuesta llamar a @montevideoIM al 1950 3000 op. 3 en vez de ensuciar nuestra ciudad. Nos falta bastante para ser desarrollados. https://t.co/uBWC8C84jw,,False,False,57.825
+332,False,False,,0.0,"Raffo tiene inteligencia y agallas para enfrentar el tema seguridad y orden desde el gobierno departamental.
+Es el tema
+Cuidacoches... carritos sin identificación,  hurgadores que tiran basura por todo Montevideo etc.
+A la orden desde el equipo de la 9007!",,False,False,3.444
+333,False,False,,0.0,"📸 ¿Estás en el liceo y te gusta sacar fotos? Todavía estás a tiempo de  participar de nuestro concurso de fotografía para promover el cuidado  del medio ambiente.
+Te dejamos las bases y algunas de las imágenes que se presentaron el año pasado 👉 https://t.co/8StqnprFmq https://t.co/4L5iHUUoWI",,False,False,79.988
+334,False,False,,0.0,"El boleto no va a subir de precio. 
+Montevideo en estas fiestas estara mas limpia y acondicionada. 
+FELIZ DIA DE LO… https://t.co/uc4BNxTYQR",,False,False,2.555
+335,False,False,,0.0,"Hace dos meses que me mudé a Montevideo, y las tres cosas que más me han impactado son: la cantidad de gente durmiendo en las calles, la basura tirada por todas partes y las personas revolviendo los contenedores. No creí que fuera tan así. https://t.co/Ctv24JTeVz",,False,False,68.234
+336,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,29.954
+337,False,False,,0.0,"El FA dice que quiere darnos una Mdeo más limpia... No hay que ser ansiosos, van solamente 30 años ... Seguro en 5 más lo logran! 🥴🥵",,False,False,2.427
+338,False,False,,0.0,La IM recurre  videocamara del Ministero del Interior para multar a quienes tiran basura fuera contenedores..Porque no recurren al MIDES y le dan trabajo a las personas que reciben benefcios.y los ponen como vigilantes ambientales y resolvemos un problema endemico de +de 30 años? https://t.co/kGVudZPU7Z,,False,False,49.177
+339,False,False,,0.0,Menos Paulo Coelho y más limpieza en Montevideo. https://t.co/M6UrhuuiCL,,False,False,2.508
+340,False,False,,0.0,"SE DAN CUENTA QUE TONY SIEMPRE SUFRE
+En IM es secuestrado y torturado
+En IM2 está al bordo de la muerte
+En IM3 sufre ataques de pánico y tiene pesadillas
+En A entra a un portal y casi muere
+En A2 crea a Ultron y se siente una basura
+En IW pierde todo y queda solo
+YA PAREN",,False,False,4.36
+341,False,False,,0.0,"Generar una buena convivencia es parte de nuestro día a día como vecinas y vecinos de Montevideo. 
+
+Para lograr una ciudad más limpia, además de las tareas que lleva adelante la Intendencia, también es necesario que todas y todos colaboremos.👇🏾 https://t.co/uqsjZ3ItW9",,False,False,66.739
+342,False,False,,0.0,"@montevideoIM @chdica @JuanVoelker @FNopitsch Te recordamos que:
+👉🏾Si tenés que desechar residuos que no entran en el contenedor, podés llamar al 1950 3000 opción 3 o ingresar a https://t.co/92PN67wZEd y pedir que los levantemos sin costo.
+👉🏾 En caso de constatar este tipo de infracciones, podés denunciarlas al 29010006.",,False,False,85.669
+343,False,False,,0.0,Dicen que fueron 15 buses de hinchas del Olimpia a Montevideo por las dudas las estaciones de servicio ya guardaron todos los desodorantes.,,False,False,30.941
+344,False,False,,0.0,"Todo el año trabajamos en la limpieza de las playas para que puedas disfrutarlas, especialmente en verano. 🏖️
+
+Cada día juntamos 4.200 kg kilos de residuos. ¿Cómo hacemos para limpiarlas? 
+
+Te lo contamos: https://t.co/lUiQLAwnMn 👇🏽 https://t.co/U1XqopBtNM",,False,False,60.432
+345,False,False,,0.0,"Dos días con @RaffoIntendenta y ya hemos cosechado estas expresiones de desprecio de burócratas oficialistas. Prueba irrefutable de que vamos por buen camino. Montevideo volverá a ser una ciudad integrada, limpia, moderna y segura. https://t.co/Wzy4Q8V4r6",,False,False,54.243
+346,False,False,,0.0,"Duele Montevideo.
+Gente durmiendo en las calles como nunca vi antes. 
+Rota y sucia a más no poder.
+Que tendrán para celebrar estas personas?? https://t.co/D9n3hQoqdX",,False,False,43.963
+347,False,False,,0.0,"@Dmartinez_uy @chdica ...al menos 6 años con el contenedor en la puerta, a menos de un metro de la ventana, el olor y las moscas en verano no son de lo más agradable.....esto es para siempre o lo podemos rotar y que nos vaya tocando a todos un poco? Foto de hoy en la tarde https://t.co/iOQDanXyca",,False,False,80.739
+348,False,False,,0.0,"Caminando en la noche por las calles de Montevideo he visto de todo.
+Desde ancianos invalidos acurrucados en silla de ruedas entre cartones, a familias con niños hurgando volquetas.
+...
+Cosas que por arte de magia se van a empezar a ver y reconocer dentro de 20 días.",,False,False,61.73
+349,False,False,,0.0,"tHE DISPRESPECC?? grabe naman kayo sa truck ng basura bakit niyo kino-compare kay bong im so sorry truck, honey 😩",,False,False,2.456
+350,False,False,,0.0,"im not a big chocolate lover. chocolate ice cream basura, chocolate cake isn’t amazing, fudge is disgusting 🤢",,False,False,2.173
+351,False,False,,0.0,Hace una semana hablaba de la cabecita de los sindicatos y mirá a Adeom: no juntan la basura porque la IM está contratando a privados y por una denuncia de acoso laboral que está siendo investigada por la comuna. De cuarta.,,False,False,57.369
+352,False,False,,0.0,"@BeatrizTalegon Separación d poderes total, ""hemos descabezado al independentismo"" lo jodido es q todos los jubilados sin redes q se tragan la basura TV ñ votarán ciudadanos",,False,False,43.728
+353,False,False,,0.0,"Inténtelo de nuevo ratas asquerosas, quiero ver como les va con la IM o la brigada anfibia expedicionaria...
+Están advertidos, luego no vayan a llorar donde su tío INDH o sus canales de TV basura. https://t.co/j3GTQpxIV9",,False,False,14.354
+354,False,False,,0.0,"Campeones de la #Recopa 
+
+Boca 4
+
+Inter de Porto Alegre 2, San Pablo 2, Olimpia 2, Liga de Quito y River 2, GREMIO 2
+
+Independiente, Cruzeiro, Vélez, Nacional de Montevideo, Colo Colo, Cienciano, Santo, Corinthians, Atlético Mineiro, Atlético Nacional 1 vez.",,False,False,79.904
+355,False,False,calle-8-de-octubre#cno-la-cruz-del-sur,2538.42931661,"#Mugrevideo en todo su esplendor 
+Puerta del Liceo 14 en Avenida 8 de Octubre de la Ciudad Capital del Uruguay 
+@midesuy @montevideoIM @IMambiente @MarinadeFrente @Dmartinez_uy @SCpresidenciauy @Frente_Amplio se ve que disfrutan nuestras autoridades de potenciar estas realidades https://t.co/MSThun0GRa",cruces_vias,True,True,54.443
+356,False,False,,0.0,"En serio hay gente que piensa que si el FA gobierna 5 años más, la gente ""se va a dar cuenta"" y no los vota nunca más?
+
+Hoy caminás por MVD entre mugre, gente tirada en la calle, con familias revolviendo contenedores. Y el 30% de la gente sigue dispuesta a votarlos de nuevo.",,False,False,52.69
+357,False,False,,0.0,"¡GOL DE OLIMPIA!
+#LibertadoresxFOX | Oscar Giménez empujó el balón con el arco vacío y pone el segundo del Decano para superar a Montevideo Wanderers. https://t.co/I2bmQuFvTL",,False,False,48.35
+358,False,False,,0.0,Cuentas falsas atacan a Martínez diciendo cosas como basura por doquier tránsito insoportable sin control calles rotas luces rotas semáforos sin sincronizar gastos de campaña comprando partidos de la selección para TV ciudad fue presidente de ANCAP,,False,False,15.605
+359,False,False,,0.0,"Es preciosa la tele nueva que se compraron pero tenían tanta ansiedad que se les olvidó desarmar la caja y ponerla en el contenedor.
+Yo demoré 3 minutos en bajar del auto y hacerlo.
+Aparte recién había pasado el camión y eso iba a quedar así hasta mañana 🤦🏻‍♂️. https://t.co/Bg8DEFDQNZ",,False,False,69.448
+360,False,False,,0.0,@SNPTCLDYLVC @Dmartinez_uy @adeommvd Mira esto! Y no hacen nada...es vereda ese montón de mugre! https://t.co/1PrTYm8K8O,,False,False,2.62
+361,False,False,,0.0,"A partir de un llamado de la Intendencia de Montevideo, MyBox Game Studio creó “Valle Dorado”, un entretenido y desafiante videojuego de estrategia que promueve hábitos de cuidado del medio ambiente y que apuntan hacia la economía circular https://t.co/1Yc24IVRlY",,False,False,61.886
+362,False,False,,0.0,"Record en homicidios y rapiñas 
+Ancap y pluna
+Primer vicepresidente procesado 
+Ensuciar Montevideo 
+Suba de impuestos 
+Cierre de pymes
+Exportación internacional de cocaína 
+Cargos importante sin educación
+Insitacion del odio por un expresidente
+
+#LogrosDelFA",,False,False,59.983
+363,False,False,,0.0,"Si un funcionario edil se lleva dos bolsas de cemento del municipio a su casa, aunque las devuelva una semana después, cometió delito de peculado. Jurisprudencia de la CS: ""Devolución
+de lo ilícitamente apropiado no convierte en atípica la conducta realizada"".",,False,False,55.488
+364,False,False,,0.0,"Postales | 📷 El plantel activó esta mañana en las instalaciones del Hotel Sheraton en Montevideo con miras al partido de hoy. 💪
+ #OlimpiaPorSobreTodo #ConmebolLibertadores https://t.co/7Sc8t7GC86",,False,False,44.992
+365,True,False,,0.0,"@montevideoIM Si pasan por 18 van a ver todo lleno de basura, si van por otras calles también, no olviden volver!",,False,False,2.216
+366,False,False,,0.0,🏆⚽️ Montevideo Wanderers quedó eliminado de la #CopaConmebolLibertadores. Felicitaciones a @elClubOlimpia y suerte… https://t.co/gldCJ9PrLk,,False,False,2.059
+367,False,False,,0.0,"🌎 ¿Ya te enteraste de las actividades del equipo de Saneamiento por el Día del Medio Ambiente?
+ ¡Sumate! Podés participar en los Municipios B, C, CH y F. 
+ Más info 👉 https://t.co/Mq2s2yyY7T https://t.co/XjyDVVwUsi",,False,False,65.837
+368,True,False,,0.0,"Creo que las imágenes más sencillas, a veces, son las más bellas.
+
+Montevideo recuperó el Arroyo Miguelete entre Mauá e Islas Canarias, mediante profundas tareas de limpieza. 
+
+Y como resultado, podemos volver a encontrar esto que nos acerca @danieltrinidad2 👇🏾 https://t.co/oglRNuXm4R",,False,False,77.21
+369,False,False,,0.0,"@viejoolimpica Lo mejor del carnaval de Montevideo es cuando termina, es como el pan dulce, que lo más rico es cuando lo tiras a l basura.",,False,False,44.718
+370,True,False,,0.0,"Creo que las imágenes más sencillas, a veces, son las más bellas.
+
+Montevideo recuperó el Arroyo Miguelete entre Mauá e Islas Canarias, mediante profundas tareas de limpieza. 
+
+Y como resultado, podemos volver a encontrar esto que nos acerca @danieltrinidad2 👇🏾 https://t.co/oglRNuXm4R",,False,False,77.92
+371,False,False,,0.0,Excelente Juan Castillo denunciando la campaña de #FakeNews y difamación orquestada contra la #LeyTrans . Ensuciar… https://t.co/5tLyQJPbXC,,False,False,44.556
+372,False,False,,0.0,¿Que hace la intendencia de Montevideo con los 2 millones de dólares que recauda POR DIA?Algo huele mal en la capital y no es solo por culpa de la endemica basura no resuelta en 30 años de administracion FA y por los olvidados arroyos contaminados.AHORA RAFFO INTENDENTE.,,False,False,59.198
+373,False,False,,0.0,"Así está el barrio Esperanza. Estuvimos la semana pasada y solicitamos a la IM limpieza urgente de la cañada. Hoy,… https://t.co/5txWa7cxdw",,False,False,11.876
+374,False,False,ruperto-perez-martinez#gdor-del-pino,565.279598873,"ESTO ES MONTEVIDEO , DEL BICICLETA MARTINEZ , ASI DEJARA AL PAIS  - - HAMBRE - MUGRE - MISERIA - https://t.co/wlhXrLoTWD",cruces_vias,True,True,34.398
+375,False,False,,0.0,"Daniel Martínez dejó a la IM endeudada en cientos de millones de dólares, no pudo solucionar el problema de la basura, aumentó el boleto y las principales arterias viales quedaron patas para arriba. Todo un estadista que pinta al FA en estado puro. Queda menos. https://t.co/gOTZx7UeYY",,False,False,63.56
+376,False,False,,0.0,Un contenedor de japoneses para el sector limpieza de la Intendencia de Montevideo y listo. https://t.co/oCBIGew27B,,False,False,2.23
+377,True,False,,0.0,"Presentes en recorrida con @lauraraffo municipio f
+Conforme por hacerle llegar el pedido de las realidades que viven muchos vecinos: De Punta de Rieles 
+Calles sin vituminizar, no hay saneamiento, caminan entre 15/20 cuadras diarias para poder tomar un ómnibus, basurales, etc. https://t.co/XpiexvwN1H",,False,False,69.864
+378,False,False,,0.0,"Si todo este ingenio y dinero lo destinaran a tapar pozos, mejorar la limpieza, bajar el precio de boleto y llevarle saneamiento e iluminación a los vecinos, tendríamos un mejor MVD de verdad. Son un pulpo recaudador. Presentamos pedido de informes. https://t.co/WSWe2sJjEu",,False,False,70.998
+379,False,False,,0.0,"#DebatePresidencialUy
+Pudo con ANCAP? NO
+Pudo con la Intendencia? NO
+Pudo con la la Mugre? NO
+Pudo con Adeom? NO
+Pudo con el PIT-CNT  Y los Sindicalistas? NO
+Pudo con el Boleto? NO
+Fundió todo lo que tocó? SI
+Cerró Raincoop? 
+
+No pudiste con nada y querés ser Presidente!",,False,False,62.982
+380,False,False,,0.0,"¿Te acordás de aquella época en la que cuando se rompía un par de zapatos lo llevabas a arreglar en lugar de comprarte nuevos enseguida? 🤗
+Reparar ayuda a alargar la vida útil de los objetos y reducir la cantidad de residuos que disponemos.
+#Reparar #Reutilizar #TeamMidori https://t.co/LMks4nP2F3",,False,False,73.987
+381,False,False,,0.0,Daniel Martínez | Intendencia de Montevideo. decidió declarar a la basura Ciudadano Ilustre de Montevideo.🤔,,False,False,17.188
+382,True,False,,0.0,"Asentamiento Aquiles Lanza en Malvin Norte. 
+Municipio E. 
+Un símbolo del Montevideo olvidado.
+Aguas residuales, sin saneamiento, ratas por doquier, sin limpieza,ni iluminación.
+Basurales,restos de vehículos,plombenia.
+Compatriotas que viven en condiciones inhumanas. 
+Gestión FA. https://t.co/y8U4XKf9B8",,False,False,68.451
+383,False,False,,0.0,¡TRIUNFO DE OLIMPIA! El gigante paraguayo venció 2-0 a Montevideo Wanderers con goles de Camacho y Giménez (ida 0-0… https://t.co/r2laxNG9O9,,False,False,3.08
+384,False,False,,0.0,"¿Sabés qué hacer con cada uno de los residuos que generás en casa? 🏠
+Descargá nuestro nuevo manual de gestión de residuos en el hogar y sacate todas las dudas 👉 https://t.co/iPGXzpcARg
+Integrá nuevas costumbres, cuidá el ambiente 🌍 https://t.co/1CT8mcnMz1",,False,False,69.552
+385,False,False,,0.0,"¿Hasta cuándo vamos a naturalizar las columnas llenas de mugre?
+
+@montevideoIM https://t.co/Za54tF7PJ1",,False,False,35.74
+386,False,False,,0.0,"🏟 Wanderers jugará de local en el Estadio Luis Franzini (Montevideo), contra @elClubOlimpia por la primera fase de… https://t.co/ZAWGpf3zQf",,False,False,51.043
+387,False,False,,0.0,"MVD tiene problemas serios en materia de limpieza, tránsito, calles llenas de pozos, barrios sin saneamiento y el b… https://t.co/UbSb6UcU8k",,False,False,3.6
+388,False,False,,0.0,"El @Frente_Amplio especialista en mandar a la gente a comer de la basura.
+Y el @midesuy está realmente pintado.
+César sigue esperando ayuda
+
+@ObservadorUY @elpaisuy @AltaFachaUy @JMilei @jhgatti @grazianopascale @Fabigoyen @conradoh47 @MiguelManzi @Kubrick_Media @Estabocaesmia12 https://t.co/EWALw8Ofqq",,False,False,3.648
+389,False,False,,0.0,"Los montevideanos merecemos un Montevideo seguro, limpio, iluminado. Merecemos una ciudad para disfrutar y por eso le hablo a todos los montevideanos, sin pensar en ideología o caudal electoral. Tengo la tranquilidad de que van a poder contar conmigo si me confían su voto.",,False,False,65.831
+390,False,False,,0.0,En serio quieren continuar con esta gestión llamada “vivir en la basura”? @montevideoIM https://t.co/HXg8b9nJ8u,,False,False,2.242
+391,False,False,,0.0,"Las intendencias del interior recogen la basura c/día, invierten el doble que Montevideo y no hacen obras solo en el último año y no reciben transferencias especiales del Gobierno Nacional. Error Daniel. En cuanto a eso de la crisis...por algo Bergara disparó..saben lo q entregan",,False,False,77.52
+392,False,False,,0.0,"@soy_charrua @Dmartinez_uy Es una asesina y no pagó por todos sus crímenes.
+Y nunca demostró arrepentimiento.
+Para las familias de sus víctimas, la ""solidaridad"" de @Dmartinez_uy vale tanto como la mugre de Montevideo.",,False,False,57.73
+393,False,False,,0.0,"El que encuentre carteles de ANTÍA tirados en el piso, comuníquese conmigo por privado. Los carteles serán donados a refugios de perros para hacerles casitas. Los que estan colgados, pronto serán descolgados! Por un Montevideo Limpio. RT asi hay mas difusión graciasss🙌🏻",,False,False,50.898
+394,False,False,,0.0,"Hinchas de Olimpia en Montevideo para el juego de mañana por Copa
+@Futbol780 https://t.co/VohiglhGbY",,False,False,2.597
+395,False,False,,0.0,"Para lograr el cometido de @alvillar está clarísimo q en mayo NO se debe votar al FA, más de lo mismo.
+En 30 años NO han sabido y NO han podido solucionar el problema de la #basura en Montevideo.
+Destaco honestidad al reconocer q intendencias del interior son más limpias.
+#ChauFa https://t.co/Lj9hEPN7wa",,False,False,79.689
+396,False,False,,0.0,Es una vergüenza que la IM se de el lujo de tener abandonados seis camiones que nos costaron a todos los montevideanos US$ 1.899.480. Después cuando llega fin de año ponen excusas y la ciudad se tapa de basura. Presentamos pedido de informes. https://t.co/U8Ippvhkcf,,False,False,61.617
+397,False,False,,0.0,"Qué lindo ir caminando por las veredas de Montevideo y que cada 8 o 10 cuadras haya un olor a orín que te deja sin aliento! Esquivar bolsas, ver como tiran papeles a la calle y sentir el olor a porro en cada plaza, divina la capi!...",,False,False,68.981
+398,False,False,,0.0,"Villar, precandidato del FA, dijo que quiere a Montevideo limpia como las ciudades del interior. Reconoce que la capital está sucia y mal gestionada; no es común que desde el FA se haga. Sin embargo, para solucionar el tema no hay que votar al partido de Villar. Hay que cambiar.",,False,False,67.484
+399,False,False,,0.0,"Villar, precandidato del FA, dijo que quiere a Montevideo limpia como las ciudades del interior. Reconoce que la capital está sucia y mal gestionada; no es común que desde el FA se haga. Sin embargo, para solucionar el tema no hay que votar al partido de Villar. Hay que cambiar.",,False,False,73.285
+400,False,False,,0.0,"La IMM ya tendría la solución para la basura: contenedor tarjetero. Recargas la tarjeta en Abitab, la pasas, se abr… https://t.co/Ex4onEF3yB",,False,False,2.933
+401,False,False,,0.0,"EL EXPRESO AMENAZA MONTEVIDEO
+@elClubOlimpia sale a escena en la edición 2018 de la Conmebol Libertadores. El Decano debuta desde las 19:15 en Uruguay por la primera fase.
+Toda la previa ➡ https://t.co/vVj7cot7GZ",,False,False,53.188
+402,True,False,,0.0,"En vivo desde el Hotel Sheraton Montevideo, Uruguay. @elClubOlimpia vs Wanderers por #ConmebolLibertadores https://t.co/36vMcgWqQ1",,False,False,2.445
+403,False,False,,0.0,"LOS CANDIDATOS FA SE ESFUERZAN POR BUSCAR PROMESAS XA HACER XA MONTEVIDEO.....Y SI EMPIEZAN POR 
+UN PLAN PARA LIMPIAR LA CIUDAD 
+LEVANTAR LA BASURA ARREGLAR DE VERDAD EL PAVIMENTO XA Q MVDEO NO SEA ZONA MINSDA
+ E ILUMINARLA?
+
+NO INVENTEN....
+SIMPLEMENTE  HAGAN ESTO",,False,False,42.289
+404,False,False,,0.0,el perro de la Montevideo me tiene re podrido un bolsaso en el osico se va a comer,,False,False,1.663
+405,False,False,,0.0,"Estamos en octavos!! Con nuestro adn futbolístico y las expectativas intactas!
+
+También aprendimos en el mundial de los bueno hábitos y dejamos todo limpio! 😊
+
+A aprender por acá y a seguir rindiendo! Uruguay nomá!!! 🇺🇾🇺🇾 https://t.co/XLkPi9JGAV",,False,False,61.173
+406,False,False,,0.0,Daniel Martínez no puede encargarse de la limpieza de 1 calle... ¿y pretende ser Presidente de Uruguay? https://t.co/VswKEVY8ZM,,False,False,48.152
+407,False,False,,0.0,"Mientras Montevideo se cae a pedazos, entre basura, miseria, grafittis, obras a medio terminar , baches y verde tapado de hormigón soviético municipal, el intendente travesti considera de vital importancia ponerle Mario Benedetti a alguna calle. Me voy a fumar un porro y vuelvo.",,False,False,68.619
+408,False,False,,0.0,"Van a hacer dos meses que a mi madre la despidieron de su trabajo como mucama,y busca un empleo EN MONTEVIDEO haciendo limpiezas,ni siquiera pudo acceder a seguro y todo hoy en día esta muy difícil y más sin trabajo
+Me ayudan a difundir?
+Si quieren su número pueden mandarme md https://t.co/3aNrEfSNrv",,False,False,4.481
+409,True,False,,0.0,"Playa Capurro. Bahía de Montevideo. Río de la Plata en estado de emergencia sanitaria...
+@montevideoIM @Dmartinez_uy @NatGeo_la @Rompkbzas810 @dw_espanol @muyinteresante @likechichian @MiguelFNogueira @JMCarzolio @iResiduo @Mvotma_Uruguay https://t.co/K5KbXgdKGj",,False,False,12.65
+410,False,False,,0.0,"Montevideo: hermosa ciudad copada por inseguridad, mugre, oscura, tristemente poblada por indigentes veredas destruidas, plazas que pasaron de ser un sitio de esparcimiento a ""juntadero"" de drogadictos, tránsito desordenado, calles rotas
+Más de 2 décadas del FA lograron el cambio",,False,False,69.113
+411,True,True,,0.0,"Pasaron 3 años desde que asumió el intendente Martínez: Se endeudó en US$ 94 millones a pagar en 20 años, Parches en avenidas que llaman ""inversión"", Recolección de basura ineficiente, Reforma de 18 de Julio (no salió🙏) y Recaudación millonaria por cámaras. Hablame del mejor MVD",,False,False,69.4
+412,False,False,,0.0,"¿Sabías que en nuestras casas podemos reciclar la yerba y convertirla en compost para las plantas? 🌳♻️
+ 📅 Hoy, a partir de las 14:30 en el Parque de la Amistad, te enseñamos cómo hacerlo.
+Los detalles los encontrás acá 👉  https://t.co/ClHiHUWPFy https://t.co/STFaLnoc2k",,False,False,78.107
+413,False,False,,0.0,"Nota que realicé hoy  en Informativo de @radioimparcial dialogo con @Diego__RS @PNACIONAL @Aire__Fresco 
+
+Temas: #Basura - #SubaDelBoleto - #Multas - @montevideoIM 
+
+#Traversa1090 
+
+Nota---&gt; https://t.co/56oaGnUyQx https://t.co/DkhMX7qtIy",,False,False,3.506
+414,False,False,,0.0,"Calles con veredas rotas y sin luz , suciedad y basura por todas partes. 
+Daniel Martínez no sabe ni manejar la int… https://t.co/ApPS36s6Yc",,False,False,19.994
+415,False,False,,0.0,"No hay una sola vereda en todo montevideo que no esté rota y/o sucia. No hay una sola calle en montevideo que no tenga un bache, un pozo o esté rajada. Después de 29 años de gestión . Sigo?? https://t.co/iGcDg2Zf4M",,False,False,47.445
+416,False,False,,0.0,"Dada la situación de limpieza en Montevideo, el @municipioe ha  aumentando el horario en el que  los dos camiones aspiradores funcionan.  Con el objetivo de mejorar la situación y mitigar el perjuicio a la población. https://t.co/Q7blX41EyP",,False,False,72.643
+417,False,False,,0.0,"Comienza a llenarse el Defensores del Chaco,Olimpia - Montevideo 20:15. https://t.co/XbTk1TZPkK",,False,False,24.45
+418,False,False,,0.0,"@elRusoMachenaud @montevideoIM “Cultura” es la bolsa donde entra todo, y donde no hay que mostrar resultados. Tres… https://t.co/MrcqoUGgVZ",,False,False,10.307
+419,False,False,,0.0,"Int. Martínez tranca fuerte por limpieza: escencialidad y privatización. Si hubiera elecciones todos los años, Montevideo sería Dubai. https://t.co/KrgIwd05Nr",,False,False,46.834
+420,False,False,,0.0,Lamentable!!! 2 días que no levantan.  Vergüenza. Calle Igua frente a escuela y en la puerta del liceo 42. Cosa de todos los días. El sistema de contenedores no sirve en este barrio. @Dmartinez_uy @montevideoIM https://t.co/LUN1dy56sz,,False,False,67.383
+421,False,False,,0.0,Ahora resulta que la mugre que hay hace mil en Montevideo está arreglado por los votantes de la coalición para dejar mal a la IMM 😂😂😂😂y los pozos que hay por todo Montevideo y las veredas rotas🤔quienes lo hicieron..,,False,False,61.141
+422,False,False,,0.0,"¿Se imaginan si la IM utilizara esta tecnología para mejorar la basura desperdigada por MVD, los pozos enormes en distintas calles, los semáforos sin funcionar y la falta de iluminación en los barrios? Pero no. Multas y más multas. El ingenio para recaudar no tiene límites! https://t.co/HGbPRQjTCe",,False,False,69.772
+423,False,False,,0.0,"AHORA: Encontraron otro contenedor con droga en el Puerto de Montevideo. 
+
+Ampliaremos la información en nuestra edición central a partir de las 18:55 https://t.co/ZQKIav4dXa",,False,False,33.63
+424,False,False,,0.0,"Bien por el intendente Di Candia quien reconoció la victoria de @LuisLacallePou, un gesto republicano que Martínez no tuvo. Pero también estaría bueno que antes de hablar de las municipales 2020, se ocupe de evitar que MVD se desborde de basura en un mes. https://t.co/qCtNIDtohJ",,False,False,66.181
+425,False,False,,0.0,"Que asco Montevideo, por favor! Ciudad capital de la mugre.",,False,False,2.32
+426,False,False,,0.0,"@AMW140 @AlbericoBarrios para mí Montevideo está horrible, sucia, insegura, rota, pero compararla con Pto.Príncipe...ta la dejo acá",,False,False,2.211
+427,False,False,,0.0,"Mientras Uds siguen indignados con el David vestido de celeste, el Pelado y Adeom siguen sin levantar la basura, sin reemplazar focos, sin tapar pozos, sin terminar el saneamiento y cobrándote cada vez más...",,False,False,3.439
+428,False,False,,0.0,"Mucho carnaval, muchos espectáculos musicales, mucho dinero gastado en ""circo"", mientras crecieron los asentamientos, Montevideo es una mugre, el transporte es caro, lento y malo, iluminación en barrios es lamentable, el tránsito es un caos y volvieron los carros con caballos.",,False,False,60.107
+429,False,False,,0.0,@chdica @jorgewlarranaga dedicate a limpiar la basura genio,,False,False,2.142
+430,False,False,,0.0,"ACTUALIZA: La cocaína incautada en el puerto de Montevideo podría superar las tres toneladas. El contenedor llegó en una barcaza desde Paraguay y estaba en tránsito rumbo a puertos de África y Europa.
+https://t.co/6i8J68LuFu https://t.co/B8OXc3197M",,False,False,70.066
+431,False,False,,0.0,"El que encuentre carteles de ANTÍA tirados en el piso, comuníquese conmigo por privado. Los carteles serán donados a refugios de perros para hacerles casitas. Los que estan colgados, pronto serán descolgados! Por un Montevideo Limpio. RT asi hay mas difusión graciasss🙌🏻",,False,False,46.968
+432,False,False,,0.0,"Parece que los candidatos del FA se dieron cuenta que MVD está sucio, inseguro, sin iluminación y con un transporte poco amigable con el vecino. En 30 años no pudieron resolver estos problemas. Llegó la hora de respetar al contribuyente, de hacer las cosas bien y de cambiar.",,False,False,61.114
+433,False,False,,0.0,"Así amaneció la cuadra, 3 autos con vidrios rotos... 
+
+Capítulo aparte para la mugre que tiene @Dmartinez_uy en TODO MONTEVIDEO https://t.co/x5BPPFCFBV",,False,False,2.625
+434,False,False,,0.0,"Cualquier candidato a la IM que prometa limpiar la ciudad está mintiendo, los mugrientos somos nosotros los votantes.
+La basura no se tira sola, somos nosotros, y nuestros vecinos.
+Los soretes de perro no llegan solos hasta la vereda, las colillas de cigarro y los boletos tampoco",,False,False,60.878
+435,False,False,,0.0,Olimpia perdona y deja vivo a Montevideo Wanderers https://t.co/IPWHzWWFs3 https://t.co/Kp01JG5fua,,False,False,2.148
+436,False,False,,0.0,Los simpatizantes de @elClubOlimpia que se acercan al hotel para apoyar a los jugadores desde bien temprano con un banderazo en la previa al debut de la #LibertadoresxFOX ante Montevideo Wanderers. https://t.co/qI73ODKxbX,,False,False,36.269
+437,False,False,,0.0,"El recontramaldito doble discurso !
+Digo como se soluciona el 80%de la mugre y basura en Mdeo.y ya aparece:
+Represion no..
+Hay que tolerar..
+La culpa es de TODOS los vecinos
+
+NO..LA CULPA ES DEL QUE LA TIRA AFUERA ,principalmente marginales
+
+Y REPRIMILO..
+Pero no,la complicamos!",,False,False,48.811
+438,False,False,,0.0,"🔙📽 ¡Dio un gran golpe! @BarcelonaSC ganó en Montevideo por 2-0. ¡Estas son las mejores jugadas!
+
+@FutbolSantander https://t.co/qfLp4eJ0o1",,False,False,32.039
+439,False,False,,0.0,IM-PRE-SIO-NAN-TE: ¡OPERACIÓN DRON! LIMPIEZA TOTAL DE LAZOS Y ESTELADAS (VÍDEO Y FOTOS) https://t.co/988EFwHIJW https://t.co/mEw4naWtyb,,False,False,2.816
+440,False,False,,0.0,"@Subrayado Se vienen las municipales y se dedican a hacer algo por la basura, Di Candia alcahuete",,False,False,22.526
+441,False,False,,0.0,"Eduardo Espinel, DT de Montevideo Wanderers ""Hoy por la noche definimos la estrategia para el juego ante Olimpia, p… https://t.co/2yWhXWbwuT",,False,False,18.246
+442,False,False,,0.0,"Cómo es la ley del cobro de bolsitas? Se pueden cobrar las bolsas con logos ej TIENDAS  MONTEVIDEO ,como grandes cadenas que son  no te tendrían que dar de papel ? Sino se la pagás tenés q salir con la compra en la mano 😡😡",,False,False,57.75
+443,False,False,,0.0,"HOY DEBUTA EN COPA LIBERTADORES EL ÚNICO GRANDE DEL PARAGUAY, EL #TRICAMPEÓNDEAMÉRICA y #CAMPEÓNDELMUNDO, HOY TENEMOS CITA CON NUESTRA HISTORIA, FUERZA #OLIMPIA DE MI VIDA ...
+MONTEVIDEO WANDERERS RECIBE A OLIMPIA EN EL FRANZINI
+A LAS 19:15hs https://t.co/Ti1GdH9DUH",,False,False,71.16
+444,False,False,,0.0,"La gestión de Daniel Martínez dejó a la IM con un endeudamiento de US$ 203 millones y ni una sola obra importante en MVD. No pudo con la basura, el tránsito es un caos en horas pico y tenemos uno de los boletos más caros de la región. ¿Se lo imaginan como Presidente? https://t.co/q6AMZkcgFE",,False,False,72.597
+445,False,False,,0.0,"El que encuentre carteles de ANTÍA tirados en el piso, comuníquese conmigo por privado. Los carteles serán donados a refugios de perros para hacerles casitas. Los que estan colgados, pronto serán descolgados! Por un Montevideo Limpio. RT asi hay mas difusión graciasss🙌🏻",,False,False,50.399
+446,False,False,,0.0,"La adoradora de asesinos y delincuentes, Fabiana Goyeneche, llamó : "" Es tiempo de lucha y resistencia entre todex"". No, inmundicia...es tiempo que basuras como vos y como las que defendes, acaten la ley y respeten la vida.",,False,False,66.423
+447,True,False,,0.0,"Hicieron una ola de basura en el Montevideo shooping y me parece algo EXCELENTE que en un lugar tan concurrido hagan este tipo de cosas para generar conciencia, tendría que haber por todos lados del país a ver si dejan de ser tan MUGRIENTOS https://t.co/M3tNBNxiEc",,False,False,72.581
+448,False,False,,0.0,"Quienes más protestan por la basura en Mvdeo, son quienes más tiran sus bolsas fuera del contenedor!!",,False,False,36.476
+449,False,False,,0.0,"Luis Almagro era Canciller de Uruguay cuando un terrorista irani que fungía como diplomatico intento dinamitar la embajada de Israel en Montevideo.
+Obviamente el irani fue ayudado a escapar.
+Desde entonces se lo conoce como Almugre. https://t.co/iSZtWxw1Lc",,False,False,68.602
+450,True,False,,0.0,"Ir al Parque Rodó a los juegos es como viajar a los años 70, solo que está lleno de planchas.
+Ver el Zoológico 15 años cerrado y en decadencia total es lamentable.
+Tomar los accesos y ver la mugre y miseria a diestra y siniestra, da pena.
+Esto es el FA.
+Esto es Montevideo
+Vos ves",,False,False,76.37
+451,False,False,,0.0,"Esta es la imágen que resume la gestión de Daniel Martinez:
+
+▶ Basura hasta frente a la Intendencia (delante de sus propios ojos)
+
+Si así manejó Montevideo lo que sería el país. Otro Mujica más no! https://t.co/HE2y2AFNH6",,False,False,29.457
+452,False,False,,0.0,♻ La Intendencia de Montevideo repartirá contenedores para plan piloto de reciclaje en domicilios https://t.co/9BS96Dxdkp,,False,False,2.14
+453,False,False,,0.0,La dejaron solita al lado de una volqueta en Montevideo. Se busca ADOPCIÓN RESPONSABLE 🐾♥️ Ayudenos difundiendo 🙏🏽🙏🏽🙏🏽 https://t.co/ltrmIql8G3,,False,False,2.754
+454,False,False,,0.0,"¡La delegación de #Olimpia ya se encuentra en Montevideo 🇺🇾! 
+
+¡#VamosOLIMPIA! 💪🏻😎⚽️
+
+#OlimpiaPorSobreTodo ⚪️⚫️⚪️ https://t.co/TrbAXxBV6a",,False,False,2.544
+455,False,False,,0.0,Otra vez problemas con la basura-adeom. Hay q planificar la total privatizacion de la limpieza. No hay ni habra otra solucion.,,False,False,2.821
+456,False,False,,0.0,Una ciudad limpia depende del compromiso de todos y todas 👇 https://t.co/yIdoxCSPit,,False,False,36.976
+457,False,False,,0.0,"@GasmaskPlot @natapepe1 @montevideoIM La gente es sucia,harta de ver como tiran todo al piso.
+Llevate la basura y tirala donde corresponde!",,False,False,2.311
+458,True,True,,0.0,"@montevideoIM @quejasya Estoy con mi nieto en la plaza Varela, Bvar. Artigas y Av. Brasil. Es lamentable el estado de mugre y abandono de un lugar tan lindo. ¿A quién corresponde su cuidado y mantenimiento? Lo tengo en la hamaca pues el césped y el pavimento es una mugre.Bochorno",,False,False,80.951
+459,False,False,,0.0,"“Daniel ha hecho una excelente gestión”, dicen dirigentes del FA. ¿Lo dirán por esto?: endeudó MVD en US$ 94 millon… https://t.co/xYdog0gXbG",,False,False,41.178
+460,False,False,,0.0,Olimpia fue multado con U$D 3.000 por la CONMEBOL porque hinchas que fueron a Montevideo ingresaron y explotaron pe… https://t.co/bgTuFovLGY,,False,False,2.378
+461,False,False,,0.0,"🔙📽 ¡Dio un gran golpe! @BarcelonaSC ganó en Montevideo por 2-0. ¡Estas son las mejores jugadas!
+
+@FutbolSantander https://t.co/qfLp4eJ0o1",,False,False,39.441
+462,False,False,,0.0,"En Rivera ponía ropa a lavar y aparecía, limpia y doblada en mi cuarto no entiendo por que acá en Montevideo no pasa lo mismo...",,False,False,11.374
+463,False,False,,0.0,@diegogodin @RosarioRodri22 @radajulieta @diegodelacurva @Dmartinez_uy se suman a la campaña #SacaLaBolsaDelMedio por un planeta libre de plásticos...y se vienen más! 💪💪💪  https://t.co/pLRNu9r8AK https://t.co/KIx86UxozD,,False,False,3.139
+464,True,False,,0.0,Basura y veredas al tope de reclamos de vecinos del Municipio CH https://t.co/eBg7oTm99Z vía @elpaisuy,,False,False,36.968
+465,False,False,,0.0,"El compromiso con Naucalpan es inmediato. Por esa razón instruí a todos los trabajadores de limpieza del municipio a restablecer el servicio de recolección de basura. Con el apoyo del líder del sindicato (SUTEYM) en Naucalpan, Tomás Palomares, lo lograremos en menos de una semana https://t.co/mPh4iKdLYm",,False,False,75.109
+466,False,False,,0.0,"https://t.co/cZgIasPxrB
+@montevideoIM @reciclaje",,False,False,2.174
+467,False,False,,0.0,"@Frente_Amplio @GustavoLeal_uy No pudo con Adeom.
+No pudo con la mugre d Montevideo.
+No pudo disminuir la plantilla d empleados al Santo pedo q tiene la Intendencia.
+Se olvidó d mantener plazas y monumentos emblemáticos d la ciudad....",,False,False,3.228
+468,False,False,,0.0,"El Pelado Martínez hizo una cena a U$S 1000 en Punta del Este... y si, a ese precio tenía que ser en una ciudad limpia y no un mugrero como Montevideo.",,False,False,47.988
+469,False,False,,0.0,#HOY en @SemanarioVoces hablamos de las campañas sucias: https://t.co/Fjj00d788q,,False,False,33.412
+470,False,False,,0.0,"@mengueche08 @montevideoIM Según me dijo una obsecuente... la mugre es ""circunstancial""...",,False,False,1.987
+471,True,False,,0.0,"Postales | 📷 El plantel activó esta mañana en las instalaciones del Hotel Sheraton en Montevideo con miras al partido de hoy. 💪
+ #OlimpiaPorSobreTodo #ConmebolLibertadores https://t.co/7Sc8t7GC86",,False,False,50.977
+472,False,False,,0.0,"Montevideo es la ciudad más insegura, más sucia, con más empleados públicos, más planera, más subsidiada, más estatista y con el centro de adoctrinamiento marxista más grande de Uruguay, UdelaR
+
+No sorprende que hayan votado al zurdaje, si aman vivir a costa del otro",,False,False,66.472
+473,False,False,,0.0,"Hicieron una ola de basura en el Montevideo shooping y me parece algo EXCELENTE que en un lugar tan concurrido hagan este tipo de cosas para generar conciencia, tendría que haber por todos lados del país a ver si dejan de ser tan MUGRIENTOS https://t.co/M3tNBNxiEc",,False,False,66.889
+474,True,False,,0.0,"Daniel Martínez, el Silicon Valley de Mvd lo vas a hacer antes o después del paseo peatonal 18 de Julio? Dejá de vender humo, trabajá en la limpieza, payaso.",,False,False,47.531
+475,False,False,,0.0,"👎 Los vertidos fecales no solo suponen un perjuicio para el medio ambiente, también para la imagen y la economía del municipio a corto y largo plazo.
+🔗 Nota de prensa: https://t.co/t6CYAiITiI",,False,False,58.213
+476,False,False,,0.0,"Dos días con @RaffoIntendenta y ya hemos cosechado estas expresiones de desprecio de burócratas oficialistas. Prueba irrefutable de que vamos por buen camino. Montevideo volverá a ser una ciudad integrada, limpia, moderna y segura. https://t.co/Wzy4Q8V4r6",,False,False,57.679
+477,True,False,,0.0,"En el Cerro hay más color, en junio el mes del medio ambiente las alumnas y alumnos del liceo 31 propusieron a través de @MVDDecide intervenir el cartel de Montevideo https://t.co/YrhPQl5ScW",,False,False,57.996
+478,False,False,,0.0,Continuando con el embellecimiento de nuestro Municipio cuadrilla de nuestra Alcaldía ejecutan limpieza de maleza y recolección de desechos sólidos en la entrada a nuestro Municipio e invitando a nuestro Pueblo a no arrojar desechos o basura a las vías por el bien de todos https://t.co/9GAX02rYJJ,,False,False,75.029
+479,True,False,,0.0,"Recorrer de nochecita el Centro de MVD, ver la basura y la suciedad, la cantidad de locales vacíos, la cantidad de gente acomodándose en umbrales para pasar la noche, sentir la sensación de inseguridad, es una fiel fotografía del resultado de 15 años de gobierno frenteamplista.",,False,False,71.44
+480,False,False,,0.0,"Montevideo es la ciudad más insegura, más sucia, con más empleados públicos, más planera, más subsidiada, más estatista y con el centro de adoctrinamiento marxista más grande de Uruguay, UdelaR
+
+No sorprende que hayan votado al zurdaje, si aman vivir a costa del otro",,False,False,73.35
+481,False,False,,0.0,"El precandidato a la IM por el FA Dr. Álvaro Villar insiste sobre la necesaria limpieza de Montevideo y pone como ejemplo al Hosp. Maciel que dirige.
+Claro, la limpieza allí fue privatizada en un 100%...
+ADEOM !!!CALENTANDO!!!",,False,False,3.32
+482,False,False,,0.0,"Así estamos el 29/12. Para ADEOM la mugre y los basurales no se solucionan hasta pasado el #DíadeReyes
+
+Con el calo… https://t.co/UphrATDpMP",,False,False,44.864
+483,False,False,,0.0,Uruguay SE MUERE. Nunca vi tantas empresas cerradas. Nunca vi tan pocas posibilidades de crecer. Nunca vi tanta desintegración social. Montevideo está decadente sucia ruidosa y maloliente. Nunca vi tanta miseria en todos lados.,,False,False,3.855
+484,False,False,,0.0,Situación real en un ómnibus de Montevideo: pasajero saca el último bizcocho de una bolsa de papel e inmediatamente la arruga y la arroja al piso mientras mastica y mira por la ventana. Después nos quejaremos de la falta de higiene y bla bla bla,,False,False,5.255
+485,False,False,,0.0,"Me fui unos días, vuelvo y encuentro mí habitual Montevideo.
+Basura desparramada en mí querida volqueta.
+Faltaba más, los muchachos que te la tiran para afuera, tienen derecho a ensuciar el barrio..
+Y no les digas nada..que te dicen que sus derechos bla bla...
+Ley 19120 no existe https://t.co/DrVVeOa4b2",,False,False,78.973
+486,False,False,,0.0,En canal 4 En Foco un programa que es de la derecha del plan Atlanta de la CIA haciendo campaña sucia contra Martinez il capo de la eficiente IMM mostrando como laburan Adeom de Rusia,,False,False,54.764
+487,False,False,,0.0,Yo pregunto: nadie se hace cargo?? Un camión lavacontenedores vale más de un cuarto de millón de dólares https://t.co/SpmWSfpe37 @FNopitsch @Dmartinez_uy @JBarriosBove @Diego__RS @ire_ne94,,False,False,2.599
+488,False,False,,0.0,"Ustedes están dimensionando que nuestros defensas van a tener que marcarle a Teo Gutierrez, Yimmi Chará y Lucas Barrios si es que pasamos de Montevideo Wanderers? Sin contar que hay que pasar del defensa capitán de la selección peruana. MAMÁAAAAA #Olimpia",,False,False,60.272
+489,False,False,,0.0,"Olimpia pone más gente como visitante en Montevideo que Cerro, Libertad y Guaraní como locales en el Torneo Paraguayo. #GH1S #VOT #Olimpia",,False,False,2.568
+490,False,False,,0.0,"La gestión de Daniel Martínez dejó a la IM con un endeudamiento de US$ 203 millones y ni una sola obra importante en MVD. No pudo con la basura, el tránsito es un caos en horas pico y tenemos uno de los boletos más caros de la región. ¿Se lo imaginan como Presidente? https://t.co/q6AMZkcgFE",,False,False,64.683
+491,False,False,,0.0,La impresión que tenés cuando bajas de un avión en Carrasco y entrás a Montevideo es que descubriste  donde tiraban la basura que no encontraste en ningún país de Europa.,,False,False,2.703
+492,False,False,,0.0,@flor_vigna Cuantos trabajos más pensas hacer? Yo con uno estoy hecha bolsa 🤣🙏 felicidades y ya los espero en Montevideo el próximo año,,False,False,52.511
+493,False,False,,0.0,"Plástico, papel, cartón, metal... hay muchos materiales que pueden clasificarse. Hoy, en el Día Mundial del Reciclaje, los invitamos a informarse sobre el tema y aprender junto a Felipe 👉https://t.co/ydMiXD7qYC
+Entre todos podemos construir un Montevideo cada vez más lindo 😍",,False,False,68.428
+494,False,False,,0.0,"""En cuanto a mi, apenas me doy cuenta que estoy luchando por migajas de atención, corro lejos en dirección contraria. Porque ahora lo sé: las sobras se tiran a la basura.
+A las personas se las quieren. Y cuando se las quiere, se hace lo (im) posible para hacérselo saber.""✨",,False,False,69.636
+495,False,False,,0.0,Im convinced that someone did brujería on me because my life is really shitty at the moment lmao and before it was great and everything was working out for me so Im going to get a limpieza,,False,False,2.867
+496,False,False,,0.0,"ADEOM le torció el brazo a la Intendencia y Puntigliano saltó como un fusible.
+Ahora se designan cargos políticos de peso. Parece que  se quiere evitar conflictos  sindicales durante la campaña.
+Mientras tanto Montevideo igual de sucia. https://t.co/X0cRSTkxqq vía @elpaisuy https://t.co/vBbkzDOAUH",,False,False,35.958
+497,False,False,,0.0,"Los contenedores ""están al borde del colapso"", asegura Adeom. Conversamos con @AguchoLescano, Alcalde del Municipio E, donde la situación es más crítica &gt;&gt; https://t.co/V82sk2Cye7 vía @Vespertinas4 https://t.co/SI62w5XLIP",,False,False,65.675
+498,False,False,,0.0,"Erradicación de basurales, un afán en Montevideo. https://t.co/zoIAFtxfRr https://t.co/fCKbFdWmjB",,False,False,1.945
+499,False,False,,0.0,"No puede con Adeom, no puede con la basura, no puede con la iluminación, con la seguridad,con la higiene, con los indigentes, con los cuidacoches,con los recicladores, con el precio del boleto, con los ocupas, con quienes vandalizan las propiedades públicas y privadas. Un inútil https://t.co/aGAyVLgyOo",,False,False,71.863
+500,False,False,,0.0,"@ElOjoChurrinche @abbu25 @montevideoIM Mirá lo que es la puerta de mi casa... 
+Y todos los días la misma historia. Gente desesperada reolviendo la basura buscando que comer. Después dejan todo tirado. TRISTE. https://t.co/OaA5IKHimN",,False,False,59.993
+501,False,False,,0.0,Los simpatizantes de @elClubOlimpia que se acercan al hotel para apoyar a los jugadores desde bien temprano con un banderazo en la previa al debut de la #LibertadoresxFOX ante Montevideo Wanderers. https://t.co/qI73ODKxbX,,False,False,42.605
+502,False,False,,0.0,"🚮El sábado 9 de febrero, desde las 09:00h, el grupo «Limpieza de Costas del Uruguay» limpiará la playa Capurro en Montevideo. 
+♻ ¡Todos invitados a sumarse!
+📲 Contacto: @Diana_Pumar. https://t.co/HYzFmyxlMa",,False,False,47.724
+503,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,31.091
+504,False,False,,0.0,"Los operativos de Espacio Público avanzan en todo el distrito. Hoy estuvimos en Pergamino entre Ituzaingo y Sitio de Montevideo (L.E), realizando corte de pasto, limpieza, pintura de cordones y bacheo. ¡Con el compromiso de todos, nuestros barrios estarán cada día más lindos! 😃 https://t.co/bo6CmRBsaf",,False,False,64.925
+505,False,False,,0.0,"Cada mes, la IM arroja al bolsillo de sus funcionarios 50 veces el importe arrojado a la Plaza Zabala para instalar el adefesio. (Adefesio: USD420 mil; retribuciones mensuales: USD20 millones). En ambos casos, dinero sustraído al contribuyente para devolverle una ciudad basural.",,False,False,5.002
+506,True,False,,0.0,"Familias que atraviesan 3 km de pajonales para llegar a un aljibe lleno de mugre a abastecerse de agua. En Colón, Montevideo, Uruguay",,False,False,2.842
+507,True,False,,0.0,"Además de chanchos comiendo de la basura por Cno. Carrasco, caballos sueltos por la Avda. Rivera...Increíble el estado de abandono en el que está Montevideo. https://t.co/w27JU6Q8LM",,False,False,51.209
+508,False,False,,0.0,@FerCevallosF Una basura el Tuca IM AGREE WITH YOU SEÑOR CEVALLOS,,False,False,2.273
+509,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,31.403
+510,True,False,,0.0,"Recorrer de nochecita el Centro de MVD, ver la basura y la suciedad, la cantidad de locales vacíos, la cantidad de gente acomodándose en umbrales para pasar la noche, sentir la sensación de inseguridad, es una fiel fotografía del resultado de 15 años de gobierno frenteamplista.",,False,False,70.125
+511,True,False,,0.0,"Estuvimos en La Teja y parte de la Cachimba del Piojo junto a @victorhugo404 recorriendo y viendo la ausencia de la IM. Saneamiento, iluminación y limpieza continúan siendo los mismos problemas del barrio. Existen 2 MVD! https://t.co/7PQ3MJVUa9",,False,False,78.76
+512,False,False,,0.0,🔴Bomberos #Antofagasta🚨 a esta hora procede a despachar a sus unidades B5 @Bomba5antof las calles Montevideo - Tarapaca. Como información Preliminar: Quema de basura costado linea perimetral,,False,False,49.16
+513,False,False,,0.0,"En 3 años de gestión, Martínez endeudó a MVD en US$ 94 millones a pagar en 20 años, no pudo con la basura y limpieza de la ciudad, el tránsito es un caos (pese a las cámaras) y para colmo le quiere poner impuestos a los turistas. Hablame de buena gestión. https://t.co/oNSpnbHHhG",,False,False,84.185
+514,True,True,,0.0,"🙄 Divina montevideo a la mañana. Vas esquivando la basura. Foto convencion y 18, 08 am. https://t.co/AhPS2sfPLs",,False,False,2.426
+515,False,False,,0.0,Estamos recorriendo el @Municipio_CH relevando la situación de limpieza que tenemos en el territorio. Ya aumentamos el horario de las aspiradoras para atender lo mejor posible esta situación. Si el conflicto no se levanta hoy tomaremos nuevas medidas 💪🏻 https://t.co/Fm700jwiWP,,False,False,65.183
+516,False,False,,0.0,"La gestión de Daniel Martínez dejó a la IM con un endeudamiento de US$ 203 millones y ni una sola obra importante en MVD. No pudo con la basura, el tránsito es un caos en horas pico y tenemos uno de los boletos más caros de la región. ¿Se lo imaginan como Presidente? https://t.co/q6AMZkcgFE",,False,False,68.777
+517,False,False,,0.0,"🔙 Un día como hoy hace 58 años @OficialCAP se convirtió en el primer finalista de la historia de la @Libertadores al vencer 2-1 a @SanLorenzo en el desempate jugado en el Centenario de Montevideo.
+
+ 🏆🇺🇾Peñarol alzaría esa primera Copa al derrotar a @elClubOlimpia en la final https://t.co/ZFra4J5yKj",,False,False,3.79
+518,False,False,,0.0,"¿Ansiedad? 🤔
+Seguí en vivo la gran cobertura que está haciendo @OlimpiaMedia desde Montevideo 🇺🇾
+#VamosOlimpia",,False,False,2.673
+519,False,False,,0.0,"6-...ataque al Colon. Ojalá Valparaíso se sacuda a ese mediocre Abogado y a toda la lacra ultrona que tiene sometido ese municipio a ser tan solo un cuartel político, y la otrora ""Joya del Pacífico"" convertida en un basural. 
+Mario Desbordes sigue con el coqueteo con...",,False,False,64.832
+520,False,False,,0.0,Es una vergüenza que la IM se de el lujo de tener abandonados seis camiones que nos costaron a todos los montevideanos US$ 1.899.480. Después cuando llega fin de año ponen excusas y la ciudad se tapa de basura. Presentamos pedido de informes. https://t.co/U8Ippvhkcf,,False,False,65.308
+521,False,False,,0.0,"Este señor es el intendente de Montevideo y en vez de preocuparse por levantar la basura y tener un mejor transporte, se dedica a analizar si “beboteó” o no. ¿En serio le vamos a dar 5 años más al FA en la IM? Nos merecemos una gestión seria y responsable. https://t.co/W8whgTZ7oh",,False,False,15.566
+522,False,False,,0.0,"El director de Desarrollo Ambiental de la IM renuncia, Adeom pone palos en la rueda y el intendente Di Candia brilla por su ausencia. Mientras tanto, MVD es una mugre y lamentablemente la basura es parte del paisaje en varios barrios. Siempre terminan pagando los mismos. 👎🏼",,False,False,66.416
+523,False,False,,0.0,"🏆⚽ ELA ESTÁ DE VOLTA!
+A #LibertadoresFOXSports começa hoje e, a partir das 20h, você assiste ao duelo entre Montevideo Wanderers e Olimpia. A partir de 23h, a bola rola entre Oriente Petrolero e Universitario, tudo isso na tela do FOX Sports! https://t.co/pI8Z6kloui",,False,False,5.051
+524,False,False,,0.0,"- No puede con ADEOM
+- No puede con la basura
+- Boleto carísimo, pésimo servicio
+- Nadie usa las ciclovias 
+- Caos en el tránsito
+- Desastre por obras como los corredores
+- Divino el cartel MONTEVIDEO 
+
+48% de aprobación 
+
+Que mal estamos!!! 
+https://t.co/E3LtRhKzqu",,False,False,81.69
+525,False,False,,0.0,@Gabrielhpereyra ¿Vos decís que un solo empresario puede mover 100 contenedores diarios en un puerto como el de Mvd?,,False,False,2.693
+526,False,False,,0.0,"Bernal oeste, ayer en Montevideo y 178, desde hace varios días la basura se acumula. El #timbreo de… https://t.co/Fyk2SaNmKo",,False,False,51.991
+527,False,False,,0.0,#Video Los goles de @elClubOlimpia ante Montevideo Wanderers para avanzar a segunda fase en la Libertadores. https://t.co/njsC48Nygd,,False,False,31.127
+528,False,False,,0.0,"Cuando tropiezan en la vereda, cuando agarren un pozo,tienen que hacer diez cuadras más, cuenten balizas, las volquetas llenas, el ser humano que duerme en tu cuadra, el abandono que hay en Mdeo, cuando te abraza el olor a orin cuando pagas las tarifas, ¡acuérdense de Martinez!",,False,False,65.066
+529,False,False,,0.0,"¡BIENVENIDO, Cucuruchet!
+¡Montevideo te estaba esperando de basurales abiertos!",,False,False,1.973
+530,False,False,,0.0,"@Frente_Amplio Jajajaj contate otro Vero, no puede con la basura en Montevideo va a estar comprometido con el ambiente 😂😂😂🤦🏻‍♂️",,False,False,2.17
+531,False,False,,0.0,"@Bassorelli Hay que preguntarle al ingeniero , a la ingeniera y al dr que los 3 la tienen re clara, por eso Montevideo está tan limpio",,False,False,45.18
+532,False,False,,0.0,"Presidente @MarcoTrovatoV con esta postal y maravillosa vista de Montevideo, no seria posible en algún tiempo un amistoso entre mi club @RamplaJuniorsFC  y @elClubOlimpia ??? https://t.co/E6KDv2YDFz",,False,False,2.882
+533,False,False,,0.0,"¿Ya estás de limpieza general? 🧹  
+Si vas a cambiar algún mueble o electrodoméstico, recordá que lo mejor es regalarlo para que otro lo use. 
+Si hay que tirarlo, solicitá nuestro servicio especial de recolección gratuito llamando al 1950 3000 o aquí 👉🏾 https://t.co/3BMgsRHaYE https://t.co/FnIEJIYBWJ",,False,False,3.581
+534,False,False,,0.0,Mujica le pidió a Martinez una campaña limpia. El intendente le dijo que será tan limpia como Montevideo en su gestión. https://t.co/lO63vuI8fz,,False,False,12.413
+535,False,False,,0.0,"LA MAYOR MATANZA DE LA HISTORIA 
+La intendencia de Montevideo recauda 3.000 dólares POR HORA de multas automáticas.
+Más de 25 millónes de dólares por año.
+Nos descuartiza.
+Y este pelado hijo de mil puta no puede tener la ciudad sin basura?
+Y puede ser presidente?
+Somos guampudos!",,False,False,22.241
+536,True,False,,0.0,"Señores de la @montevideoIM @chdica @IMambiente @FNopitsch veo con preocupación que en ""los peines"" de los accesos en dirección a la Bahía, se están llenando de basura e incluso en la propia Bahía, vuelcan basura , se podría coordinar con Prefectura soluciones al respecto https://t.co/f0XTrNZWkn",,False,False,72.792
+537,False,False,,0.0,"Estas son las consultas que más nos llegan sobre la clasificación de residuos:
+
+📌¿Cómo se deben separar los residuos reciclables?
+En una bolsa o tacho diferente que el resto de los residuos. Recordá que deben estar limpios, secos y compactados. https://t.co/aKXe8q8dIr",,False,False,73.682
+538,False,False,,0.0,"@mwfc_oficial Olimpia por Libertadores, en Montevideo, se enfrentaran por 2da vez. La anterior en 1983, con igualdad sin goles",,False,False,16.838
+539,False,False,,0.0,#LaPlata Ahora reabren la casa de Ricardo Barreda en 48 11 y 12 para llevar adelante un operativo de limpieza (desratización) en su interior. Lo realiza el municipio a pedido de los vecinos. https://t.co/XMJ6fo6Ayi,,False,False,36.406
+540,False,False,,0.0,Demoliciones y reciclajes de los palacios de Montevideo https://t.co/gKrO6WJ4cr vía @elpaisuy,,False,False,36.047
+541,False,False,,0.0,"Para lograr el cometido de @alvillar está clarísimo q en mayo NO se debe votar al FA, más de lo mismo.
+En 30 años NO han sabido y NO han podido solucionar el problema de la #basura en Montevideo.
+Destaco honestidad al reconocer q intendencias del interior son más limpias.
+#ChauFa https://t.co/Lj9hEPN7wa",,False,False,75.603
+542,False,False,,0.0,"Asombroso!!! El Intendente de Montevideo descubrió q la basura debe ser recolectada. La solución fue crear una comisión multitudinaria para discutirlo. ""Si queremos que todo siga como está, necesitamos que todo cambie"" 
+Il Gattopardo",,False,False,2.5
+543,True,True,,0.0,"Martínez no puede con la basura de Montevideo, podrá con toda la basura del Uruguay?
+
+Especialmente la cantidad que hay en la calle Colonia y Ejido?
+
+No creo... https://t.co/kNZlvh1hQb",,False,False,54.167
+544,True,False,,0.0,"Recorrer de nochecita el Centro de MVD, ver la basura y la suciedad, la cantidad de locales vacíos, la cantidad de gente acomodándose en umbrales para pasar la noche, sentir la sensación de inseguridad, es una fiel fotografía del resultado de 15 años de gobierno frenteamplista.",,False,False,71.606
+545,False,False,,0.0,Que están esperando para decretar emergencia sanitaria? Contenedores y alrededores llenos  de basura. Además sabemos a q  velocidad  trabaja de Adeom,,False,False,2.568
+546,False,False,,0.0,"Que buena noticia!! Saben que más del 95% de los contenedores intervenidos artísticamente por artistas, escolares o jóvenes de diversas ongs nunca fueron vandalizados? Apropiarse del espacio público es el camino! Suerte a Noe Cor! #arte https://t.co/QHRqUCtSKG",,False,False,59.851
+547,True,False,,0.0,"@GustavoZubia Si vivís en Colón, viva el municipio G! Y el pichaje q desparrama la basura!",,False,False,2.749
+548,False,False,,0.0,"¡Ganó Olimpia! Con goles de Camacho y Giménez, venció 2-0 a Montevideo Wanderers en el partido de vuelta (0-0 la id… https://t.co/RufpUaTkEx",,False,False,3.166
+549,True,False,,0.0,"Me avisan por la cucaracha que los cabildantes estarían tirando basura de los contenedores a la calle para fingir caos e ineficiencia en la zona de Capitán Tula ¿Alguien puede chequear?@LemaCelina
+@lanonabrabucona
+@chdica
+
+Cno. Capitán Mateo Tula Dufort
+
+https://t.co/mJujqL3wst",,False,False,74.03
+550,False,False,,0.0,AHORA | Olimpia eliminó a Montevideo Wanderers y enfrentará a Junior en la 2da fase del #Repechaje de la… https://t.co/eqv4llVpMv,,False,False,48.418
+551,False,False,,0.0,Natalia eres literalmente una modelo aunque te pusieras una bolsa de basura te quedaria increíble im,,False,False,2.291
+552,False,False,,0.0,"Si será pésima la gestión frenteamplista de la Intendencia de Montevideo que después de 30 años de gobierno, el Intendente Di Cándida hace una conferencia de prensa para manifestar “su orgullo” porque levantaron la basura.",,False,False,3.488
+553,False,False,,0.0,Un contenedor de japoneses para el sector limpieza de la Intendencia de Montevideo y listo. https://t.co/oCBIGew27B,,False,False,3.012
+554,False,False,,0.0,"SUFRIDO, PERO MERECIDO
+Olimpia le ganó a Montevideo Wanderers y se anota en la siguiente etapa de la Conmebol Liber… https://t.co/1FgL7cciQt",,False,False,2.769
+555,False,False,,0.0,"@Oandradelallana Si como en Montevideo, años gobernando y es una mugre todo y un mundo de zurdos acomodados ganado fortunas,está bueno cambiar!!",,False,False,1.934
+556,False,False,,0.0,"El que encuentre carteles de ANTÍA tirados en el piso, comuníquese conmigo por privado. Los carteles serán donados a refugios de perros para hacerles casitas. Los que estan colgados, pronto serán descolgados! Por un Montevideo Limpio. RT asi hay mas difusión graciasss🙌🏻",,False,False,52.345
+557,False,False,,0.0,Daniel Martínez dice que le dará GUERRA a las Mafias del Narcotrafico.Recordemos que este señor no pudo con la recolección de Basura de Montevideo.,,False,False,46.173
+558,False,False,,0.0,"Hay que pagar por bolsas de nylon. ¿Cuánto impactará esta medida al medio ambiente? Poco. 
+
+Montevideo recicla por año menos de lo que sus ciudadanos tiran en un día. 
+
+IM reconoce fracaso de contenedores naranjas.
+
+Mi nota hoy en QP 👇
+
+https://t.co/2kJxUtpZKm vía @elpaisuy",,False,False,27.034
+559,False,False,,0.0,"Vergüenza le debería dar a toda persona que se manifiesta en contra de las jineteadas, cuando circulando por Montevideo se cruza con un caballo tirando un carrito cargado de basura. Esos si que la sufren todos los días del año, sin conocer lo que es el descanso, y el pasto verde.",,False,False,70.524
+560,False,False,,0.0,"Los montevideanos merecemos un Montevideo seguro, limpio, iluminado. Merecemos una ciudad para disfrutar y por eso le hablo a todos los montevideanos, sin pensar en ideología o caudal electoral. Tengo la tranquilidad de que van a poder contar conmigo si me confían su voto.",,False,False,65.996
+561,False,False,,0.0,"La Intendencia de Montevideo entregó ayer otros diez motocarros a clasificadores de residuos que antes hacían la tarea con carros tirados por caballos. De esta manera, se llegó a 23 de estos vehículos https://t.co/ZJ7bx7Hee6",,False,False,2.656
+562,False,False,,0.0,"¡¡¡ CONSTANZAAA !!! ¿¿ Compraste un museo con ""nena"" incluída?? 
+LEE: Liceo Nº 22 Montevideo, alumnos en contenedores, profesores suspendieron clases por ratas y cucarachas.",,False,False,2.035
+563,False,False,,0.0,"En la IM hay una agencia de viajes VIP donde el intendente Martínez y sus directores han recorrido el Mundo vaya uno a saber para qué. MVD está sucia, sin inversión y se quedó en el tiempo. Menos viajes y más atención a los reclamos de los vecinos en distintos barrios. Respeto!",,False,False,68.255
+564,False,False,,0.0,@IdCanelones No tienen esos tractores que usan en Montevideo para limpiar la arena?. Algunas playas dan vergüenza,,False,False,2.765
+565,False,False,,0.0,Hace solo 54 días que Grêmio ganaba la Libertadores 2017 y hoy ya empieza la edición de 2018. Me encanta el nuevo formato de fechas de este glorioso torneo. Un partido tras otro casi sin descanso. Montevideo Wanderers y el tricampeón Olimpia abren fuego esta noche y ahí estaremos,,False,False,30.703
+566,False,False,,0.0,"Montevideo, una ciudad llena de mugrientos, no es quien gobierna. Son los sucios que andan en la calle y tiran basura en cualquier lado. https://t.co/FXCuvpRvoW",,False,False,28.445
+567,False,False,,0.0,"Montevideanos que opciones proponen para los Bancos de la plaza Zabala que sacaron y están sacando?
+Dónde los ponemos?
+No hablemos de los 400 mil dólares tirados a la basura, va al bolsillo de algún compañero de Varela.
+SE RECIBEN IDEAS?
+ADELANTE LOS LEEMOS.",,False,False,66.244
+568,False,False,,0.0,"@IanDuddyFCO @foreignoffice @YoAmoMiPlayaOK @karumbeuy @OurBluePlanet @sascampaigns @VidaMarinaUY @montevideoIM @Mvotma_Uruguay @Greenpeace @Uruguay_Natural Hoy, 23/09, 27/08 subió fotos con la playa sucia, si es como la de hoy fue luego de una gran tormenta, una pena no suba fotos del 99% de la playas del Uy que siempre están en excelente estado y solo resalta los días post tormenta.Fea la imagen q difunde del país.",,False,False,82.431
+569,False,False,,0.0,La juventud se hace cargo! Por una campaña limpia! hoy junto a @Andresabt alcalde del municipio CH ♻️ #ReciclaTuCampaña https://t.co/7tqnACYjw7,,False,False,46.794
+570,True,True,,0.0,"Siento mucha tristeza al ver esto en Montevideo. Una persona compartió esta imagen que ocurrió hace minutos en la esquina de Salto y (Bernabé) Rivera. La cantidad de personas en situación de calle creció en la capital. Hay planes para mejorar esta realidad, pero duele verla.',",,False,False,72.507
+571,True,False,,0.0,"Mucha basura suelta por Varela frente al Policial',",,False,False,2.121
+572,True,True,,0.0,"En Montevideo podés ir a Porongos esquina Blandengues Upside-down face',",,False,False,8.519
+573,True,True,dr-aquiles-r-lanza#av-18-de-julio,4493.64725984,"18 de Julio esquina Aquiles Lanza, Montevideo, Uruguay',",cruces_vias,True,True,33.957
+574,True,False,,0.0,"Roban estación de servicio  esquina Montevideo shopping. Hace una semana robaron una joyería a 50 metros de esa estación de servicio. Lugar de mucho tránsito de personas y vehículos. Lleno de camaras de video vigilancia y PADO Man police officerDown pointing backhand index',",,False,False,68.946
+575,False,False,,0.0,"En esta foto estas en que lugar de Europa, amorosa? Ésta estuvo en el cerro de montevideo, calle Venezuela esquina Bogotá....Jaaaa....sos una genia! Smiling face with open mouth and smiling eyes',",,False,False,58.194
+576,True,True,,0.0,"👷🏻‍| #MontevideoMejora Round pushpin Av. Italia de Gallinal a Bolivia, luce más amplia y linda Bus Un carril más para el bus Mejor captación de aguas pluviales 🅿 Refugios Bicisenda 40 nuevas columnas de alumbrado y 80 luminarias LED Más info:',",,False,False,71.602
+577,True,True,,0.0,"@quejasyaEn la esquina de Montevideo Shopping hay una ""montaña"" de basura (Galarza y Tiburcio Gómez)',",,False,False,17.27
+578,True,True,,0.0,"Cheering megaphone Modificación de paradas para líneas 147 y 148 hacia afuera Calendar Desde el 5 de marzo Cross mark Se suprime la parada de Paysandú esquina Tristán Narvaja Hourglass Funciona provisoriamente en Tristán Narvaja esquina Cerro Largo',",,False,False,40.24
+579,True,True,,0.0,"Un hecho histórico en la Medicina Mundial. Ciudad de Montevideo. Esquina de Colonia y Arenal Grande. CASMU 1',",,False,False,29.477
+580,True,True,,0.0,"Cno. de las Tropas esquina Verdún',",,False,False,30.49
+581,True,True,,0.0,"¡Hola! Para este tipo de errores en el registro debes acudir a nuestra oficina, allí te darán la información y la ayuda necesaria para corregir este error y completar tu proceso. Recuerda que nuestra oficina está ubicada en Montevideo, José Ellauri 938, esquina Benito Lamas. 🚴🏽Sparkling heart',",,False,False,82.143
+582,True,True,,0.0,"🚧❌ | MEDIA CALZADA 📍 26 DE MARZO entre L.A. de Herrera y Marco Bruto 🕖 De 7 a 16 h  📍 JOSÉ ELLAURI esquina Leyenda Patria 🕖 De 7 a 17 h  📍 LAGUNILLAS esquina Joaquín Núñez 🕖 De 8 a 18 h  📍 8 DE OCTUBRE desde 18 de Julio hasta Colonia 🕖 De 8 a 18 h',",,False,False,52.133
+583,True,True,,0.0,"Speaker with three sound waves “Durazno y Convención” es una canción de 1984, que hoy es un tema que se puede escuchar mismo en la esquina sobre la que habla la letraRound pushpin  Ya que es un punto de Montevideo Sonoro Mobile phone Headphone',",,False,False,14.306
+584,True,True,,0.0,"En la ciudad de Montevideo, hace ya bastante tiempo, están dibujados los hongos de Super Mario Bros. En avenida Uruguay esquina Arenal Grande, está dibujado un hongo rojo. En avenida San Martín esquina Libres, está dibujado un hongo verde. Smiling face with heart-shaped eyes',",,False,False,74.76
+585,True,True,,0.0,"Alquiler anual. Centro de Montevideo 1 dormitorio $19.000 Héctor Gutiérrez Ruiz esquina San José Coordine visitas al 094283539 Llamadas o wsp',",,False,False,52.933
+586,True,True,,0.0,"¿Sos marica que usás vestido? Utilizando ésta frase tres efectivos de la Guardia Republicana apalearon a Joel, artista callejero que trabaja habitualmente en Millán y Garzón.'",,False,False,47.607

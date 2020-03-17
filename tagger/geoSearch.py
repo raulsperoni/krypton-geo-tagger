@@ -367,10 +367,23 @@ class GeoSearch(object):
                     relative_importance))
 
             return (
+                best_highlights,
                 min_position_in_text,
                 max_position_in_text,
                 len_longest_highlight,
                 unique_highlights_count * elastic_score * len_longest_highlight ** 2 * relative_importance)
+
+    def exists_match_cruces_vias(self, match_dict, result_object):
+
+        first = self.strip_name(result_object.get('text_first_street', None))
+        secnd = self.strip_name(result_object.get('text_second_street', None))
+
+        for existing_match_name in match_dict.keys():
+            parts = existing_match_name.split('#')
+            if ((first == parts[0]) and (secnd == parts[1])) or ((first == parts[1]) and (secnd == parts[0])):
+                return True
+
+        return False
 
     def make_match_cruces_vias(self, res_obj, field, boost_field, text):
         """
@@ -390,14 +403,25 @@ class GeoSearch(object):
         if res_obj.get(first_field, None) and res_obj.get(secnd_field, None):
             result['name'] = self.strip_name(res_obj[first_field], '-') + '#' + self.strip_name(res_obj[secnd_field], '-')
 
-            first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field, text)
-            secnd_min_idx, secnd_max_idx, secnd_len, secnd_score = self.calculate_score(res_obj, secnd_field, text)
+            first_hgs, first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field, text)
+            secnd_hgs, secnd_min_idx, secnd_max_idx, secnd_len, secnd_score = self.calculate_score(res_obj, secnd_field, text)
+
+            exclusive_highlights_first = set(first_hgs.keys()).difference(set(secnd_hgs.keys()))
+            exclusive_highlights_secnd = set(secnd_hgs.keys()).difference(set(first_hgs.keys()))
+            len_exclusive_first = len(exclusive_highlights_first)
+            len_exclusive_secnd = len(exclusive_highlights_secnd)
+            logger.debug('len_exclusive_first = {}\nlen_exclusive_secnd = {}'.format(
+                len_exclusive_first,
+                len_exclusive_secnd
+            ))
+            if (len_exclusive_first == 0) or (len_exclusive_secnd == 0):
+                return result
 
             distance = self.distance_of_strings_in_string(
                 first_min_idx, first_max_idx, first_len, secnd_min_idx, secnd_max_idx, secnd_len)
 
             if first_score > 0 and secnd_score > 0:
-                result['score'] = (first_score + secnd_score) * boost_field * (1 / float(distance))
+                result['score'] = (first_score + secnd_score) * boost_field * (1 / float(distance)) * (len_exclusive_first+len_exclusive_secnd)
 
             logger.debug('TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nBoost Field = {}\nDistance = {}'.format(
                 result['score'], first_score, secnd_score, boost_field, distance
@@ -544,7 +568,11 @@ class GeoSearch(object):
         else:
             return "$$$$$$"
 
-    def complete_search(self, text, result_size=500, debug=False):
+    @staticmethod
+    def log_match(match):
+        logger.info('✔️ MATCH: {: >15}{: >20}{: >50}'.format(match['score'], match['field'], match['name']))
+
+    def complete_search(self, text, result_size=500):
         match_dict = {}
 
         search_fields = [("cruces_vias", 100), ("lugares_interes", 1), ("espacios_libres", 1), ("geonames", 1),
@@ -556,10 +584,11 @@ class GeoSearch(object):
                 for result in results:
                     try:
                         result_object = self.get_result_object(result)
-                        if not self.is_name_matched(match_dict, result_object):
+                        if not self.exists_match_cruces_vias(match_dict, result_object):
                             logger.debug(self.print_object(result_object))
                             match_obj = self.make_match_cruces_vias(result_object, search_field, boost_field, text)
-                            match_dict[match_obj['name']] = match_obj
+                            if match_obj['score'] > 0:
+                                match_dict[match_obj['name']] = match_obj
                     except Exception as e:
                         logger.error(e)
 
