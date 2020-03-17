@@ -1,16 +1,15 @@
-# coding: utf-8
-import math
-import time
+# -*- coding: utf-8 -*-
 import configparser
-from difflib import SequenceMatcher
-import json
-from shapely.geometry import mapping, shape
 import re
+import time
+from difflib import SequenceMatcher
+
 import numpy as np
 import pandas as pd
-from sklearn.metrics import confusion_matrix as cm
-
 from elasticsearch import Elasticsearch
+from shapely.geometry import mapping, shape
+from sklearn.metrics import confusion_matrix as cm
+from unidecode import unidecode
 
 
 class GeoSearch(object):
@@ -18,7 +17,7 @@ class GeoSearch(object):
     Clase para hacer enrich con ubicaciones a partir de texto
     """
 
-    def __init__(self,elastic_host,elastic_port):
+    def __init__(self, elastic_host, elastic_port):
         config = configparser.ConfigParser()
         config.read('conf/montevideo.conf')
 
@@ -33,9 +32,10 @@ class GeoSearch(object):
             self.es = Elasticsearch([{'host': elastic_host,
                                       'port': elastic_port}])
         else:
-            self.es = Elasticsearch([{'host': config['MONTEVIDEO']['elasticsearch_host'], 'port': int(config['MONTEVIDEO']['elasticsearch_port'])}])
+            self.es = Elasticsearch([{'host': config['MONTEVIDEO']['elasticsearch_host'],
+                                      'port': int(config['MONTEVIDEO']['elasticsearch_port'])}])
 
-    def boosting_match_bool_search(self, text, size=500, boost=2, negative_boost=0.5):
+    def boosting_match_bool_search(self, text, field, size=500, boost=2, negative_boost=0.5):
         """
         Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
         """
@@ -47,28 +47,29 @@ class GeoSearch(object):
                     "positive": {
                         "bool": {
                             "must": {
-                                "multi_match": {
-                                    "query": text,
-                                    "analyzer": "normal_analyzer",
-                                    "fields": ["nombre", "aliases"],
-                                    "type": "best_fields"
+                                "term": {"type": field}
+                            },
+                            "should": [
+                                {
+                                    "multi_match": {
+                                        "query": text,
+                                        "fields": ["nombre*", "aliases*"],
+                                        "type": "best_fields",
+                                        "tie_breaker": 0.2,
+                                        "cutoff_frequency": 0.001
+                                    }
+                                }
 
-                                }
-                            },
-                            "must_not": {
-                                "multi_match": {
-                                    "query": self.must_not_terms,
-                                    "analyzer": "normal_analyzer",
-                                    "fields": ["nombre", "aliases"],
-                                    "type": "best_fields"
-                                }
-                            },
+                            ],
                             "boost": boost
                         }
                     },
                     "negative": {
-                        "match": {
-                            "type": self.boost_negative_types
+                        "multi_match": {
+                            "query": "",
+                            "fields": ["nombre", "nombre_1", "aliases"],
+                            "type": "best_fields",
+                            "tie_breaker": 0.2
                         }
                     },
                     "negative_boost": negative_boost
@@ -76,13 +77,69 @@ class GeoSearch(object):
             },
             "highlight": {
                 "fields": {
-                    "nombre": {},
-                    "aliases": {}
-                }
+                    "*": {}
+                },
+                "number_of_fragments": 10
             }
         })['hits']['hits']
 
-    def boosting_match_bool_search2(self, text, size=500, boost=2, negative_boost=0.5):
+    def multi_match_by_field(self, text, field, size=50):
+        """
+        Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
+        """
+        return self.es.search(index='montevideo', body=
+        {
+            "from": 0, "size": size,
+            "query": {
+                "bool": {
+                    "must": {
+                        "term": {"type": field}
+                    },
+                    "should": [
+                        {
+                            "match": {
+                                "nombre": {
+                                    "query": text,
+                                    "cutoff_frequency": 0.1
+                                }
+                            }
+                        },
+                        {
+                            "match": {
+                                "nombre.variant_2": {
+                                    "query": text,
+                                    "cutoff_frequency": 0.1
+                                }
+                            }
+                        }, {
+                            "match": {
+                                "nombre_1": {
+                                    "query": text,
+                                    "cutoff_frequency": 0.1
+                                }
+                            }
+                        },
+                        {
+                            "match": {
+                                "nombre_1.variant_2": {
+                                    "query": text,
+                                    "cutoff_frequency": 0.1
+                                }
+                            }
+                        }
+
+                    ]
+                }
+            },
+            "highlight": {
+                "fields": {
+                    "*": {}
+                },
+                "number_of_fragments": 10
+            }
+        })['hits']['hits']
+
+    def multi_match(self, text, size=5):
         """
         Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
         """
@@ -91,15 +148,110 @@ class GeoSearch(object):
             "from": 0, "size": size,
             "query": {
 
+                "multi_match": {
+                    "query": text,
+                    "fields": ["nombre_1*", "nombre_2.*", "aliases*"],
+                }
+
+            },
+            "highlight": {
+                "fields": {
+                    "*": {}
+                },
+                "number_of_fragments": 10
+            }
+        })['hits']['hits']
+
+    def multi_cruces_calles(self, text, size=50):
+        """
+        Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
+        """
+        return self.es.search(index='montevideo', body=
+        {
+            "from": 0, "size": size,
+            "query": {
                 "bool": {
-                    "should": [
-                        {"match": {"nombre": text}},
-                        {"match": {"nombre.variant_1": text}},
-                        {"match": {"nombre.variant_2": text}},
-                        {"match": {"aliases": text}},
-                        {"match": {"aliases.variant_1": text}},
-                        {"match": {"aliases.variant_2": text}}
-                    ]
+                    "must": {
+                        "multi_match": {
+                            "query": text,
+                            "fields": [
+                                "text_first_street^2",
+                                # "text_first_street.raw",
+                                "text_first_street.variant_1^3",
+                                "text_first_street.variant_2^4",
+                                "text_second_street^2",
+                                # "text_second_street.raw",
+                                "text_second_street.variant_1^3",
+                                "text_second_street.variant_2^4"
+                            ],
+                            "type": "cross_fields",
+                            "minimum_should_match": "2",
+                            "cutoff_frequency": 0.1
+                        }
+                    },
+                    "filter": {
+                        "term": {"type": 'cruces_vias'}
+                    }
+                }
+            },
+            "highlight": {
+                "fields": {
+                    "*": {}
+                },
+                "number_of_fragments": 10
+            }
+        })['hits']['hits']
+
+    def multi_bool_cruces_calles(self, text, size=50):
+        """
+        Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
+        """
+        return self.es.search(index='montevideo', body=
+        {
+            "from": 0, "size": size,
+            "query": {
+                "bool": {
+                    "must": [
+                        {
+                            "match": {
+                                "text_first_street": {
+                                    "query": text,
+                                 #   "minimum_should_match": "30%"
+                                   # "analyzer": "search_calle_analyzer"
+                                }
+                            },
+
+                        },
+                        {
+                            "match": {
+                                "text_second_street": {
+                                    "query": text,
+                                  #  "minimum_should_match": "30%"
+                                   # "analyzer": "search_calle_analyzer"
+                                }
+                            },
+
+                        }
+                    ],
+                    "should": {
+                        "multi_match": {
+                            "query": text,
+                            "fields": [
+                                "text_first_street.variant_1^2",
+                                "text_first_street.variant_2^3",
+                                "text_second_street.variant_1^2",
+                                "text_second_street.variant_2^3"
+                            ],
+                            "type": "cross_fields",
+                            #"minimum_should_match": "2",
+                        }
+                   #     "match_phrase": {
+                   #         "text_first_street": {
+                   #             "query": text,
+                   #             "slop": 50
+                   #         }
+                   #     }
+                    }
                 }
             },
             "highlight": {
@@ -140,45 +292,135 @@ class GeoSearch(object):
         })['hits']['hits']
 
     @staticmethod
-    def strip_name(name):
+    def strip_name(name, delimiter='-'):
         if name:
-            return name.replace(' ', '-').strip().lower()
+            name = unidecode(name)
+            name = name.strip().lower()
+            name = re.sub(r'[^0-9a-zA-Z]+', delimiter, name)
+            return name
         else:
-            return None
-
-    @staticmethod
-    def get_match_name(result_obj_1, result_obj_2):
-        return result_obj_1['s_name'] + '|' + result_obj_2['s_name']
+            return ''
 
     @staticmethod
     def is_name_matched(match_dict, result_object):
-        matched_key = next((key for key in match_dict.keys() if result_object['s_name'] in key), None)
+        matched_key = next((key for key in match_dict.keys() if
+                            (result_object.get('s_nombre', None) and result_object['s_nombre'] in key) or
+                            (result_object.get('s_nombre_1', None) and result_object['s_nombre_1'] in key) or
+                            (result_object.get('s_aliases', None) and result_object['s_aliases'] in key)), None)
         return matched_key != None
 
-    @staticmethod
-    def calculate_score(res_obj, minus_highlights=[]):
+    def get_min_substring_index(self, text, string):
+        text = self.strip_name(text)
+        string = self.strip_name(string)
+        idx = 250
+        if string in text:
+            return text.index(string)
+        else:
+            for sub in string.split('-'):
+                if sub in text:
+                    idx = min(idx, text.index(sub))
+        return idx
+
+    def get_max_substring_index(self, text, string):
+        text = self.strip_name(text)
+        string = self.strip_name(string)
+        idx = 0
+        if string in text:
+            return text.index(string)
+        else:
+            for sub in string.split('-'):
+                if sub in text:
+                    idx = max(idx, text.index(sub))
+        return idx
+
+    def calculate_score(self, res_obj, field_name, text):
         """
         I'm weighting how many terms matched (highlights) on each obj,
         maybe this should be optional because i'm changing elastic bias.
         Also, i'm not considering common highlights.
-        """
-        highlights = set(res_obj['highlights']) - set(minus_highlights)
-        how_many_highlights = max(len(highlights), 1)
-        avg_highlights_lenght = max(sum([len(hg) for hg in highlights]) / how_many_highlights, 3)
-        elastic_score = res_obj['score']
-        return how_many_highlights * math.log(avg_highlights_lenght) * elastic_score
 
-    def make_match(self, match_type, res_obj, geo_obj=None):
+        ver por separado hg de nom1 nom2 y aliases
+        """
+
+        hg_main_dict = res_obj['highlights'].get(field_name, None)
+        how_many_highlights = 0
+        best_len_of_highlight = 0
+        min_index_of_hg_in_text = 0
+        max_index_of_hg_in_text = 250
+        field_with_best_highlights = None
+        best_relative_importance_sum = 0
+        elastic_score = res_obj['score']
+
+        if hg_main_dict:
+            # print(hg_main_dict)
+            for field, highlights_dict in hg_main_dict.items():
+                sum_for_field = 0
+                for highlight, hg_relative_importance in highlights_dict.items():
+                    sum_for_field += hg_relative_importance
+                best_relative_importance_sum = max(best_relative_importance_sum, sum_for_field)
+                if best_relative_importance_sum == sum_for_field:
+                    field_with_best_highlights = field
+                    # print(field,highlight,hg_relative_importance)
+
+            if hg_main_dict.get(field_with_best_highlights, None):
+                # print(text)
+                # print(hg_main_dict[field_with_best_highlights])
+                how_many_highlights = max(len(hg_main_dict[field_with_best_highlights].values()), 1)
+                best_len_of_highlight = max([len(hg) for hg in hg_main_dict[field_with_best_highlights].keys()])
+                min_index_of_hg_in_text = min(
+                    [self.get_min_substring_index(text, hg) for hg in hg_main_dict[field_with_best_highlights].keys()])
+                max_index_of_hg_in_text = max(
+                    [self.get_max_substring_index(text, hg) for hg in hg_main_dict[field_with_best_highlights].keys()])
+
+        # print('how_many_highlights',how_many_highlights)
+        # print('elastic_score',elastic_score)
+        # print('best_len_of_highlight',best_len_of_highlight)
+        # print('best_relative_importance_sum',best_relative_importance_sum)
+        # print('min_index_of_hg_in_text', min_index_of_hg_in_text)
+        # print('max_index_of_hg_in_text',max_index_of_hg_in_text)
+        return (min_index_of_hg_in_text, max_index_of_hg_in_text, best_len_of_highlight,
+                how_many_highlights * elastic_score * best_len_of_highlight ** 2 * best_relative_importance_sum)
+
+    def make_match(self, match_type, res_obj, field, boost_field, text):
         """
         Make match object to pass around
         """
-        if geo_obj:
-            common_highlights = set(res_obj['highlights']).intersection(geo_obj['highlights'])
-            return {'score': self.calculate_score(res_obj) * self.calculate_score(geo_obj, common_highlights),
-                    'objects': [res_obj, geo_obj],
-                    'type': match_type}
+        score = 0
+        distance = 250
+        match_name = res_obj['s_nombre']
+        if res_obj.get('nombre', None) and res_obj.get('nombre_1', None):
+            # Cruce de calles
+            match_name = res_obj['s_nombre'] + '#' + res_obj['s_nombre_1']
+
+            min_idx, max_idx, len_name, name_score = self.calculate_score(res_obj, 'nombre', text)
+            min_idx_1, max_idx_1, len_name_1, name_1_score = self.calculate_score(res_obj, 'nombre_1', text)
+
+            distance = self.distance_of_strings_in_string(min_idx, max_idx, len_name, min_idx_1, max_idx_1, len_name_1)
+
+            if name_score > 0 and name_1_score > 0:
+                score = (name_score + name_1_score) * boost_field * (1 / float(distance))
+            else:
+                score = 0
+        elif res_obj.get('nombre', None) and res_obj.get('aliases', None):
+            match_name = res_obj['s_nombre'] + '&' + res_obj['s_aliases']
+            min_idx, max_idx, len_name, name_score = self.calculate_score(res_obj, 'nombre', text)
+            min_idx_a, max_idx_a, len_aliases, aliases_score = self.calculate_score(res_obj, 'aliases', text)
+            score = (0.5 * name_score + 0.3 * aliases_score) * boost_field
         else:
-            return {'score': self.calculate_score(res_obj), 'objects': [res_obj], 'type': match_type}
+            match_name = res_obj['s_nombre']
+            min_idx, max_idx, len_name, name_score = self.calculate_score(res_obj, 'nombre', text)
+            score = name_score * boost_field
+
+        return {'score': score, 'name': match_name, 'objects': [res_obj], 'type': match_type,
+                'field': field}
+
+    @staticmethod
+    def distance_of_strings_in_string(min_index_text_1, max_index_text1, len_text_1, min_index_text_2, max_index_text_2,
+                                      len_text_2):
+        if (min_index_text_1 == min_index_text_2) or (max_index_text1 == max_index_text_2):
+            return 250
+        return max(min(abs(min_index_text_2 - max_index_text1 + len_text_1),
+                       abs(min_index_text_1 - max_index_text_2 + len_text_2)), 1)
 
     @staticmethod
     def exists_common_significant_string(text1, text2, limit=5):
@@ -228,53 +470,74 @@ class GeoSearch(object):
             match_obj = self.make_match('POLYGON', res_obj)
             match_dict[res_obj['s_name']] = match_obj
 
-    def get_result_object(self, result):
-        result_geo_type = result['_source']['geometry']['type']
-        result_id = result['_id']
-        result_score = result['_score']
-        result_geometry = result['_source']['geometry']
-        result_name = 'NO_NAME'
-        if result['_source'].get('nombre', None):
-            result_name = result['_source']['nombre'].encode('ascii', 'ignore').decode('ascii')
-        elif result['_source'].get('aliases', None):
-            result_name = result['_source']['aliases'].encode('ascii', 'ignore').decode('ascii')
-        result_striped_name = self.strip_name(result_name)
-        result_highlights = []
-        highlights = result.get('highlight', None)
-        if highlights:
-            for hg_values in highlights.values():
-                result_highlights = result_highlights + re.findall("<em>(.*?)<\/em>", ' '.join(hg_values))
-        result_highlights = list(set(result_highlights))
-        return {'id': result_id, 'geo_type': result_geo_type, 'name': result_name, 's_name': result_striped_name,
-                'score': result_score, 'geometry': result_geometry, 'highlights': result_highlights}
+    def get_result_object(self, elastic_result):
+        result = {
+            'id': elastic_result['_id'],
+            'geo_type': elastic_result['_source']['geometry']['type'],
+            'type': elastic_result['_source']['type'],
+            'score': elastic_result['_score'],
+            'geometry': elastic_result['_source']['geometry']
+        }
+
+        text_fields = ['text', 'text_aliases', 'text_first_street', 'text_second_street']
+        text_fields_lens = {}
+
+        for field in text_fields:
+            text = self.strip_name(elastic_result['_source'].get(field, ''), ' ')
+            text_fields_lens[field] = len(text)
+            result[field] = text
+
+        result_highlights = {}
+        if elastic_result.get('highlight', None):
+            for key, hg_values in elastic_result['highlight'].items():
+                field = key.split('.')[0]
+                variant = 'normal'
+                if len(key.split('.')) > 1:
+                    variant = key.split('.')[1]
+                if field in text_fields:
+                    if not result_highlights.get(field, None):
+                        result_highlights[field] = {}
+                    for hg in re.findall("<em>(.*?)<\/em>", ' '.join(hg_values)):
+                        hg_relative_importance = len(hg) / float(text_fields_lens[field])
+                        result_highlights[field][hg] = (hg_relative_importance, variant)
+
+        result['highlights'] = result_highlights
+        return result
+
+    @staticmethod
+    def print_object(res_object):
+        if res_object.get('type') == 'cruces_vias':
+            hgs = ''
+            for main_key, hg_main_field in res_object['highlights'].items():
+                hgs += '--> {: >20}\n'.format(main_key)
+                for key, pair in hg_main_field.items():
+                    hg, value = pair
+                    hgs += '{: >20} {: >10} => {:.3f}\n'.format(value, key, hg)
+            return "{} # {} ## {} \n {}".format(res_object['text_first_street'], res_object['text_second_street'],
+                                                res_object['score'], hgs)
+        else:
+            return "$$$$$$"
 
     def complete_search(self, text, result_size=500):
         match_dict = {}
 
-        line_results = {}
-        point_results = {}
-        polygon_results = {}
-        all_results = {}
+        search_fields = [("cruces_vias", 100), ("lugares_interes", 1), ("espacios_libres", 1), ("geonames", 1),
+                         ("limites_barrios", 1)]
 
-        results = self.boosting_match_bool_search2(text, result_size, self.boost, self.negative_boost)
-        for result in results:
-            result_object = self.get_result_object(result)
-            if result_object['geo_type'] == 'LineString':
-                line_results[result_object['id']] = result_object
-            elif result_object['geo_type'] == 'Point':
-                point_results[result_object['id']] = result_object
-            elif result_object['geo_type'] == 'Polygon':
-                polygon_results[result_object['id']] = result_object
-            else:
-                print('Do i have other?')
+        for search_field, boost_field in search_fields:
+            results = self.boosting_match_bool_search(text, search_field, result_size)
+            for result in results:
+                try:
+                    result_object = self.get_result_object(result)
 
-        all_results.update(line_results)
-        all_results.update(point_results)
-        all_results.update(polygon_results)
-
-        self.try_to_match_lines(match_dict, line_results, all_results)
-        self.try_to_match_points(match_dict, point_results)
-        self.try_to_match_polygons(match_dict, polygon_results)
+                    if self.is_name_matched(match_dict, result_object):
+                        # If there is alredy a match that involves this name continue
+                        continue
+                    match_obj = self.make_match(result_object['geo_type'], result_object, search_field, boost_field,
+                                                self.strip_name(text))
+                    match_dict[match_obj['name']] = match_obj
+                except Exception as e:
+                    print(e)
 
         return sorted(match_dict.items(), key=lambda i: i[1]['score'], reverse=True)
 
@@ -286,13 +549,13 @@ class GeoSearch(object):
         times = []
         for index, row in test_set.iterrows():
             time1 = time.time()
-            results, matches = self.complete_search(row['texto'])
+            matches = self.complete_search(row['texto'], 10)
             time2 = time.time()
             times.append(float('{:.3f}'.format((time2 - time1) * 1000.0)))
             if any(matches):
                 mejorMatch.append(matches[0][0])
                 scoreMejorMatch.append(float(matches[0][1]['score']))
-                matchType.append(matches[0][1]['type'])
+                matchType.append(matches[0][1]['field'])
             else:
                 mejorMatch.append('')
                 scoreMejorMatch.append(0)
@@ -302,10 +565,10 @@ class GeoSearch(object):
         test_set['matchType'] = matchType
         test_set['time_ms'] = times
         test_set['encontreUbicacionCalle'] = np.where(
-            (test_set['scoreMejorMatch'] > line_score_limit) & (test_set['matchType'] == 'LINES'), True, False)
+            (test_set['scoreMejorMatch'] > line_score_limit) & (test_set['matchType'] == 'cruces_vias'), True, False)
         test_set['encontreUbicacion'] = np.where(test_set['encontreUbicacionCalle'] | (
-                (test_set['scoreMejorMatch'] > point_score_limit) & (
-                (test_set['matchType'] == 'POINT') | (test_set['matchType'] == 'POLYGON'))), True, False)
+                (test_set['scoreMejorMatch'] > point_score_limit) & (test_set['matchType'] != 'cruces_vias')), True,
+                                                 False)
         tn, fp, fn, tp = cm(test_set['tieneUbicacion'], test_set['encontreUbicacion']).ravel()
         file_name = 'LINE_LIM:{}_POINT_LIM:{}_TN:{}_FP:{}_FN:{}_TP:{}-{}'.format(line_score_limit, point_score_limit,
                                                                                  tn,
@@ -332,9 +595,7 @@ class GeoSearch(object):
                 name_point, match = matches[0]
                 score_point = match['score']
                 if ((match['type'] == 'LINES') and (score_point > line_score_limit)) or \
-                        ((match['type'] in ['POINT','POLYGON']) and (score_point > point_score_limit)):
+                        ((match['type'] in ['POINT', 'POLYGON']) and (score_point > point_score_limit)):
                     best_point = self.get_intersection_point(match)
                     return name_point, score_point, best_point
         return None, 0, None
-
-
