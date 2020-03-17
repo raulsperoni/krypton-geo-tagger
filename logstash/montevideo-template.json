@@ -226,7 +226,8 @@
             "sbre",
             "agraciada",
             "santos",
-            "burgues"
+            "burgues",
+            "municipio"
           ],
           "ignore_case": true,
           "query_mode": false
@@ -362,7 +363,9 @@
             "sbre",
             "agraciada",
             "santos",
-            "burgues"
+            "burgues",
+            "municipio",
+            "shopping"
           ],
           "ignore_case": true,
           "query_mode": true

@@ -207,7 +207,7 @@ class GeoSearch(object):
             }
         })['hits']['hits']
 
-    def search_cruces_vias(self, text, field, size=50):
+    def search_adversary_fields(self, text, field, size=50):
         """
         Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
         """
@@ -247,6 +247,97 @@ class GeoSearch(object):
                                 "text_second_street.variant_2^3"
                             ],
                             "type": "cross_fields",
+                        }
+                    }
+                }
+            },
+            "highlight": {
+                "fields": {
+                    "*": {}
+                },
+                "number_of_fragments": 10
+            }
+        })['hits']['hits']
+
+    def search_complementary_fields(self, text, field, size=50):
+        """
+        Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
+        """
+        return self.es.search(index='montevideo', body=
+        {
+            "from": 0, "size": size,
+            "query": {
+                "bool": {
+                    "must": [
+                        {
+                            "multi_match": {
+                                "query": text,
+                                "fields": ["text", "text_aliases"],
+                                "type": "best_fields",
+                                "cutoff_frequency": 1,
+                                "fuzziness": "1"
+                            }
+                        }
+                    ],
+                    "filter": {
+                        "term": {"type": field}
+                    },
+                    "should": {
+                        "multi_match": {
+                            "query": text,
+                            "fields": [
+                                "text.variant_1^2",
+                                "text.variant_2^3",
+                                "text_aliases.variant_1^2",
+                                "text_aliases.variant_2^3"
+                            ],
+                            "type": "best_fields",
+                            "cutoff_frequency": 1,
+                            "fuzziness": "1"
+                        }
+                    }
+                }
+            },
+            "highlight": {
+                "fields": {
+                    "*": {}
+                },
+                "number_of_fragments": 10
+            }
+        })['hits']['hits']
+
+    def search_single_field(self, text, field, size=50):
+        """
+        Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
+        """
+        return self.es.search(index='montevideo', body=
+        {
+            "from": 0, "size": size,
+            "query": {
+                "bool": {
+                    "must": [
+                        {
+                            "multi_match": {
+                                "query": text,
+                                "fields": ["text"],
+                                "cutoff_frequency": 1,
+                                "fuzziness": "1"
+                            }
+                        }
+                    ],
+                    "filter": {
+                        "term": {"type": field}
+                    },
+                    "should": {
+                        "multi_match": {
+                            "query": text,
+                            "fields": [
+                                "text.variant_1^2",
+                                "text.variant_2^3",
+                            ],
+                            "type": "best_fields",
+                            "cutoff_frequency": 1,
+                            "fuzziness": "1"
                         }
                     }
                 }
@@ -373,7 +464,30 @@ class GeoSearch(object):
                 len_longest_highlight,
                 unique_highlights_count * elastic_score * len_longest_highlight ** 2 * relative_importance)
 
-    def exists_match_cruces_vias(self, match_dict, result_object):
+        return None, 0, 0, 0, 0
+
+    def exists_match_complementary_fields(self, match_dict, result_object):
+
+        first = self.strip_name(result_object.get('text', None))
+        secnd = self.strip_name(result_object.get('text_aliases', None))
+
+        for existing_match_name in match_dict.keys():
+            if '&' in existing_match_name:
+                parts = existing_match_name.split('&')
+                if ((first == parts[0]) and (secnd == parts[1])) or ((first == parts[1]) and (secnd == parts[0])):
+                    return True
+        return False
+
+    def exists_match_single_field(self, match_dict, result_object):
+
+        first = self.strip_name(result_object.get('text', None))
+
+        for existing_match_name in match_dict.keys():
+            if first == existing_match_name:
+                return True
+        return False
+
+    def exists_match_adversary_fields(self, match_dict, result_object):
 
         first = self.strip_name(result_object.get('text_first_street', None))
         secnd = self.strip_name(result_object.get('text_second_street', None))
@@ -385,7 +499,7 @@ class GeoSearch(object):
 
         return False
 
-    def make_match_cruces_vias(self, res_obj, field, boost_field, text):
+    def make_match_adversary_fields(self, res_obj, field, boost_field, text):
         """
         Make match object to pass around
         """
@@ -425,6 +539,64 @@ class GeoSearch(object):
 
             logger.debug('TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nBoost Field = {}\nDistance = {}'.format(
                 result['score'], first_score, secnd_score, boost_field, distance
+            ))
+
+        return result
+
+    def make_match_complmentary_fields(self, res_obj, field, boost_field, text):
+        """
+        Make match object to pass around
+        """
+        result = {
+            'score': 0,
+            'name': None,
+            'objects': [res_obj],
+            'field': field,
+            'type': res_obj['geo_type']
+        }
+
+        first_field = 'text'
+        secnd_field = 'text_aliases'
+
+        if res_obj.get(first_field, None) and res_obj.get(secnd_field, None):
+            result['name'] = self.strip_name(res_obj[first_field], '-') + '&' + self.strip_name(res_obj[secnd_field], '-')
+
+            first_hgs, first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field, text)
+            secnd_hgs, secnd_min_idx, secnd_max_idx, secnd_len, secnd_score = self.calculate_score(res_obj, secnd_field, text)
+
+            if first_score > 0 or secnd_score > 0:
+                result['score'] = max(first_score, secnd_score) * boost_field
+
+            logger.debug('TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nBoost Field = {}'.format(
+                result['score'], first_score, secnd_score, boost_field
+            ))
+
+        return result
+
+    def make_match_single_field(self, res_obj, field, boost_field, text):
+        """
+        Make match object to pass around
+        """
+        result = {
+            'score': 0,
+            'name': None,
+            'objects': [res_obj],
+            'field': field,
+            'type': res_obj['geo_type']
+        }
+
+        first_field = 'text'
+
+        if res_obj.get(first_field, None):
+            result['name'] = self.strip_name(res_obj[first_field], '-')
+
+            first_hgs, first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field, text)
+
+            if first_score > 0:
+                result['score'] = first_score * boost_field
+
+            logger.debug('TOTAL = {}\nFirst Score = {}\nBoost Field = {}'.format(
+                result['score'], first_score, boost_field
             ))
 
         return result
@@ -554,43 +726,72 @@ class GeoSearch(object):
         result['highlights'] = result_highlights
         return result
 
-    @staticmethod
-    def print_object(res_object):
+    def print_object(self,res_object):
+        hgs = ''
+        for main_key, hg_main_field in res_object['highlights'].items():
+            hgs += '--> {: >20}\n'.format(main_key)
+            for key, pair in hg_main_field.items():
+                hg, value = pair
+                hgs += '{: >20} {: >10} => {:.3f}\n'.format(value, self.strip_name(key, ' '), hg)
         if res_object.get('type') == 'cruces_vias':
-            hgs = ''
-            for main_key, hg_main_field in res_object['highlights'].items():
-                hgs += '--> {: >20}\n'.format(main_key)
-                for key, pair in hg_main_field.items():
-                    hg, value = pair
-                    hgs += '{: >20} {: >10} => {:.3f}\n'.format(value, key, hg)
             return "{} # {} ## {} \n {}".format(res_object['text_first_street'], res_object['text_second_street'],
                                                 res_object['score'], hgs)
+        elif res_object.get('type') in ['geonames', 'lugares_interes']:
+            return "{} & {} ## {} \n {}".format(res_object['text'], res_object['text_aliases'],
+                                                res_object['score'], hgs)
         else:
-            return "$$$$$$"
+            return '$$$'
 
     @staticmethod
     def log_match(match):
         logger.info('✔️ MATCH: {: >15}{: >20}{: >50}'.format(match['score'], match['field'], match['name']))
 
     def complete_search(self, text, result_size=500):
+        text = self.strip_name(text, ' ')
         match_dict = {}
 
-        search_fields = [("cruces_vias", 100), ("lugares_interes", 1), ("espacios_libres", 1), ("geonames", 1),
-                         ("limites_barrios", 1)]
+        datasets_with_adversary_fields = [("cruces_vias", 100)]
+        datasets_with_complementary_fields = [("lugares_interes", 1), ("geonames", 1)]
+        datasets_with_single_field = [("vias", 1), ("limites_barrios", 10)]
 
-        for search_field, boost_field in search_fields:
-            if search_field == 'cruces_vias':
-                results = self.search_cruces_vias(text, search_field, result_size)
-                for result in results:
-                    try:
-                        result_object = self.get_result_object(result)
-                        if not self.exists_match_cruces_vias(match_dict, result_object):
-                            logger.debug(self.print_object(result_object))
-                            match_obj = self.make_match_cruces_vias(result_object, search_field, boost_field, text)
-                            if match_obj['score'] > 0:
-                                match_dict[match_obj['name']] = match_obj
-                    except Exception as e:
-                        logger.error(e)
+        for search_field, boost_field in datasets_with_adversary_fields:
+            results = self.search_adversary_fields(text, search_field, result_size)
+            for result in results:
+                try:
+                    result_object = self.get_result_object(result)
+                    if not self.exists_match_adversary_fields(match_dict, result_object):
+                        logger.debug(self.print_object(result_object))
+                        match_obj = self.make_match_adversary_fields(result_object, search_field, boost_field, text)
+                        if match_obj['score'] > 0:
+                            match_dict[match_obj['name']] = match_obj
+                except Exception as e:
+                    logger.error(e, exc_info=True)
+
+        for search_field, boost_field in datasets_with_complementary_fields:
+            results = self.search_complementary_fields(text, search_field, result_size)
+            for result in results:
+                try:
+                    result_object = self.get_result_object(result)
+                    if not self.exists_match_complementary_fields(match_dict, result_object):
+                        logger.debug(self.print_object(result_object))
+                        match_obj = self.make_match_complmentary_fields(result_object, search_field, boost_field, text)
+                        if match_obj['score'] > 0:
+                            match_dict[match_obj['name']] = match_obj
+                except Exception as e:
+                    logger.error(e, exc_info=True)
+
+        for search_field, boost_field in datasets_with_single_field:
+            results = self.search_single_field(text, search_field, result_size)
+            for result in results:
+                try:
+                    result_object = self.get_result_object(result)
+                    if not self.exists_match_single_field(match_dict, result_object):
+                        logger.debug(self.print_object(result_object))
+                        match_obj = self.make_match_single_field(result_object, search_field, boost_field, text)
+                        if match_obj['score'] > 0:
+                            match_dict[match_obj['name']] = match_obj
+                except Exception as e:
+                    logger.error(e, exc_info=True)
 
         return sorted(match_dict.items(), key=lambda i: i[1]['score'], reverse=True)
 
