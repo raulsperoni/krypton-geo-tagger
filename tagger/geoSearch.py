@@ -11,6 +11,11 @@ from shapely.geometry import mapping, shape
 from sklearn.metrics import confusion_matrix as cm
 from unidecode import unidecode
 
+import logging
+logging.basicConfig()
+logger = logging.getLogger('GeoSearch')
+
+
 
 class GeoSearch(object):
     """
@@ -20,7 +25,7 @@ class GeoSearch(object):
     def __init__(self, elastic_host, elastic_port):
         config = configparser.ConfigParser()
         config.read('conf/montevideo.conf')
-
+        logger.setLevel(logging.DEBUG)
         self.index = config['MONTEVIDEO']['elasticsearch_index']
         self.geo_search_type = config['MONTEVIDEO']['geo_search_type']
         self.must_not_terms = config['MONTEVIDEO']['must_not_terms']
@@ -202,7 +207,7 @@ class GeoSearch(object):
             }
         })['hits']['hits']
 
-    def multi_bool_cruces_calles(self, text, size=50):
+    def search_cruces_vias(self, text, field, size=50):
         """
         Elasticsearch query. I'm trying to boost results that doesn't come from negative_types or must_not terms.
         """
@@ -216,8 +221,6 @@ class GeoSearch(object):
                             "match": {
                                 "text_first_street": {
                                     "query": text,
-                                 #   "minimum_should_match": "30%"
-                                   # "analyzer": "search_calle_analyzer"
                                 }
                             },
 
@@ -226,13 +229,14 @@ class GeoSearch(object):
                             "match": {
                                 "text_second_street": {
                                     "query": text,
-                                  #  "minimum_should_match": "30%"
-                                   # "analyzer": "search_calle_analyzer"
                                 }
                             },
 
                         }
                     ],
+                    "filter": {
+                        "term": {"type": field}
+                    },
                     "should": {
                         "multi_match": {
                             "query": text,
@@ -243,14 +247,7 @@ class GeoSearch(object):
                                 "text_second_street.variant_2^3"
                             ],
                             "type": "cross_fields",
-                            #"minimum_should_match": "2",
                         }
-                   #     "match_phrase": {
-                   #         "text_first_street": {
-                   #             "query": text,
-                   #             "slop": 50
-                   #         }
-                   #     }
                     }
                 }
             },
@@ -304,10 +301,11 @@ class GeoSearch(object):
     @staticmethod
     def is_name_matched(match_dict, result_object):
         matched_key = next((key for key in match_dict.keys() if
-                            (result_object.get('s_nombre', None) and result_object['s_nombre'] in key) or
-                            (result_object.get('s_nombre_1', None) and result_object['s_nombre_1'] in key) or
-                            (result_object.get('s_aliases', None) and result_object['s_aliases'] in key)), None)
-        return matched_key != None
+                            (result_object.get('text', None) in key) or
+                            (result_object.get('text_aliases', None) in key) or
+                            (result_object.get('text_first_street', None) in key) or
+                            (result_object.get('text_second_street', None) in key)),None)
+        return matched_key is not None
 
     def get_min_substring_index(self, text, string):
         text = self.strip_name(text)
@@ -342,49 +340,77 @@ class GeoSearch(object):
         ver por separado hg de nom1 nom2 y aliases
         """
 
-        hg_main_dict = res_obj['highlights'].get(field_name, None)
-        how_many_highlights = 0
-        best_len_of_highlight = 0
-        min_index_of_hg_in_text = 0
-        max_index_of_hg_in_text = 250
-        field_with_best_highlights = None
-        best_relative_importance_sum = 0
+        field_highlights = res_obj['highlights'].get(field_name, None)
         elastic_score = res_obj['score']
 
-        if hg_main_dict:
-            # print(hg_main_dict)
-            for field, highlights_dict in hg_main_dict.items():
-                sum_for_field = 0
-                for highlight, hg_relative_importance in highlights_dict.items():
-                    sum_for_field += hg_relative_importance
-                best_relative_importance_sum = max(best_relative_importance_sum, sum_for_field)
-                if best_relative_importance_sum == sum_for_field:
-                    field_with_best_highlights = field
-                    # print(field,highlight,hg_relative_importance)
+        if field_highlights:
+            best_highlights = {}
+            for highlight, variant_tuple in field_highlights.items():
+                hg_relative_importance, variant = variant_tuple
+                stored_relative_importance = best_highlights.get(highlight, 0)
+                if hg_relative_importance > stored_relative_importance:
+                    best_highlights[highlight] = hg_relative_importance
 
-            if hg_main_dict.get(field_with_best_highlights, None):
-                # print(text)
-                # print(hg_main_dict[field_with_best_highlights])
-                how_many_highlights = max(len(hg_main_dict[field_with_best_highlights].values()), 1)
-                best_len_of_highlight = max([len(hg) for hg in hg_main_dict[field_with_best_highlights].keys()])
-                min_index_of_hg_in_text = min(
-                    [self.get_min_substring_index(text, hg) for hg in hg_main_dict[field_with_best_highlights].keys()])
-                max_index_of_hg_in_text = max(
-                    [self.get_max_substring_index(text, hg) for hg in hg_main_dict[field_with_best_highlights].keys()])
+            unique_highlights_count = len(best_highlights.keys())
+            relative_importance = max(val for val in best_highlights.values())
+            len_longest_highlight = max([len(key) for key in best_highlights.keys()])
+            min_position_in_text = min([self.get_min_substring_index(text, hg) for hg in best_highlights.keys()])
+            max_position_in_text = max([self.get_min_substring_index(text, hg) for hg in best_highlights.keys()])
 
-        # print('how_many_highlights',how_many_highlights)
-        # print('elastic_score',elastic_score)
-        # print('best_len_of_highlight',best_len_of_highlight)
-        # print('best_relative_importance_sum',best_relative_importance_sum)
-        # print('min_index_of_hg_in_text', min_index_of_hg_in_text)
-        # print('max_index_of_hg_in_text',max_index_of_hg_in_text)
-        return (min_index_of_hg_in_text, max_index_of_hg_in_text, best_len_of_highlight,
-                how_many_highlights * elastic_score * best_len_of_highlight ** 2 * best_relative_importance_sum)
+            logger.debug(
+                'FIELD:{}\nmin_idx = {}\nmax_idx = {}\nlen_longest = {}\nhighlights_count = {}\nimportance = {}'.format(
+                    field_name,
+                    min_position_in_text,
+                    max_position_in_text,
+                    len_longest_highlight,
+                    unique_highlights_count,
+                    relative_importance))
 
-    def make_match(self, match_type, res_obj, field, boost_field, text):
+            return (
+                min_position_in_text,
+                max_position_in_text,
+                len_longest_highlight,
+                unique_highlights_count * elastic_score * len_longest_highlight ** 2 * relative_importance)
+
+    def make_match_cruces_vias(self, res_obj, field, boost_field, text):
         """
         Make match object to pass around
         """
+        result = {
+            'score': 0,
+            'name': None,
+            'objects': [res_obj],
+            'field': field,
+            'type': res_obj['geo_type']
+        }
+
+        first_field = 'text_first_street'
+        secnd_field = 'text_second_street'
+
+        if res_obj.get(first_field, None) and res_obj.get(secnd_field, None):
+            result['name'] = self.strip_name(res_obj[first_field], '-') + '#' + self.strip_name(res_obj[secnd_field], '-')
+
+            first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field, text)
+            secnd_min_idx, secnd_max_idx, secnd_len, secnd_score = self.calculate_score(res_obj, secnd_field, text)
+
+            distance = self.distance_of_strings_in_string(
+                first_min_idx, first_max_idx, first_len, secnd_min_idx, secnd_max_idx, secnd_len)
+
+            if first_score > 0 and secnd_score > 0:
+                result['score'] = (first_score + secnd_score) * boost_field * (1 / float(distance))
+
+            logger.debug('TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nBoost Field = {}\nDistance = {}'.format(
+                result['score'], first_score, secnd_score, boost_field, distance
+            ))
+
+        return result
+
+    def make_match(self, res_obj, field, boost_field, text):
+        """
+        Make match object to pass around
+        """
+
+
         score = 0
         distance = 250
         match_name = res_obj['s_nombre']
@@ -518,26 +544,24 @@ class GeoSearch(object):
         else:
             return "$$$$$$"
 
-    def complete_search(self, text, result_size=500):
+    def complete_search(self, text, result_size=500, debug=False):
         match_dict = {}
 
         search_fields = [("cruces_vias", 100), ("lugares_interes", 1), ("espacios_libres", 1), ("geonames", 1),
                          ("limites_barrios", 1)]
 
         for search_field, boost_field in search_fields:
-            results = self.boosting_match_bool_search(text, search_field, result_size)
-            for result in results:
-                try:
-                    result_object = self.get_result_object(result)
-
-                    if self.is_name_matched(match_dict, result_object):
-                        # If there is alredy a match that involves this name continue
-                        continue
-                    match_obj = self.make_match(result_object['geo_type'], result_object, search_field, boost_field,
-                                                self.strip_name(text))
-                    match_dict[match_obj['name']] = match_obj
-                except Exception as e:
-                    print(e)
+            if search_field == 'cruces_vias':
+                results = self.search_cruces_vias(text, search_field, result_size)
+                for result in results:
+                    try:
+                        result_object = self.get_result_object(result)
+                        if not self.is_name_matched(match_dict, result_object):
+                            logger.debug(self.print_object(result_object))
+                            match_obj = self.make_match_cruces_vias(result_object, search_field, boost_field, text)
+                            match_dict[match_obj['name']] = match_obj
+                    except Exception as e:
+                        logger.error(e)
 
         return sorted(match_dict.items(), key=lambda i: i[1]['score'], reverse=True)
 
