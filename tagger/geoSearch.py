@@ -8,7 +8,6 @@ import numpy as np
 import pandas as pd
 from elasticsearch import Elasticsearch
 from shapely.geometry import mapping, shape
-from sklearn.metrics import confusion_matrix as cm
 from unidecode import unidecode
 
 logging.basicConfig()
@@ -104,8 +103,8 @@ class GeoSearch(object):
                             "query": text,
                             "fields": ["text", "text_aliases"],
                             "type": "best_fields",
-                            "cutoff_frequency": 1,
-                            "fuzziness": "1",
+                            #  "cutoff_frequency": 1,
+                            #  "fuzziness": "1",
                         }
                     },
                     "filter": {
@@ -115,14 +114,14 @@ class GeoSearch(object):
                         "multi_match": {
                             "query": text,
                             "fields": [
-#                                "text.variant_1^2",
+                                #                                "text.variant_1^2",
                                 "text.variant_2^3",
-#                                "text_aliases.variant_1^2",
+                                #                                "text_aliases.variant_1^2",
                                 "text_aliases.variant_2^3"
                             ],
                             "type": "best_fields",
-                            "cutoff_frequency": 1,
-                            "fuzziness": "1",
+                            #    "cutoff_frequency": 1,
+                            #    "fuzziness": "1",
                         }
                     }
                 }
@@ -149,7 +148,7 @@ class GeoSearch(object):
                             "query": text,
                             "fields": ["text"],
                             "cutoff_frequency": 1,
-                            "fuzziness": "1",
+                            #  "fuzziness": "1",
                         }
                     },
                     "filter": {
@@ -159,12 +158,12 @@ class GeoSearch(object):
                         "multi_match": {
                             "query": text,
                             "fields": [
-#                                "text.variant_1^2",
+                                #                                "text.variant_1^2",
                                 "text.variant_2^3",
                             ],
                             "type": "best_fields",
                             "cutoff_frequency": 1,
-                            "fuzziness": "1",
+                            # "fuzziness": "1",
                         }
                     }
                 }
@@ -263,26 +262,29 @@ class GeoSearch(object):
             unique_highlights_count = len(best_highlights.keys())
             relative_importance = max(val for val in best_highlights.values())
             len_longest_highlight = max([len(key) for key in best_highlights.keys()])
+            len_all_highlights = len(' '.join(best_highlights.keys()))
             min_position_in_text = min([self.get_min_substring_index(text, hg) for hg in best_highlights.keys()])
             max_position_in_text = max([self.get_min_substring_index(text, hg) for hg in best_highlights.keys()])
 
             logger.debug(
-                'FIELD:{}\nmin_idx = {}\nmax_idx = {}\nlen_longest = {}\nhighlights_count = {}\nimportance = {}'.format(
+                'FIELD:{}\nmin_idx = {}\nmax_idx = {}\nlen_longest = {}\nhighlights_count = {}\nimportance = {}\nlen_all = {}'.format(
                     field_name,
                     min_position_in_text,
                     max_position_in_text,
                     len_longest_highlight,
                     unique_highlights_count,
-                    relative_importance))
+                    relative_importance,
+                    len_all_highlights))
 
             return (
                 best_highlights,
                 min_position_in_text,
                 max_position_in_text,
                 len_longest_highlight,
+                len_all_highlights,
                 unique_highlights_count * elastic_score * len_longest_highlight ** 2 * relative_importance)
 
-        return None, 0, 0, 0, 0
+        return None, 0, 0, 0, 0, 0
 
     def exists_match_complementary_fields(self, match_dict, result_object):
 
@@ -336,10 +338,15 @@ class GeoSearch(object):
             result['name'] = self.strip_name(res_obj[first_field], '-') + '#' + self.strip_name(res_obj[secnd_field],
                                                                                                 '-')
 
-            first_hgs, first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field,
-                                                                                                   text)
-            secnd_hgs, secnd_min_idx, secnd_max_idx, secnd_len, secnd_score = self.calculate_score(res_obj, secnd_field,
-                                                                                                   text)
+            first_hgs, first_min_idx, first_max_idx, first_len, first_len_all_hgs, first_score = self.calculate_score(
+                res_obj, first_field,
+                text)
+            secnd_hgs, secnd_min_idx, secnd_max_idx, secnd_len, secnd_len_all_hgs, secnd_score = self.calculate_score(
+                res_obj, secnd_field,
+                text)
+
+            first_completeness = min(first_len_all_hgs / float(max(res_obj['field_lenghts'][first_field], 1)), 1)
+            secnd_completeness = min(secnd_len_all_hgs / float(max(res_obj['field_lenghts'][secnd_field], 1)), 1)
 
             exclusive_highlights_first = set(first_hgs.keys()).difference(set(secnd_hgs.keys()))
             exclusive_highlights_secnd = set(secnd_hgs.keys()).difference(set(first_hgs.keys()))
@@ -356,12 +363,16 @@ class GeoSearch(object):
                 first_min_idx, first_max_idx, first_len, secnd_min_idx, secnd_max_idx, secnd_len)
 
             if first_score > 0 and secnd_score > 0:
-                result['score'] = (first_score + secnd_score) * boost_field * (1 / float(distance)) * (
-                        len_exclusive_first + len_exclusive_secnd)
+                result['score'] = (
+                                              first_score * first_completeness + secnd_score * secnd_completeness) * boost_field * (
+                                              1 / float(distance)) * (
+                                          len_exclusive_first + len_exclusive_secnd)
 
-            logger.debug('TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nBoost Field = {}\nDistance = {}'.format(
-                result['score'], first_score, secnd_score, boost_field, distance
-            ))
+            logger.debug(
+                'TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nFirst Completeness = {}\nSecond Completeness = {}\nBoost Field = {}\nDistance = {}'.format(
+                    result['score'], first_score, secnd_score, first_completeness, secnd_completeness, boost_field,
+                    distance
+                ))
 
         return result
 
@@ -384,17 +395,23 @@ class GeoSearch(object):
             result['name'] = self.strip_name(res_obj[first_field], '-') + '&' + self.strip_name(res_obj[secnd_field],
                                                                                                 '-')
 
-            first_hgs, first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field,
-                                                                                                   text)
-            secnd_hgs, secnd_min_idx, secnd_max_idx, secnd_len, secnd_score = self.calculate_score(res_obj, secnd_field,
-                                                                                                   text)
+            first_hgs, first_min_idx, first_max_idx, first_len, first_len_all_hgs, first_score = self.calculate_score(
+                res_obj, first_field,
+                text)
+            secnd_hgs, secnd_min_idx, secnd_max_idx, secnd_len, secnd_len_all_hgs, secnd_score = self.calculate_score(
+                res_obj, secnd_field,
+                text)
+
+            first_completeness = min(first_len_all_hgs / float(max(res_obj['field_lenghts'][first_field], 1)), 1)
+            secnd_completeness = min(secnd_len_all_hgs / float(max(res_obj['field_lenghts'][secnd_field], 1)), 1)
 
             if first_score > 0 or secnd_score > 0:
-                result['score'] = max(first_score, secnd_score) * boost_field
+                result['score'] = max(first_score * first_completeness, secnd_score * secnd_completeness) * boost_field
 
-            logger.debug('TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nBoost Field = {}'.format(
-                result['score'], first_score, secnd_score, boost_field
-            ))
+            logger.debug(
+                'TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nFirst Completeness = {}\nSecond Completeness = {}\nBoost Field = {}'.format(
+                    result['score'], first_score, secnd_score, first_completeness, secnd_completeness, boost_field
+                ))
 
         return result
 
@@ -415,15 +432,19 @@ class GeoSearch(object):
         if res_obj.get(first_field, None):
             result['name'] = self.strip_name(res_obj[first_field], '-')
 
-            first_hgs, first_min_idx, first_max_idx, first_len, first_score = self.calculate_score(res_obj, first_field,
-                                                                                                   text)
+            first_hgs, first_min_idx, first_max_idx, first_len, first_len_all_hgs, first_score = self.calculate_score(
+                res_obj, first_field,
+                text)
+
+            first_completeness = min(first_len_all_hgs / float(max(res_obj['field_lenghts'][first_field], 1)), 1)
 
             if first_score > 0:
-                result['score'] = first_score * boost_field
+                result['score'] = (first_score * first_completeness) * boost_field
 
-            logger.debug('TOTAL = {}\nFirst Score = {}\nBoost Field = {}'.format(
-                result['score'], first_score, boost_field
-            ))
+            logger.debug(
+                'TOTAL = {}\nFirst Score = {}\nFirst Completeness = {}\nBoost Field = {}'.format(
+                    result['score'], first_score, first_completeness, boost_field
+                ))
 
         return result
 
@@ -467,6 +488,7 @@ class GeoSearch(object):
                         result_highlights[field][hg] = (hg_relative_importance, variant)
 
         result['highlights'] = result_highlights
+        result['field_lenghts'] = text_fields_lens
         return result
 
     def print_object(self, res_object):
@@ -490,12 +512,11 @@ class GeoSearch(object):
         logger.info('✔️ MATCH: {: >15}{: >20}{: >50}'.format(match['score'], match['field'], match['name']))
 
     def complete_search(self, text, result_size=500):
-        #text = self.strip_name(text, ' ')
         match_dict = {}
 
         datasets_with_adversary_fields = [("cruces_vias", 100)]
         datasets_with_complementary_fields = [("lugares_interes", 1), ("geonames", 1)]
-        datasets_with_single_field = [("vias", 1), ("limites_barrios", 10)]
+        datasets_with_single_field = [("limites_barrios", 10)]
 
         for search_field, boost_field in datasets_with_adversary_fields:
             try:
@@ -538,7 +559,7 @@ class GeoSearch(object):
 
         return sorted(match_dict.items(), key=lambda i: i[1]['score'], reverse=True)
 
-    def test_kit(self, csv_file_name, line_score_limit=300, point_score_limit=100):
+    def test_kit(self, csv_file_name, limit=0):
         test_set = pd.read_csv(csv_file_name, index_col=0, encoding="utf-8")
         mejorMatch = []
         scoreMejorMatch = []
@@ -547,34 +568,25 @@ class GeoSearch(object):
         textos = []
         for index, row in test_set.iterrows():
             time1 = time.time()
-            texto = self.strip_name(row['texto'],' ')
+            texto = self.strip_name(row['texto'], ' ')
             textos.append(texto)
             matches = self.complete_search(texto, 10)
             time2 = time.time()
             times.append(float('{:.3f}'.format((time2 - time1) * 1000.0)))
-            if any(matches):
+            if any(matches) and float(matches[0][1]['score']) >= limit:
                 mejorMatch.append(matches[0][0])
                 scoreMejorMatch.append(float(matches[0][1]['score']))
                 matchType.append(matches[0][1]['field'])
             else:
-                mejorMatch.append('')
+                mejorMatch.append('-')
                 scoreMejorMatch.append(0)
-                matchType.append('')
+                matchType.append('-')
         test_set['texto'] = textos
-        test_set['mejorMatch'] = mejorMatch
+        test_set['ubicacionEncontrada'] = mejorMatch
         test_set['scoreMejorMatch'] = scoreMejorMatch
-        test_set['matchType'] = matchType
+        test_set['tipoUbicacionEncontrada'] = matchType
         test_set['time_ms'] = times
-        test_set['encontreUbicacionCalle'] = np.where(
-            (test_set['scoreMejorMatch'] > line_score_limit) & (test_set['matchType'] == 'cruces_vias'), True, False)
-        test_set['encontreUbicacion'] = np.where(test_set['encontreUbicacionCalle'] | (
-                (test_set['scoreMejorMatch'] > point_score_limit) & (test_set['matchType'] != 'cruces_vias')), True,
-                                                 False)
-        tn, fp, fn, tp = cm(test_set['tieneUbicacion'], test_set['encontreUbicacion']).ravel()
-        file_name = 'LINE_LIM:{}_POINT_LIM:{}_TN:{}_FP:{}_FN:{}_TP:{}-{}'.format(line_score_limit, point_score_limit,
-                                                                                 tn,
-                                                                                 fp, fn, tp, csv_file_name)
-        test_set.to_csv(file_name)
+
         return test_set
 
     @staticmethod
