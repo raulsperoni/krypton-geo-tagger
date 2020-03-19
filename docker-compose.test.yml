@@ -43,6 +43,16 @@ services:
       - elasticsearch-geo
     networks:
       - im
+    deploy:
+      restart_policy:
+        condition: on-failure
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=im"
+        - "traefik.port=5000"
+        - "traefik.backend.loadbalancer.sticky=true"
+        - "traefik.frontend.passHostHeader=true"
+        - "traefik.frontend.rule=PathPrefixStrip:/geo"
 
 
 

@@ -43,7 +43,7 @@ class GeoTagger(Resource):
             data = request.get_json(silent=True)
             text = data.get('text', None)
             start = time.time()
-            name_point, score_point, best_point = geoSearch.get_result(text,0,0)
+            name_point, score_point, best_point = geoSearch.get_result(text)
             logger.info('{} -> {:.3f}'.format(name_point, score_point))
             end = time.time()
             return jsonify(

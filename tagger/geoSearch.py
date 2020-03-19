@@ -19,7 +19,7 @@ class GeoSearch(object):
     Clase para hacer enrich con ubicaciones a partir de texto
     """
 
-    def __init__(self, elastic_host="elasticsearch-geo", elastic_port="9200"):
+    def __init__(self, elastic_host="elasticsearch-geo", elastic_port=9200):
         config = configparser.ConfigParser()
         config.read('conf/montevideo.conf')
         logger.setLevel(logging.DEBUG)
@@ -570,14 +570,12 @@ class GeoSearch(object):
         else:
             return None
 
-    def get_result(self, text, line_score_limit=300, point_score_limit=100):
+    def get_result(self, text):
         if text:
             matches = self.complete_search(text, self.result_size)
             if len(matches) >= 1:
                 name_point, match = matches[0]
                 score_point = match['score']
-                if ((match['type'] == 'LINES') and (score_point > line_score_limit)) or \
-                        ((match['type'] in ['POINT', 'POLYGON']) and (score_point > point_score_limit)):
-                    best_point = self.get_intersection_point(match)
-                    return name_point, score_point, best_point
+                best_point = self.get_intersection_point(match)
+                return name_point, score_point, best_point
         return None, 0, None
