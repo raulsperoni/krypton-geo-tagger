@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import configparser
 import logging
+import math
 import re
 import time
 
-import numpy as np
 import pandas as pd
 from elasticsearch import Elasticsearch
 from shapely.geometry import mapping, shape
@@ -334,10 +334,8 @@ class GeoSearch(object):
                 first_min_idx, first_max_idx, first_len, secnd_min_idx, secnd_max_idx, secnd_len)
 
             if first_score > 0 and secnd_score > 0:
-                result['score'] = (
-                                              first_score * first_completeness + secnd_score * secnd_completeness) * boost_field * (
-                                              1 / float(distance)) * (
-                                          len_exclusive_first + len_exclusive_secnd)
+                result['score'] = math.log((first_score * first_completeness + secnd_score * secnd_completeness) * boost_field * (
+                                              1 / float(distance)) * (len_exclusive_first + len_exclusive_secnd))
 
             logger.debug(
                 'TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nFirst Completeness = {}\nSecond Completeness = {}\nBoost Field = {}\nDistance = {}'.format(
@@ -377,7 +375,7 @@ class GeoSearch(object):
             secnd_completeness = min(secnd_len_all_hgs / float(max(res_obj['field_lenghts'][secnd_field], 1)), 1)
 
             if first_score > 0 or secnd_score > 0:
-                result['score'] = max(first_score * first_completeness ** 2, secnd_score * 0.3 * secnd_completeness ** 1.5) * boost_field
+                result['score'] = math.log(max(first_score * first_completeness ** 2, secnd_score * 0.3 * secnd_completeness ** 1.5) * boost_field)
 
             logger.debug(
                 'TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nFirst Completeness = {}\nSecond Completeness = {}\nBoost Field = {}'.format(
@@ -410,7 +408,7 @@ class GeoSearch(object):
             first_completeness = min(first_len_all_hgs / float(max(res_obj['field_lenghts'][first_field], 1)), 1)
 
             if first_score > 0:
-                result['score'] = (first_score * first_completeness ** 2) * boost_field
+                result['score'] = math.log((first_score * first_completeness ** 2) * boost_field)
 
             logger.debug(
                 'TOTAL = {}\nFirst Score = {}\nFirst Completeness = {}\nBoost Field = {}'.format(
