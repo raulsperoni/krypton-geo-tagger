@@ -19,7 +19,7 @@ class GeoSearch(object):
     Clase para hacer enrich con ubicaciones a partir de texto
     """
 
-    def __init__(self, elastic_host, elastic_port):
+    def __init__(self, elastic_host="elasticsearch-geo", elastic_port="9200"):
         config = configparser.ConfigParser()
         config.read('conf/montevideo.conf')
         logger.setLevel(logging.DEBUG)
@@ -480,7 +480,7 @@ class GeoSearch(object):
     def log_match(match):
         logger.info('✔️ MATCH: {: >15}{: >20}{: >50}'.format(match['score'], match['field'], match['name']))
 
-    def complete_search(self, text, result_size=500):
+    def complete_search(self, text, result_size=50):
         match_dict = {}
 
         datasets_with_adversary_fields = [("cruces_vias", 100)]
