@@ -113,7 +113,13 @@
             "montevideo",
             "calle",
             "cno",
-            "barrio"
+            "barrio",
+            "municipio",
+            "mvd",
+            "ciudad",
+            "playa",
+            "intendencia",
+            "urguguay"
           ],
           "ignore_case": true,
           "query_mode": true
@@ -414,8 +420,8 @@
             "lowercase",
             "asciifolding",
             "synonym",
-            "quitar-stopwords",
             "common_grams_domain",
+            "quitar-stopwords",
             "length_min_3"
           ]
         },
@@ -427,9 +433,9 @@
             "asciifolding",
             "synonym",
             "common_grams_query",
+            "common_grams_domain",
             "quitar-stopwords",
             "quitar-stopwords-calle",
-            "quitar-stopwords-domain",
             "length_min_3"
           ]
         },
@@ -441,9 +447,9 @@
             "asciifolding",
             "synonym",
             "common_grams_query_search",
+            "common_grams_domain",
             "quitar-stopwords",
             "quitar-stopwords-calle",
-            "quitar-stopwords-domain",
             "length_min_3"
           ]
         }

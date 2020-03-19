@@ -103,7 +103,7 @@ class GeoSearch(object):
                             "query": text,
                             "fields": ["text", "text_aliases"],
                             "type": "best_fields",
-                            #  "cutoff_frequency": 1,
+                            # "cutoff_frequency": 1,
                             #  "fuzziness": "1",
                         }
                     },
@@ -114,13 +114,13 @@ class GeoSearch(object):
                         "multi_match": {
                             "query": text,
                             "fields": [
-                                #                                "text.variant_1^2",
+                                "text.variant_1^2",
                                 "text.variant_2^3",
-                                #                                "text_aliases.variant_1^2",
+                                "text_aliases.variant_1^2",
                                 "text_aliases.variant_2^3"
                             ],
                             "type": "best_fields",
-                            #    "cutoff_frequency": 1,
+                           # "cutoff_frequency": 1,
                             #    "fuzziness": "1",
                         }
                     }
@@ -158,7 +158,7 @@ class GeoSearch(object):
                         "multi_match": {
                             "query": text,
                             "fields": [
-                                #                                "text.variant_1^2",
+                                "text.variant_1^2",
                                 "text.variant_2^3",
                             ],
                             "type": "best_fields",
@@ -173,35 +173,6 @@ class GeoSearch(object):
                     "*": {}
                 },
                 "number_of_fragments": 10
-            }
-        })['hits']['hits']
-
-    def search_geo_vias(self, id, size=10):
-        """
-        I'm trying to get size documents intersecting with document id.
-        """
-        return self.es.search(index=self.index, body=
-        {
-            "from": 0, "size": size,
-            "query": {
-                "bool": {
-                    "must": {
-                        "match": {
-                            "type": self.geo_search_type
-                        }
-                    },
-                    "filter": {
-                        "geo_shape": {
-                            "geometry": {
-                                "indexed_shape": {
-                                    "index": self.index,
-                                    "id": id,
-                                    "path": "geometry"
-                                }
-                            }
-                        }
-                    }
-                }
             }
         })['hits']['hits']
 
@@ -406,7 +377,7 @@ class GeoSearch(object):
             secnd_completeness = min(secnd_len_all_hgs / float(max(res_obj['field_lenghts'][secnd_field], 1)), 1)
 
             if first_score > 0 or secnd_score > 0:
-                result['score'] = max(first_score * first_completeness, secnd_score * secnd_completeness) * boost_field
+                result['score'] = max(first_score * first_completeness ** 2, secnd_score * 0.3 * secnd_completeness ** 1.5) * boost_field
 
             logger.debug(
                 'TOTAL = {}\nFirst Score = {}\nSecond Score = {}\nFirst Completeness = {}\nSecond Completeness = {}\nBoost Field = {}'.format(
@@ -439,7 +410,7 @@ class GeoSearch(object):
             first_completeness = min(first_len_all_hgs / float(max(res_obj['field_lenghts'][first_field], 1)), 1)
 
             if first_score > 0:
-                result['score'] = (first_score * first_completeness) * boost_field
+                result['score'] = (first_score * first_completeness ** 2) * boost_field
 
             logger.debug(
                 'TOTAL = {}\nFirst Score = {}\nFirst Completeness = {}\nBoost Field = {}'.format(
@@ -515,8 +486,8 @@ class GeoSearch(object):
         match_dict = {}
 
         datasets_with_adversary_fields = [("cruces_vias", 100)]
-        datasets_with_complementary_fields = [("lugares_interes", 1), ("geonames", 1)]
-        datasets_with_single_field = [("limites_barrios", 10)]
+        datasets_with_complementary_fields = [("lugares_interes", 10), ("geonames", 10)]
+        datasets_with_single_field = [("limites_barrios", 100)]
 
         for search_field, boost_field in datasets_with_adversary_fields:
             try:
@@ -559,7 +530,7 @@ class GeoSearch(object):
 
         return sorted(match_dict.items(), key=lambda i: i[1]['score'], reverse=True)
 
-    def test_kit(self, csv_file_name, limit=0):
+    def test_kit(self, csv_file_name, limit=0, results=50):
         test_set = pd.read_csv(csv_file_name, index_col=0, encoding="utf-8")
         mejorMatch = []
         scoreMejorMatch = []
@@ -570,7 +541,7 @@ class GeoSearch(object):
             time1 = time.time()
             texto = self.strip_name(row['texto'], ' ')
             textos.append(texto)
-            matches = self.complete_search(texto, 10)
+            matches = self.complete_search(texto, results)
             time2 = time.time()
             times.append(float('{:.3f}'.format((time2 - time1) * 1000.0)))
             if any(matches) and float(matches[0][1]['score']) >= limit:
