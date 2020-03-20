@@ -4,6 +4,8 @@
 #
 server.name: kibana
 server.host: "0"
+server.basePath: /kibana-geo
+
 elasticsearch.hosts: ["http://elasticsearch-geo:9200"]
 ## Disable X-Pack
 ## see https://www.elastic.co/guide/en/x-pack/current/xpack-settings.html
