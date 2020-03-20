@@ -23,6 +23,14 @@ services:
       - elasticsearch-geo
     networks:
       - im
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=im"
+        - "traefik.port=5601"
+        - "traefik.backend.loadbalancer.sticky=true"
+        - "traefik.frontend.passHostHeader=true"
+        - "traefik.frontend.rule=PathPrefixStrip:/kibana-geo"
 
   logstash-geo:
     image: logstash-geo-im
