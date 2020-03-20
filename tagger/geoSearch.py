@@ -101,9 +101,9 @@ class GeoSearch(object):
                     "must": {
                         "multi_match": {
                             "query": text,
-                            "fields": ["text", "text_aliases"],
+                            "fields": ["text"],
                             "type": "best_fields",
-                            # "cutoff_frequency": 1,
+                            "cutoff_frequency": 0.1,
                             #  "fuzziness": "1",
                         }
                     },
@@ -116,11 +116,12 @@ class GeoSearch(object):
                             "fields": [
                                 "text.variant_1^2",
                                 "text.variant_2^3",
+                                "text_aliases",
                                 "text_aliases.variant_1^2",
                                 "text_aliases.variant_2^3"
                             ],
                             "type": "best_fields",
-                           # "cutoff_frequency": 1,
+                            "cutoff_frequency": 1,
                             #    "fuzziness": "1",
                         }
                     }
@@ -220,6 +221,7 @@ class GeoSearch(object):
         """
 
         field_highlights = res_obj['highlights'].get(field_name, None)
+        field_length = res_obj['field_lenghts'].get(field_name, 250)
         elastic_score = res_obj['score']
 
         if field_highlights:
@@ -233,19 +235,28 @@ class GeoSearch(object):
             unique_highlights_count = len(best_highlights.keys())
             relative_importance = max(val for val in best_highlights.values())
             len_longest_highlight = max([len(key) for key in best_highlights.keys()])
-            len_all_highlights = len(' '.join(best_highlights.keys()))
+            highlights_broke_in_tokens = [item for sublist in [key.split(' ') for key in best_highlights.keys()] for item in sublist]
+            len_all_highlights = len(' '.join(set(highlights_broke_in_tokens)))
+            overall_importance = len_all_highlights/float(field_length)
             min_position_in_text = min([self.get_min_substring_index(text, hg) for hg in best_highlights.keys()])
             max_position_in_text = max([self.get_min_substring_index(text, hg) for hg in best_highlights.keys()])
+            distance_between_highlights = max_position_in_text - min_position_in_text
+            magic_number = len_all_highlights/float(distance_between_highlights+len_all_highlights) #5 largo de una palabra cualquiera
 
             logger.debug(
-                'FIELD:{}\nmin_idx = {}\nmax_idx = {}\nlen_longest = {}\nhighlights_count = {}\nimportance = {}\nlen_all = {}'.format(
+                'FIELD:{}\n\min_idx = {}\nmax_idx = {}\nlen_longest = {}\nhighlights_count = {}\nimportance = {}\noverall_importance = {}\ndistance_hgs = {}\nlen_all = {}\nlen_all/distance = {}\n\n'.format(
                     field_name,
                     min_position_in_text,
                     max_position_in_text,
                     len_longest_highlight,
                     unique_highlights_count,
                     relative_importance,
-                    len_all_highlights))
+                    overall_importance,
+                    distance_between_highlights,
+                    len_all_highlights,
+                    magic_number
+                )
+            )
 
             return (
                 best_highlights,
@@ -253,7 +264,8 @@ class GeoSearch(object):
                 max_position_in_text,
                 len_longest_highlight,
                 len_all_highlights,
-                unique_highlights_count * elastic_score * len_longest_highlight ** 2 * relative_importance)
+                (elastic_score) ** (overall_importance*unique_highlights_count*magic_number)
+            )
 
         return None, 0, 0, 0, 0, 0
 
