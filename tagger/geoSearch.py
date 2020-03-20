@@ -588,6 +588,7 @@ class GeoSearch(object):
             if len(matches) >= 1:
                 name_point, match = matches[0]
                 score_point = match['score']
+                match_field = match['field']
                 best_point = self.get_intersection_point(match)
-                return name_point, score_point, best_point
-        return None, 0, None
+                return name_point, score_point, best_point, match_field
+        return None, 0, None, None
