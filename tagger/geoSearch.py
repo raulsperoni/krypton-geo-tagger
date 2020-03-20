@@ -22,7 +22,7 @@ class GeoSearch(object):
     def __init__(self, elastic_host="elasticsearch-geo", elastic_port=9200):
         config = configparser.ConfigParser()
         config.read('conf/montevideo.conf')
-        logger.setLevel(logging.DEBUG)
+        logger.setLevel(logging.INFO)
         self.index = config['MONTEVIDEO']['elasticsearch_index']
         self.geo_search_type = config['MONTEVIDEO']['geo_search_type']
         self.must_not_terms = config['MONTEVIDEO']['must_not_terms']

@@ -7,6 +7,7 @@ import geoSearch
 from flask import Flask, jsonify, request
 from flask_restx import Api, Resource, fields
 
+
 app = Flask(__name__)
 api = Api(app, version='3.0', title='Krypton Geo Tagger',
           description='Servicio para obtener ubicaciones geográficas a partir de texto',
@@ -28,7 +29,7 @@ output = api.model('Output', {
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 geoSearch = geoSearch.GeoSearch()
-
+logger.setLevel(logging.INFO)
 
 @ns.route('/api/find')
 class GeoTagger(Resource):
