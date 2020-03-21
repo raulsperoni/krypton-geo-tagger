@@ -2,6 +2,7 @@ version: "3.1"
 services:
 
   elasticsearch-geo:
+    image: raulsperoniimm/pes-tagger-geo-elasticsearch
     build: elasticsearch/
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
@@ -14,6 +15,7 @@ services:
       - im
 
   kibana-geo:
+    image: raulsperoniimm/pes-tagger-geo-kibana
     build: kibana/
     volumes:
       - ./kibana/config/:/usr/share/kibana/config
@@ -25,6 +27,7 @@ services:
       - im
 
   logstash-geo:
+    image: raulsperoniimm/pes-tagger-geo-logstash
     build: logstash/
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
@@ -46,14 +49,15 @@ services:
     ports:
       - 18888:8888
     volumes:
-      - ./jupyter/notebooks:/srv
-      - ./tagger:/srv/lib
+      - ./jupyter/notebooks:/home/jovyan/work
+      - ./tagger:/home/jovyan/work/lib
     depends_on:
       - elasticsearch-geo
     networks:
       - im
 
   tagger-geo:
+    image: raulsperoniimm/pes-tagger-geo-tagger
     build: tagger
     ports:
       - 16000:5000

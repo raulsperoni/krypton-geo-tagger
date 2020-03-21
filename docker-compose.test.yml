@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   elasticsearch-geo:
-    image: elasticsearch-geo-im
+    image: raulsperoniimm/pes-tagger-geo-elasticsearch
     volumes:
       - elastic_geo_data01:/usr/share/elasticsearch/data
     ports:
@@ -16,7 +16,7 @@ services:
       - im
 
   kibana-geo:
-    image: kibana-geo-im
+    image: raulsperoniimm/pes-tagger-geo-kibana
     ports:
       - 15601:5601
     depends_on:
@@ -33,7 +33,7 @@ services:
         - "traefik.frontend.rule=PathPrefixStrip:/kibana-geo"
 
   logstash-geo:
-    image: logstash-geo-im
+    image: raulsperoniimm/pes-tagger-geo-logstash
     ports:
       - 15000:5000
     environment:
@@ -44,7 +44,7 @@ services:
       - im
 
   tagger-geo:
-    image: tagger-im
+    image: raulsperoniimm/pes-tagger-geo-tagger
     ports:
       - 16000:5000
     depends_on:
